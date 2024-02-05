@@ -1,0 +1,49 @@
+@page "/servicepgrid"
+
+<PageTitle>Service Provide List</PageTitle>
+
+<RadzenRow Gap="15px" RowGap="10px">
+    <RadzenColumn Size="6">
+        <p class="title pt-3">Service Provide List</p>
+    </RadzenColumn>
+    <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
+        <a href="create_sp">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Service Provider"
+                class="create-btn" />
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<!-- GRID -->
+
+@if (servicep == null)
+{
+    <p>Loading........</p>
+}
+else
+{
+    <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+        PageSize="10" AllowSorting="true" Data="@servicep" TItem="ServiceP" ColumnWidth="150px" class="table-body">
+
+        <Columns>
+
+            <RadzenDataGridColumn TItem="ServiceP" Property="ServiceProvider" Title="Service Provider">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="ServiceP" Property="Status" Title="Status">
+                <Template Context="data">
+                    <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>
+                    @data.Status
+                </Template>
+            </RadzenDataGridColumn>
+
+        </Columns>
+
+    </RadzenDataGrid>
+}
+@code {
+    List<ServiceP> servicep = new();
+    protected override async Task OnInitializedAsync()
+    {
+        @* service = await Task.Run(() => servicelist.ServiceTable()); *@
+    }
+}

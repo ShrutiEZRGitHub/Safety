@@ -1,0 +1,53 @@
+@page "/deptgrid"
+
+<PageTitle>Department List</PageTitle>
+
+<RadzenRow Gap="15px" RowGap="10px">
+    <RadzenColumn Size="6">
+        <p class="title pt-3">Department List</p>
+    </RadzenColumn>
+    <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
+        <a href="create_dept">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Department" class="create-btn" />
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+
+<!-- GRID -->
+
+@if (dept == null)
+{
+    <p>Loading........</p>
+}
+else
+{
+    <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+        PageSize="10" AllowSorting="true" Data="@dept" TItem="Department" ColumnWidth="150px" class="table-body">
+
+        <Columns>
+
+            <RadzenDataGridColumn TItem="Department" Property="DeptName" Title="Department Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Department" Property="GeoLocation" Title="IS GeoLocation"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Department" Property="HODName" Title="HOD Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Department" Property="EmailTUser" Title="Email To Users"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Department" Property="EmailCCUser" Title="Email CC Users"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Department" Property="Status" Title="Status">
+                <Template Context="data">
+                    <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>
+                    @data.Status
+                </Template>
+            </RadzenDataGridColumn>
+
+        </Columns>
+
+    </RadzenDataGrid>
+}
+@code {
+    List<Department> dept = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* dept = await Task.Run(() => departlist.DepartTable()); *@
+    }
+}

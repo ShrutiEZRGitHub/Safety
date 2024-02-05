@@ -1,0 +1,51 @@
+@page "/create_wkt"
+
+<PageTitle>Create Walk Type</PageTitle>
+
+<p class="title pt-3">Walk Type</p>
+
+<!--Create User Form-->
+<RadzenCard Class="rz-p-12">
+    <RadzenRow>
+        <!-- Left Column - Image -->
+        <RadzenColumn Size="6">
+
+            <RadzenStack AlignItems="AlignItems.Center" Class="rz-m-12" />
+            <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg" Style="width: 500px;"
+                AlternateText="Create Account Image" />
+
+        </RadzenColumn>
+
+        <!-- Right Column - Form -->
+        <RadzenColumn Size="6">
+            <RadzenStack>
+                <!-- Full Name -->
+                <RadzenFormField Text="Walk Type Name" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- Is Active Checkbox -->
+                <div class="rz-py-5">
+                    <RadzenCheckBox TValue="bool" Value=@statusvalue Name="CheckBox1" />
+                    <RadzenLabel Text="Is Active" Component="CheckBox1" />
+                </div>
+
+                <!-- Clear Button -->
+                <span>
+                    <div Class="rz-pt-3"></div>
+                    <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn" Style="width:300px" />
+
+
+                    <!-- Create User Button -->
+                    <RadzenButton Variant="Variant.Flat" Text="Create" class="rz-ms-5 submit-btn" Style="width:300px"/>
+                </span>
+
+            </RadzenStack>
+
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenCard>
+
+@code {
+    bool statusvalue;
+}

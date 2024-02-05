@@ -1,0 +1,54 @@
+@page "/usergrid"
+
+<PageTitle>User List</PageTitle>
+
+<RadzenRow Gap="15px" RowGap="15px">
+    <RadzenColumn Size="6">
+        <p class="title pt-3">User List</p>
+    </RadzenColumn>
+    <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
+        <RadzenButton Variant="Variant.Outlined" Icon="hourglass_empty" Text="Filter" class="filter-btn" />
+        <a href="create_user">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create User" class="create-btn" />
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<!-- GRID -->
+
+@if (user == null)
+{
+    <p>Loading........</p>
+}
+else
+{
+    <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+        PageSize="10" AllowSorting="true" Data="@user" TItem="User" ColumnWidth="150px" class="table-body">
+
+        <Columns>
+
+            <RadzenDataGridColumn TItem="User" Property="UserLevel" Title="User Level"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="User" Property="FullName" Title="Full Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="User" Property="Depart" Title="Department"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="User" Property="HOD" Title="HOD"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="User" Property="CNumber" Title="Contact Number"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="User" Property="Status" Title="Status">
+                <Template Context="data">
+                    <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>
+                    @data.Status
+                </Template>
+            </RadzenDataGridColumn>
+
+        </Columns>
+
+    </RadzenDataGrid>
+}
+@code {
+    List<User> user = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* user = await Task.Run(() => userlist.UserTable()); *@
+    }
+
+}

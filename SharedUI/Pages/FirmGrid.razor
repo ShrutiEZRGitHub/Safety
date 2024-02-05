@@ -1,0 +1,48 @@
+@page "/firmgrid"
+
+<PageTitle>Firm List</PageTitle>
+
+<RadzenRow Gap="15px" RowGap="10px">
+    <RadzenColumn Size="6">
+        <p class="title pt-3">Firm List</p>
+    </RadzenColumn>
+    <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
+        <a href="create_firm">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Frim" class="create-btn" />
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<!-- GRID -->
+
+@if (firm == null)
+{
+    <p>Loading........</p>
+}
+else
+{
+    <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+        PageSize="10" AllowSorting="true" Data="@firm" TItem="Firm" ColumnWidth="150px" class="table-body">
+
+        <Columns>
+
+            <RadzenDataGridColumn TItem="Firm" Property="FirmName" Title="Firm Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Firm" Property="Status" Title="Status">
+                <Template Context="data">
+                    <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>
+                    @data.Status
+                </Template>
+            </RadzenDataGridColumn>
+
+        </Columns>
+
+    </RadzenDataGrid>
+}
+@code {
+    List<Firm> firm = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* firm = await Task.Run(() => firmlist.FirmTable()); *@
+    }
+}

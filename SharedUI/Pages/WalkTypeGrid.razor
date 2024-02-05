@@ -1,0 +1,48 @@
+@page "/walktypegrid"
+
+<PageTitle>Walk Type List</PageTitle>
+
+<RadzenRow Gap="15px" RowGap="10px">
+    <RadzenColumn Size="6">
+        <p class="title pt-3">Walk Type List</p>
+    </RadzenColumn>
+    <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
+        <a href="create_wkt">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Walk Type" class="create-btn" />
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<!-- GRID -->
+
+@if (walktype == null)
+{
+    <p>Loading........</p>
+}
+else
+{
+    <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+        PageSize="10" AllowSorting="true" Data="@walktype" TItem="WalkType" ColumnWidth="150px" class="table-body">
+
+        <Columns>
+
+            <RadzenDataGridColumn TItem="WalkType" Property="Walk_Type" Title="Walk Type"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="WalkType" Property="Status" Title="Status">
+                <Template Context="data">
+                    <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>
+                    @data.Status
+                </Template>
+            </RadzenDataGridColumn>
+
+        </Columns>
+
+    </RadzenDataGrid>
+}
+@code {
+    List<WalkType> walktype = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* walktype = await Task.Run(() => walktypelist.WalkTypeTable()); *@
+    }
+}

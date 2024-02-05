@@ -1,0 +1,35 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - commit_id=$(git log --format="%H" -n 1 | cut -c1-8) && echo $commit_id && echo $commit_id > commit_id.txt
+      - jira_issue=$(echo $commit_msg | cut -d "#" -f -1) && echo $jira_issue && echo $jira_issue > jira_issue.txt
+      - REPOSITORY_URI=063915127323.dkr.ecr.ap-south-1.amazonaws.com/$ecr_repo
+      - DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region ap-south-1)
+      - sudo -u root docker login -u AWS -p $DOCKER_LOGIN_PASSWORD https://063915127323.dkr.ecr.ap-south-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - tag=$REPOSITORY_URI:$service-${CODEBUILD_BUILD_NUMBER}
+      - echo $tag
+      - docker build -t $tag -f Server/DevDockerfile .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $tag
+      - itag=$service-${CODEBUILD_BUILD_NUMBER}
+      - echo inspecting the image for flaws...
+      - aws ecr wait image-scan-complete --repository-name $ecr_repo --image-id imageTag=$itag
+      - aws ecr describe-image-scan-findings --repository-name $ecr_repo --image-id imageTag=$itag | jq '.imageScanFindings.findings | has(0)' | grep -i "true" && echo "Findings Found." && aws sns publish --topic-arn arn:aws:sns:ap-south-1:810520303341:ED_SNS_AWSNotify --message " Vulnerability found in ${ecr_repo} repo inside the ${itag}. " && exit 1 || echo "No Findings."
+      - echo writing image definitions file...
+      - printf '[{"name":"ED_ECS_'$service'","imageUri":"%s"}]' $tag > imagedefinitions.json
+      - cat imagedefinitions.json
+artifacts:
+    files: 
+      - imagedefinitions.json
+      - commit_id.txt
+      - jira_issue.txt

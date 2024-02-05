@@ -1,0 +1,51 @@
+@page "/create_sp"
+
+<PageTitle>Create Service Provider</PageTitle>
+
+<p class="title pt-3">Service Provider</p>
+
+<!--Create User Form-->
+<RadzenCard Class="rz-px-12 rz-py-12">
+    <RadzenRow>
+        <!-- Left Column - Image -->
+        <RadzenColumn Size="6">
+
+            <RadzenStack AlignItems="AlignItems.Center" />
+            <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg"
+                AlternateText="Create Account Image" />
+
+        </RadzenColumn>
+
+        <!-- Right Column - Form -->
+        <RadzenColumn Size="6">
+            <RadzenStack Class="rz-my-12 rz-mt-12">
+                <!-- Full Name -->
+                <RadzenFormField Text="Service Provider" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- Is Active Checkbox -->
+                <div class="rz-py-5">
+                    <RadzenCheckBox TValue="bool" Value=@statusvalue Name="CheckBox1" />
+                    <RadzenLabel Text="Is Active" Component="CheckBox1" />
+                </div>
+
+                <RadzenRow>
+                    <!-- Clear Button -->
+                    <div Class="rz-pt-3"></div>
+                    <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn" />
+
+
+                    <!-- Create User Button -->
+                    <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn" />
+                </RadzenRow>
+
+            </RadzenStack>
+
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenCard>
+
+@code {
+    bool statusvalue;
+}

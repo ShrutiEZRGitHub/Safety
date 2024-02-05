@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-ezr-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Safety</title>
+    <base href="/" />
+    <link rel="icon" type="image/png" href="_content/SharedUI/favicon.png" />
+
+    <link href="_content/Empezar.CommonClient/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="_content/Radzen.Blazor/css/material3-base.css" rel="stylesheet" />
+    <link href="_content/SharedUI/css/style.css" rel="stylesheet" />
+
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+
+
+    <!-- Radzen CSS File -->
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="pageloader">
+            <div class="pageloader-inner">
+                <div class="spinner-border" role="status"></div>
+                <img src="_content/SharedUI/img/adani-icon.png" alt="" class="loader-icon">
+            </div>
+            <div class="loader-text">Loading</div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_content/BlazorStrap/popper.min.js" autostart="true"></script>
+    <script src="_content/BlazorStrap/blazorstrap.js" autostart="true"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/chart.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/chartjs-plugin-labels.min.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/xlsx.full.min.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/cryptojs.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/site.js" autostart="true"></script>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+
+    <!-- Radzen JS File -->
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+</body>
+
+</html>

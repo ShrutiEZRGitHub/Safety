@@ -1,0 +1,56 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine as build
+WORKDIR /src
+RUN dotnet dev-certs https -t
+COPY . .
+RUN dotnet restore ./API/API.csproj
+RUN dotnet publish -c release -o /api ./API/API.csproj --no-restore
+
+### WasmUI Build ###
+
+RUN sed -i -e s@{APIBaseURL}@https://ezrsurvey.ezrdu.com/api/@g SharedUI/Program.cs
+RUN sed -i -e s/{AuthAPIKey}/cfdef44584d1c2ccdf803f84420ec9b246426934464269344642693446e0609ed732884701fda7374deb4e80ec/g SharedUI/Program.cs
+RUN sed -i -e s/{Environment}/UAT/g SharedUI/Program.cs
+# RUN sed -i -e s/{RazorPayKey}/$RazorPayKey/g SharedUI/Program.cs
+# RUN sed -i -e s/{RazorPaySecretKey}/$RazorPaySecretKey/g SharedUI/Program.cs
+
+RUN dotnet restore ./WasmUI/WasmUI.csproj
+RUN dotnet publish -c release -o /ui ./WasmUI/WasmUI.csproj --no-restore
+
+###########################################################################################################################
+ 
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine as final
+WORKDIR /app
+RUN apk update && apk upgrade --available
+
+# Configure nginx - http
+RUN apk --no-cache add nginx supervisor libcap aws-cli
+COPY ./Server/nginx.conf /etc/nginx/nginx.conf
+# Configure nginx - default Server
+COPY ./Server/default.conf /etc/nginx/conf.d/default.conf
+
+# Configs
+RUN mkdir /run/openrc
+RUN touch /run/openrc/softlevel
+RUN setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx
+
+# Configure supervisord
+COPY ./Server/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# Make sure files/folders needed by the processes are accessable when they run under the nobody user
+RUN chown -R nobody:nobody /app /run /var/lib/nginx /var/log/nginx
+
+RUN apk --no-cache add curl
+EXPOSE 80 81 443
+COPY --from=build /root/.dotnet/corefx/cryptography/x509stores/my/* /root/.dotnet/corefx/cryptography/x509stores/my/
+
+# Switch to use a non-root user from here on
+USER nobody 
+COPY --chown=nobody --from=build /api /API
+COPY --chown=nobody --from=build /ui/wwwroot ./
+COPY --chown=nobody ./Server/env.sh /tmp/env.sh
+RUN chmod +x /tmp/env.sh
+
+# Environment Variables Setup
+ENV ASPNETCORE_URLS=http://0.0.0.0:5001
+
+# Let supervisord start nginx & php-fpm
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

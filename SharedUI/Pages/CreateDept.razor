@@ -1,0 +1,71 @@
+@page "/create_dept"
+
+<PageTitle>Create New Department</PageTitle>
+
+<p class="title pt-3">Department</p>
+
+<!--Create User Form-->
+<RadzenCard Class="rz-px-12 rz-py-12">
+    <RadzenRow>
+        <!-- Left Column - Image -->
+        <RadzenColumn Size="6">
+
+            <RadzenStack AlignItems="AlignItems.Center" />
+            <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg" AlternateText="Create Account Image" />
+
+        </RadzenColumn>
+
+        <!-- Right Column - Form -->
+        <RadzenColumn Size="6">
+            <RadzenStack>
+                <!-- Full Name -->
+                <RadzenFormField Text="Department Name" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- Geo Location Checkbox -->
+                <div class="rz-py-5">
+                    <RadzenCheckBox TValue="bool" Value=@glc Name="GLC" />
+                    <RadzenLabel Text="Is Geo Location" Component="GLC" />
+                </div>
+
+                <!-- Contact Number -->
+                <RadzenFormField Text="HOD Name" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- User Level -->
+                <RadzenFormField Text="Email To Users" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- Employement Type -->
+                <RadzenFormField Text="Email CC User" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+            </RadzenStack>
+
+            <!-- Is Active Checkbox -->
+            <div class="rz-py-5">
+                <RadzenCheckBox TValue="bool" Value=@statusvalue Name="CheckBox1" />
+                <RadzenLabel Text="Is Active" Component="CheckBox1" />
+            </div>
+
+            <RadzenRow>
+                <!-- Clear Button -->
+                <div Class="rz-pt-3"></div>
+                <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn" />
+
+
+                <!-- Create User Button -->
+                <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn" />
+            </RadzenRow>
+
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenCard>
+
+@code {
+    bool glc;
+    bool statusvalue;
+}

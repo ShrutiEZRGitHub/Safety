@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-ezr-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Survey</title>
+    <base href="/" />
+    <link rel="icon" href="_content/SharedUI/favicon.png" sizes="32x32" type="image/png">
+
+    <link href="_content/Empezar.CommonClient/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="_content/Radzen.Blazor/css/material3-base.css" rel="stylesheet" />
+    <link href="_content/SharedUI/css/app.css" rel="stylesheet" />
+    <link href="_content/SharedUI/css/custom.css" rel="stylesheet" />
+    <style>
+        .pageloader {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+            .pageloader .pageloader-inner {
+                position: relative;
+                width: 150px;
+                height: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .pageloader .spinner-border {
+                --bs-spinner-width: 7rem;
+                --bs-spinner-height: 7rem;
+                --bs-spinner-border-width: 0.15rem;
+                color: var(--ezrprimary);
+                background-color: rgba(var(--ezrprimary-rgb), 0.1);
+            }
+
+        .loader-icon {
+            position: absolute;
+            width: 36px;
+            height: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .loader-text {
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 0.5rem 0;
+        }
+
+        .loading-progress {
+            position: relative;
+            display: block;
+            width: 8rem;
+            height: 8rem;
+            margin: 20vh auto 1rem auto;
+        }
+
+            .loading-progress circle {
+                fill: none;
+                stroke: #e0e0e0;
+                stroke-width: 0.6rem;
+                transform-origin: 50% 50%;
+                transform: rotate(-90deg);
+            }
+
+                .loading-progress circle:last-child {
+                    stroke: #1b6ec2;
+                    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+                    transition: stroke-dasharray 0.05s ease-in-out;
+                }
+
+        .loading-progress-text {
+            position: absolute;
+            text-align: center;
+            font-weight: bold;
+            inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+        }
+
+            .loading-progress-text:after {
+                content: var(--blazor-load-percentage-text, "Loading");
+            }
+    </style>
+</head>
+
+<body>
+    <div class="status-bar-safe-area"></div>
+
+    <div id="app">
+        <div class="pageloader">
+            <div class="pageloader-inner">
+                <div class="spinner-border" role="status"></div>
+                <img src="_content/SharedUI/img/adani-icon.png" alt="" class="loader-icon">
+            </div>
+            <div class="loader-text">Loading</div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_content/BlazorStrap/popper.min.js" autostart="true"></script>
+    <script src="_content/BlazorStrap/blazorstrap.js" autostart="true"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/chart.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/chartjs-plugin-labels.min.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/xlsx.full.min.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/cryptojs.js" autostart="true"></script>
+    <script src="_content/Empezar.CommonClient/js/site.js" autostart="true"></script>
+
+    <script src="_framework/blazor.webview.js" autostart="false"></script>
+</body>
+
+</html>

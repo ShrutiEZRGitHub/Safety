@@ -1,0 +1,20 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "API": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "api/swagger",
+      "environmentVariables": {
+        "DOTNET_2FAPath": "https://2factor.in/API/V1/97d0d293-2fe4-11ec-a13b-0200cd936042/",
+        "DOTNET_EmailJSPath": "https://api.emailjs.com/api/v1.0/email/",
+        "DOTNET_ServiceId": "service_yiwel1j",
+        "DOTNET_UserId": "ZNnOvc2nFxUuA8TF0",
+        "DOTNET_AccessToken": "damM5qaoU7R4fXfAsVmZn",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:5001;http://localhost:5000"
+      }
+    }
+  }
+}
