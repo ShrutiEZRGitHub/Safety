@@ -2,32 +2,84 @@
 
 <BSNavbar Color="BSColor.Light" Expand="Size.None">
     <BSContainer Container="Container.Fluid">
-        <BSNavbarBrand>OffCanvas navbar</BSNavbarBrand>
         <BSNavbarToggle @onclick="Show" />
-        <BSOffCanvas Placement="Placement.Left" tabindex="-1" @ref="_offCanvasRef">
-            <Header>OffCanvas Nav</Header>
+        <BSOffCanvas Placement="Placement.Left" tabindex="-1" @ref="_offCanvasRef" class="sidebar">
+            <Header>
+                <div class="rz-m-5 rz-ps-10">
+                    <img src=" _content/SharedUI/img/assests/Adani_Logo.svg" class="rz-ms-5" alt="Adani Logo" />
+                    <p class="portal-text">Safety Reporting App</p>
+                </div>
+            </Header>
+
             <Content>
-                <BSNav Justify="Justify.End" Class="flex-grow-1" PaddingEnd="Padding.Medium">
-                    <BSNavItem Url="javascript:void(0)" IsActive="true">Home</BSNavItem>
-                    <BSNavItem Url="javascript:void(0)">Link</BSNavItem>
-                    <BSNavItem IsDropdown="true">
-                        <BSDropdown>
-                            <Toggler>
-                                <BSToggle IsNavLink="true">Dropdown</BSToggle>
-                            </Toggler>
-                            <Content>
-                                <BSDropdownItem Url="javascript:void(0)">Action</BSDropdownItem>
-                                <BSDropdownItem Url="javascript:void(0)">Another action</BSDropdownItem>
-                                <BSDropdownItem IsDivider="true" />
-                                <BSDropdownItem Url="javascript:void(0)">Something else here</BSDropdownItem>
-                            </Content>
-                        </BSDropdown>
+                <!-- Nav bar Card -->
+                <BSCard CardType="CardType.Text" class="nav-card rz-p-5">
+                    <img src="_content/SharedUI/img/assests/user-avatar.svg" style="width:40px" />
+                    <div class="nav-card-text rz-my-3">User : 4_Level<br>
+                        Mobile No : 907481524<br>
+                        Email : 4_level@eslabs.in<br>
+                        Level : 4</div>
+                </BSCard>
+
+                <BSNav Class="flex-grow-1" PaddingEnd="Padding.Medium">
+
+                    <BSNavItem Url="dashboard">
+                        <div class="nav-item" href="dashboard">
+                            <img src="_content/SharedUI/img/assests/Dashboard_Vector.svg" class="rz-p-3" />
+                            Dashboard
+                        </div>
                     </BSNavItem>
+                    <BSNavItem Url="dashboard">
+                        <div class="nav-item" href="">
+                            <img src="_content/SharedUI/img/assests/Dashboard_Vector.svg" class="rz-p-3" />
+                            User Activity Dashboard
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="dashboard">
+                        <div class="nav-item" href="">
+                            <img src="_content/SharedUI/img/assests/All_Safety_Reports_Vector.svg" class="rz-p-3" />
+                            All Safety Reports
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="dashboard">
+                        <div class="nav-item" href="">
+                            <img src="_content/SharedUI/img/assests/My_Incident_Vector.svg" class="rz-p-3" />
+                            My Incidents
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="usergrid">
+                        <div class="nav-item">
+                            <img src="_content/SharedUI/img/assests/List_Vector.svg" class="rz-p-3" />
+                            User List
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="deptgrid">
+                        <div class="nav-item">
+                            <img src="_content/SharedUI/img/assests/List_Vector.svg" class="rz-p-3" />
+                            Department List
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="servicepgrid">
+                        <div class="nav-item">
+                            <img src="_content/SharedUI/img/assests/List_Vector.svg" class="rz-p-3" />
+                            Service Provider List
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="walktypegrid">
+                        <div class="nav-item">
+                            <img src="_content/SharedUI/img/assests/List_Vector.svg" class="rz-p-3" />
+                            Walk Type List
+                        </div>
+                    </BSNavItem>
+                    <BSNavItem Url="firmgrid">
+                        <div class="nav-item">
+                            <img src="_content/SharedUI/img/assests/List_Vector.svg" class="rz-p-3" />
+                            Firm List
+                        </div>
+                    </BSNavItem>
+
                 </BSNav>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <BSButton Color="BSColor.Success" IsOutlined="true">Search</BSButton>
-                </form>
+
             </Content>
         </BSOffCanvas>
     </BSContainer>
