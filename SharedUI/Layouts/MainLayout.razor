@@ -2,9 +2,14 @@
 @inject IJSRuntime JS
 
 <CascadingValue Value="this">
-    <NavMenu />
-    @Body
-    @* <div id="snackbar"></div> *@
+    <BSContainer Container="Container.Fluid" class="p-0">
+        <BSRow>
+            <BSCol Column="2">
+                <SidebarMenu />
+            </BSCol>
+            <BSCol Column="10">@Body</BSCol>
+        </BSRow>
+    </BSContainer>
 </CascadingValue>
 
 @code {
