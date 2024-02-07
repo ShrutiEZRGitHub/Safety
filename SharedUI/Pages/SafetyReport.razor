@@ -1,0 +1,75 @@
+@page "/safetyreportgrid"
+
+<PageTitle>All Safety Reports</PageTitle>
+
+<!-- All Safety Reports Grid -->
+<RadzenRow Gap="15px" RowGap="15px">
+    <RadzenColumn Size="4">
+        <p class="title pt-3">All Safety Reports</p>
+    </RadzenColumn>
+    <RadzenColumn Size="8" class="rz-text-align-end">
+        <span class="safetyreport-butn">
+            <div class="rz-m-7">
+                <RadzenIcon Icon="search" class="icon" />/>
+            </div>
+            <div class="rz-my-7">
+                <RadzenCheckBoxList Value=@report TValue="int" Change=@(args => report = args) class="">
+                    <Items>
+                        <RadzenCheckBoxListItem Text="Reported By Me" Value="1" />
+                        <RadzenCheckBoxListItem Text="Assigned to Me" Value="2" />
+                    </Items>
+                </RadzenCheckBoxList>
+            </div>
+            <div class="">
+                <RadzenButton Variant="Variant.Outlined" Icon="hourglass_empty" Text="Filter"
+                    class="filter-btn rz-mx-3" />
+                <RadzenButton Variant="Variant.Flat" Icon="description" Text="Incident Report"
+                    class="create-btn rz-my-5 rz-mx-3" />
+                <RadzenButton Variant="Variant.Flat" Icon="assignment_ind" Text="User Report"
+                    class="create-btn rz-my-5" />
+            </div>
+        </span>
+    </RadzenColumn>
+</RadzenRow>
+
+<!-- GRID -->
+
+@if (sr == null)
+{
+    <p>Loading........</p>
+}
+else
+{
+    <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+        PageSize="10" AllowSorting="true" Data="@sr" TItem="SR" ColumnWidth="150px" class="table-body">
+
+        <Columns>
+
+            <RadzenDataGridColumn TItem="SR" Property="InId" Title="Incident Id"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="ReportedBy" Title="Reported By"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="SafetyType" Title="Safety Type"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="Deptmt" Title="Department"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="Date" Title="Date">
+                <Template Context="data">
+                    @string.Format("{0:d}", data.Date)
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="Description" Title="Description"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="Status" Title="Status"></RadzenDataGridColumn>
+
+        </Columns>
+
+    </RadzenDataGrid>
+}
+@code {
+    List<SR> sr = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* sr = await Task.Run(() => userlist.UserTable()); *@
+    }
+
+    /* Reported check box*/
+    IEnumerable<int> report = new int[] { 1 };
+
+}
