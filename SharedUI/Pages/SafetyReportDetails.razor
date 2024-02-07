@@ -1,0 +1,93 @@
+@page "/safetyreportingdetails"
+
+<PageTitle>Safety Reporting</PageTitle>
+
+@* Section Heading *@
+<RadzenRow Gap="15px" RowGap="10px">
+    <RadzenColumn Size="8">
+        <p class="title pt-3">Safety Reporting</p>
+    </RadzenColumn>
+    <RadzenColumn Size="4" class="rz-text-align-end rz-py-3">
+        <a href="">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" class="create-btn">
+                <p class="btn-txt">Re-assign</p>
+            </RadzenButton>
+
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" class="create-btn">
+                <p class="btn-txt">Edit</p>
+            </RadzenButton>
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<RadzenCard Class="safe-report-card rz-p-8">
+    <RadzenRow class="rz-py-5">
+        <RadzenColumn Size="4">
+            <p class="heading-txt">Safety Type</p>
+            <p class="sub-txt">Unsafe Condition</p>
+        </RadzenColumn>
+
+        <RadzenColumn Size="4">
+            <p class="heading-txt">Actual Severity</p>
+            <p class="sub-txt">Not Applicable</p>
+        </RadzenColumn>
+
+        <RadzenColumn Size="4">
+            <p class="heading-txt">Potential Severity</p>
+            <p class="sub-txt">Not Applicable</p>
+        </RadzenColumn>
+    </RadzenRow>
+
+    <RadzenRow class="rz-py-5">
+        <RadzenColumn Size="4">
+            <p class="heading-txt">Group</p>
+            <p class="sub-txt">Others</p>
+        </RadzenColumn>
+
+        <RadzenColumn Size="4">
+            <p class="heading-txt">Walk Type</p>
+            <p class="sub-txt">General Round</p>
+        </RadzenColumn>
+
+        <RadzenColumn Size="4">
+            <p class="heading-txt">Date</p>
+            <p class="sub-txt">16-Nov-2022</p>
+        </RadzenColumn>
+    </RadzenRow>
+
+    <RadzenRow>
+        <RadzenColumn Size="12" class="rz-py-5">
+            <p class="heading-txt">Description</p>
+            <p class="sub-txt">At west basin view point railing damaged need to be repaired</p>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenCard>
+
+<RadzenRow>
+    <RadzenCard Class="w-bg-card rz-mt-10">
+        <p class="card-txt">Incident Images</p>
+
+        <img src="_content/SharedUI/img/assests/img1.svg" class="rz-py-3 rz-pr-3" />
+        <img src="_content/SharedUI/img/assests/img2.svg" class="rz-py-3" />
+    </RadzenCard>
+
+    <RadzenCard Class="w-bg-card rz-mt-10">
+        <p class="card-txt">Description Voice Note</p>
+        <audio controls autoplay muted>
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <p class="heading-txt">At west basin view point railing damaged need to be repaired</p>
+
+    </RadzenCard>
+</RadzenRow>
+
+<RadzenCard Class="w-bg-card rz-mt-10">
+    <div class="gmap_canvas" style="overflow: hidden; height: fit-content;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777452.9390264275!2d68.68527999421731!3d22.394415122444837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959051f5f0ef795%3A0x861bd887ed54522e!2sGujarat!5e0!3m2!1sen!2sin!4v1707301373809!5m2!1sen!2sin"
+            width="1205" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</RadzenCard>
