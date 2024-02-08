@@ -1,19 +1,20 @@
 @inject IJSRuntime JS
 
-<BSNavbar Color="BSColor.Dark" Expand="Size.None" class="sidebar d-flex align-items-start">
-    <BSContainer Container="Container.Fluid">
+
+    <BSContainer Container="Container.Fluid" class="sidebar">
 
 
-        <Header class="rz-mx-auto w-100 rz-py-5">
-            <div class="text-center">
-                <img src=" _content/SharedUI/img/assests/Adani_Logo.svg" class="" alt="Adani Logo" />
-                <p class="portal-text mt-3">Safety Reporting App</p>
-                <hr>
-            </div>
 
-        </Header>
 
         <Content class="rz-mx-auto">
+            <Header class="rz-mx-auto w-100 rz-py-5">
+                <div class="text-center">
+                    <img src=" _content/SharedUI/img/assests/Adani_Logo.svg" class="" alt="Adani Logo" />
+                    <p class="portal-text mt-3">Safety Reporting App</p>
+                    <hr>
+                </div>
+
+            </Header>
             <!-- Nav bar Card -->
             <BSCard CardType="CardType.Text" class="nav-card rz-p-5 mb-4">
                 <img src="_content/SharedUI/img/assests/user-avatar.svg" style="width:40px" />
@@ -82,12 +83,16 @@
 
 
             </BSNav>
-            <BSButton Color="BSColor.Primary" IsOutlined="true" class="w-100 btn btn-light d-flex align-items-center justify-content-center rounded-pill"> <img src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
+
 
         </Content>
 
+        <BSButton Color="BSColor.Primary" IsOutlined="true"
+            class="w-100 btn btn-light d-flex align-items-center justify-content-center rounded-pill"> <img
+                src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
+
     </BSContainer>
-</BSNavbar>
+
 
 @code {
     private BSOffCanvas? _offCanvasRef;
