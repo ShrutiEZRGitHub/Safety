@@ -30,6 +30,41 @@ body {
 
 }
 
+.container {
+    background-image: url("_content/SharedUI/img/assests/Login-otp.png") !important;
+    border-radius: 20px;
+}
+
+.otp-field input {
+    width: 50px;
+    font-size: 32px;
+    text-align: center;
+    margin: 20px;
+    font-weight: bold;
+    color: #252525;
+    transition: all 0.1s;
+
+    border-bottom: 1px solid #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.otp-field input:focus {
+    border: none;
+}
+
+.vl {
+    border-left: 1px dashed #1D1D1D;
+    height: 50px;
+}
+
+.history-card {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
 .menu-icon {
     height: 15px;
 }

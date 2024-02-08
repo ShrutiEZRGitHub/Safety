@@ -1,147 +1,40 @@
-﻿@using System.IdentityModel.Tokens.Jwt;
-<div class="login-wrapper">
-    <div class="login-row flex-column flex-md-row">
-        <div class="login-left">
-            <div class="login-img large">
-                <img src="_content/SharedUI/img/bg.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="login-img small">
-                <img src="_content/SharedUI/img/bg.jpg" class="img-fluid" alt="">
-            </div>
+﻿@page "/login"
+
+<PageTitle>Safety Reporting</PageTitle>
+
+
+<div class="container d-flex align-items-center justify-content-center">
+    <BSCard CardType="CardType.Card" class="d-flex align-items-center justify-content-center">
+        <BSCard CardType="CardType.Image" src="_content/SharedUI/img/assests/Login-card-img.png" class=""
+            alt="Card image cap" />
+        <img src="_content/SharedUI/img/assests/adani_logo_color.svg" class="w-25">
+        <BSCard CardType="CardType.Title" class="login-text text-center">Safety Reporting Portal </BSCard>
+
+        <p class="text-secondary text-center w-75">
+            Simplify Reporting of Unsafe Act, Unsafe Condition,Safe observation, Near Miss & Incidents.
+        </p>
+
+        <RadzenFormField Text="Enter Mobile Number"
+            class="text-secondary w-50 d-flex align-items-center justify-content-center">
+            <RadzenTextBox />
+        </RadzenFormField>
+
+        <br />
+
+        <RadzenButton Variant="Variant.Flat" Text="GET OTP"
+            class="submit-btn w-50 bg-white d-flex align-items-center justify-content-center rounded-pill" />
+
+        <p class="text-secondary text-center w-50">
+            We will send you a one-time password, to this mobile number
+        </p>
+
+        <div class="w-100 d-flex align-items-center justify-content-center">
+            <p class="text-secondary">
+                V.4.4.7 &nbsp; | &nbsp; Powered by &nbsp;
+            </p>
+            <p class="text-primary">
+                Empezar Group
+            </p>
         </div>
-        <div class="login-right">
-            <div class="card login-card">
-                <div class="card-header bg-transparent border-0">
-                    <div class="logo">
-                        <img src="_content/SharedUI/img/Adani_logo.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="divider"></div>
-                    <h5 class="logo-text">Survey</h5>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-start justify-content-md-center">
-                    <EditForm Model="login" OnValidSubmit="VerifyAndLogin">
-                        <DataAnnotationsValidator />
-                        <div class="validation-message" hidden="@(string.IsNullOrWhiteSpace(ServerValidationMessage))">@ServerValidationMessage</div>
-
-                        <div class="mobile-wrap" hidden="@(!(login.ShowScreen==ScreenType.Email))">
-                            <div class="login-head text-center">
-                                <h3 class="login-title">Login Account</h3>
-                                <h6 class="login-desc">enter details to login</h6>
-                            </div>
-                            <div class="form-group login-form-group">
-                                <div class="input-group">
-                                    <InputText type="email" class="form-control" placeholder="enter email address" @bind-Value="login.EmailId" />
-                                </div>
-                                <ValidationMessage class="rz-message rz-messages-error" For="@(() => login.EmailId)" />
-                            </div>
-                            <div class="form-group my-2 login-button-group">
-                                <button type="submit" class="btn btn-primary btn-lg w-100 shadow" id="requestOtp">Request OTP</button>
-                            </div>
-                        </div>
-
-                        <div class="otp-wrap" hidden="@(!(login.ShowScreen==ScreenType.OTP))">
-                            <div class="login-head text-center">
-                                <h3 class="login-title">Verification Code</h3>
-                                <h6 class="login-desc">we have sent a onetime password to your email address <a href="javascript:void()" class="fw-bold">@login.EmailId</a></h6>
-                            </div>
-                            <div class="form-group login-form-group">
-                                <div class="input-group">
-                                    <InputNumber class="form-control" placeholder="Enter OTP" @bind-Value="login.OTP" />
-                                </div>
-                                <ValidationMessage class="rz-message rz-messages-error" For="@(() => login.OTP)" />
-                                <p class="mt-2 resend-text">
-                                    Didn't receive code ?
-                                    <a href="javascript:void()" class="btn btn-link" @onclick="SendOTP">request again</a>
-                                </p>
-                            </div>
-                            <div class="form-group my-2 login-button-group">
-                                <button type="submit" class="btn btn-primary primary-gradient btn-lg w-100 shadow" id="verifyLogin">Verify &amp; Login</button>
-                            </div>
-                        </div>
-
-                        <div class="success-wrap" hidden="@(!(login.ShowScreen==ScreenType.Success))">
-                            <div class="animatedsuccess m-auto"><img src="_content/SharedUI/img/success.gif" class="img-fluid" alt=""></div>
-                            <h3 class="success-title text-center">Congratulations</h3>
-                            <p class="m-0 text-center success-desc">You have logged into your account successfully</p>
-                        </div>
-                    </EditForm>
-                </div>
-                <div class="card-footer bg-transparent border-0">
-                    <p class="m-0 copy-text">
-                        © 2023 | powered by <a href="javascript:void()">Empezar Digital</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    </BSCard>
 </div>
-
-@code {
-    private enum ScreenType { Email, OTP, Success }
-    private string? ServerValidationMessage { get; set; }
-
-    private class ViewModel
-    {
-        [Required(ErrorMessage = "Please enter valid Email Id"),
-        EmailAddress(ErrorMessage = "Please enter valid Email Id")]
-        public string EmailId { get; set; } = string.Empty;
-
-        [RequiredIf(nameof(ShowScreen), ScreenType.OTP, "Please enter valid OTP", 4, 6)]
-        public int? OTP { get; set; }
-
-        public string M2faDetails { get; set; } = string.Empty;
-
-        public ScreenType ShowScreen { get; set; } = ScreenType.Email;
-    }
-
-    ViewModel login = new();
-
-    private async Task VerifyAndLogin()
-    {
-        try
-        {
-            ServerValidationMessage = string.Empty;
-            switch (login.ShowScreen)
-            {
-                case ScreenType.Email:
-                    await SendOTP();
-                    break;
-                case ScreenType.OTP:
-                    var authToken = (await apiClient.ReadValue<AuthToken>(APIList.Authentication.Description(), cancToken, APIRoutes.VerifyOTP, $"/{Uri.EscapeDataString(login.EmailId)}/{login.OTP}/{Uri.EscapeDataString(login.M2faDetails)}"));
-                    if (!string.IsNullOrWhiteSpace(authToken?.apiKey))
-                    {
-                        await appKeys.Set(KeyName.APIKey, authToken.apiKey);
-                        await appKeys.Set(KeyName.AccessToken, authToken.authToken);
-                        await appKeys.Set(KeyName.TokenExpiresOn, authToken.expTime);
-
-                        var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(authToken.authToken);
-                        await appKeys.Set(KeyName.UserId, Convert.ToInt32( jwtToken.Claims.First(c => c.Type == System.Security.Claims.ClaimTypes.NameIdentifier).Value));
-                        await appKeys.Set(KeyName.UserName, jwtToken.Claims.First(c => c.Type == System.Security.Claims.ClaimTypes.Name).Value);
-                        await appKeys.Set(KeyName.MobileNo, jwtToken.Claims.First(c => c.Type == System.Security.Claims.ClaimTypes.MobilePhone).Value);
-                        await appKeys.Set(KeyName.EmailId, jwtToken.Claims.First(c => c.Type == System.Security.Claims.ClaimTypes.Email).Value);
-                        await appKeys.Set(KeyName.Department, jwtToken.Claims.First(c => c.Type == "Department").Value);
-                        login.ShowScreen = ScreenType.Success;
-
-                        LogIn();
-                    }
-                    else
-                        ServerValidationMessage = "Invalid OTP";
-
-                    break;
-            }
-        }
-        catch (Exception ex)
-        {
-            await display.Alert(ex.Message);
-        }
-    }
-
-    private async Task SendOTP()
-    {
-        login.M2faDetails = await apiClient.ReadValues(APIList.Authentication.Description(), cancToken, APIRoutes.GetOTP, $"/{Uri.EscapeDataString(login.EmailId)}");
-        if (!string.IsNullOrWhiteSpace(login.M2faDetails))
-            login.ShowScreen = ScreenType.OTP;
-        else
-            ServerValidationMessage = "Email Id does not exists";
-    }
-}

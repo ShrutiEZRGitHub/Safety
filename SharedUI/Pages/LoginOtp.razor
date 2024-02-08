@@ -1,0 +1,65 @@
+﻿@page "/loginotp"
+
+<PageTitle>Safety Reporting</PageTitle>
+
+
+<div class="container d-flex align-items-center justify-content-center">
+    <BSCard CardType="CardType.Card" class="d-flex align-items-center justify-content-center">
+        <BSCard CardType="CardType.Image" src="_content/SharedUI/img/assests/Login-card-img.png" class=""
+            alt="Card image cap" />
+        <img src="_content/SharedUI/img/assests/adani_logo_color.svg" class="w-25">
+        <BSCard CardType="CardType.Title" class="login-text text-center">Safety Reporting Portal</BSCard>
+
+        <h3 class="text-center">
+            <p class="text-black">
+                <strong>
+                    OTP Verification
+                </strong>
+            </p>
+        </h3>
+
+        <h5 class="text-center">
+            <p class="text-secondary">
+                Enter The OTP sent to
+            </p>
+
+            <p class="text-primary">
+                +91 9999999999
+            </p>
+        </h5>
+
+        @* OTP BLANKS *@
+        <div class="otp-field d-flex">
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+        </div>
+
+        <h6 class="d-flex text-center">
+            <p class="text-secondary">
+                Did not Receive OTP? &nbsp;
+            </p>
+            <p class="text-primary">
+                &nbsp; RESEND OTP
+            </p>
+        </h6>
+
+        <RadzenButton Variant="Variant.Flat" Text="Verify"
+            class="submit-btn w-50 bg-white d-flex align-items-center justify-content-center rounded-pill" />
+
+
+
+        <div class="w-100 d-flex align-items-center justify-content-center">
+            <p class="desc-text">
+                V.4.4.7 &nbsp; | &nbsp; Powered by &nbsp;
+            </p>
+            <p class="text-primary">
+                Empezar Group
+            </p>
+        </div>
+    </BSCard>
+</div>
