@@ -3,31 +3,27 @@
 <PageTitle>All Safety Reports</PageTitle>
 
 <!-- All Safety Reports Grid -->
-<RadzenRow Gap="15px" RowGap="15px">
-    <RadzenColumn Size="4">
-        <p class="title pt-3">All Safety Reports</p>
+<RadzenRow Gap="15px" RowGap="15px" class="d-flex align-items-center mb-4">
+    <RadzenColumn Size="4" class="d-flex align-items-center">
+        <div class="title">All Safety Reports</div>
+        <RadzenIcon Icon="search" class="icon text-blue ms-5" />
     </RadzenColumn>
     <RadzenColumn Size="8" class="rz-text-align-end">
-        <span class="safetyreport-butn">
-            <div class="rz-m-7">
-                <RadzenIcon Icon="search" class="icon" />/>
-            </div>
-            <div class="rz-my-7">
-                <RadzenCheckBoxList Value=@report TValue="int" Change=@(args => report = args) class="">
-                    <Items>
-                        <RadzenCheckBoxListItem Text="Reported By Me" Value="1" />
-                        <RadzenCheckBoxListItem Text="Assigned to Me" Value="2" />
-                    </Items>
-                </RadzenCheckBoxList>
-            </div>
-            <div class="">
-                <RadzenButton Variant="Variant.Outlined" Icon="hourglass_empty" Text="Filter"
-                    class="filter-btn rz-mx-3" />
-                <RadzenButton Variant="Variant.Flat" Icon="description" Text="Incident Report"
-                    class="create-btn rz-my-5 rz-mx-3" />
-                <RadzenButton Variant="Variant.Flat" Icon="assignment_ind" Text="User Report"
-                    class="create-btn rz-my-5" />
-            </div>
+        <span class="safetyreport-butn d-flex align-items-center">
+            <RadzenCheckBoxList Value=@report TValue="int" Change=@(args => report = args) class="">
+                <Items>
+                    <RadzenCheckBoxListItem class="button-shadow " Text="Reported By Me" Value="1" />
+                    <RadzenCheckBoxListItem class="button-shadow mx-3" Text="Assigned to Me" Value="2" />
+                </Items>
+            </RadzenCheckBoxList>
+
+
+            <RadzenButton Icon="hourglass_empty" Text="Filter"
+                class="filter-btn ms-1 bg-light button-shadow rounded-pill text-dark" />
+            <RadzenButton Variant="Variant.Flat" Icon="description" Text="Incident Report"
+                class="create-btn mx-3 rounded-pill" />
+            <RadzenButton Variant="Variant.Flat" Icon="assignment_ind" Text="User Report"
+                class="create-btn rounded-pill" />
         </span>
     </RadzenColumn>
 </RadzenRow>

@@ -7,6 +7,8 @@
 
 :root {
     --font-family: 'Poppins', sans-serif;
+    --text-color-blue: #00A3FF;
+
 }
 
 
@@ -29,19 +31,23 @@ body {
 .nav-item {
     color: #fff;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 400;
+}
+
+.text-blue {
+    color: var(--text-color-blue);
 }
 
 .title {
-    color: #00A3FF;
+    color: var(--text-color-blue);
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .msg {
-    color: #00A3FF;
+    color: var(--text-color-blue);
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 /*Portal Text*/
@@ -63,54 +69,26 @@ body {
 .nav-card-text {
     color: #FFF;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 /* Table List */
 .table-head {
     color: #252525;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
 
     background: rgba(0, 163, 255, 0.08);
     box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.20);
 }
 
-/* Filter Button*/
-.filter-btn {
-    /* button property */
-    box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.25) !important;
-    border: 0px;
-    border-radius: 20px;
 
-    /* button text property */
-    color: #000 !important;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: capitalize;
-}
 
 /* Create Button */
 .create-btn {
-    /* button property */
-    display: inline-block;
-    background-color: #00A3FF !important;
-    border: 0px;
-    border-radius: 20px;
-    height: 37px;
 
-    /* button text property */
-    color: #FDFDFF;
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 600;
-}
+    background-color: var(--text-color-blue) !important;
 
-.btn-text {
-    color: #FDFDFF;
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 600;
 }
 
 /* Active status */
@@ -136,7 +114,7 @@ body {
 .table-body {
     color: rgba(0, 0, 0, 0.60);
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 
@@ -150,14 +128,14 @@ body {
 .label-style {
     color: #848484;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 
 /* Create User  - Clear Button */
 .clear-btn {
     /* button property */
-    border: 1px solid #00A3FF !important;
+    border: 1px solid var(--text-color-blue) !important;
     /* width: 300px; */
     border-radius: 20px;
 
@@ -172,7 +150,7 @@ body {
 .submit-btn {
     /* button property */
     border: 1px;
-    background-color: #00A3FF !important;
+    background-color: var(--text-color-blue) !important;
     box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25);
     /* width: 300px; */
     border-radius: 20px;
@@ -182,4 +160,25 @@ body {
     font-size: 14px;
     font-weight: 500;
     text-transform: capitalize;
+}
+
+
+.button-shadow {
+    box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 7px 15px;
+}
+
+.filter-btn {
+    box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.25) !important;
+    background-color: white !important;
+
+}
+
+thead {
+    background: rgba(0, 163, 255, 0.1) !important;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+    th{
+        background: rgba(0, 163, 255, 0.1) !important;
+    }
 }
