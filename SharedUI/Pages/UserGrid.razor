@@ -6,20 +6,20 @@
 
 <!-- All Safety Reports Grid -->
 <RadzenRow Gap="15px" RowGap="15px" class="d-flex align-items-center mb-4">
-    <RadzenColumn Size="6">
+    <RadzenColumn Size="4">
         <p class="title pt-3">User List</p>
     </RadzenColumn>
-    <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
-        <div class="input-group-search">
-
-            <input type="search" id="form1" class="form-control" />
-
-            <button type="button" class="btn btn-primary">
-                <RadzenIcon Icon="search" class="icon" />
-            </button>
+    <RadzenColumn Size="8" class="d-flex align-items-center justify-content-end ">
+        <div class="input-group input-group-search me-3">
+            <input class="form-control border-0 " type="search" placeholder="Search Name/ Mobile No.">
+ 
+                <button type="button" class="btn btn-primary d-flex align-items-center">
+                    <RadzenIcon Icon="search" class="icon" />
+                </button>
+        
         </div>
         <RadzenButton Icon="hourglass_empty" Text="Filter"
-            class="filter-btn ms-1 bg-light button-shadow rounded-pill text-dark me-3" />
+            class="filter-btn bg-light button-shadow rounded-pill text-dark me-3" />
         <a href="create_user">
             <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create User"
                 class="create-btn rounded-pill" />

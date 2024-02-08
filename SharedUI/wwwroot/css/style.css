@@ -182,3 +182,12 @@ thead {
         background: rgba(0, 163, 255, 0.1) !important;
     }
 }
+.input-group-search{
+    box-shadow: 1px 1px 13px 0 rgba(0,0,0,.25);
+    max-width: 324px;
+    border-radius: 50px;
+    overflow: hidden;
+    input{
+        padding-left: 20px ;
+    }
+}
