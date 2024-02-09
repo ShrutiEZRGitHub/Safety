@@ -8,17 +8,20 @@
 :root {
     --font-family: 'Poppins', sans-serif;
     --text-color-blue: #00A3FF;
-
 }
 
 
 html,
 body {
     font-family: var(--font-family);
+    font-size: 0.9em;
+
 }
-.h-100{
+
+.h-100 {
     height: 100%;
 }
+
 .sidebar {
     background-image: linear-gradient(180deg, #674D9F -4.2%, #0D73B0 10.45%, #674D9F 99.99%);
     overflow-y: hidden;
@@ -70,9 +73,15 @@ body {
 }
 
 .nav-item {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 400;
+    margin-bottom: 10px;
+    .nav-link {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    img{
+        margin-right: 10px;
+    }
 }
 
 .text-blue {

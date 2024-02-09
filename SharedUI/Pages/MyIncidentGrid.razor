@@ -3,13 +3,13 @@
 <PageTitle>My Incident</PageTitle>
 
 <!-- All Safety Reports Grid -->
-<RadzenRow Gap="15px" RowGap="15px" class="d-flex align-items-center mb-4">
-    <RadzenColumn Size="4" class="d-flex align-items-center">
+<RadzenRow Gap="15px" RowGap="15px" class="d-flex align-items-center mb-4 ">
+    <RadzenColumn Size="3" class="d-flex align-items-center">
         <div class="title">My Incident</div>
         
     </RadzenColumn>
-    <RadzenColumn Size="8" class="rz-text-align-end">
-        <span class="safetyreport-butn d-flex align-items-center">
+    <RadzenColumn Size="9" class="rz-text-align-end">
+        <span class="safetyreport-butn d-flex align-items-center justify-content-end">
             <RadzenIcon Icon="search" class="icon text-blue me-5" />
             <RadzenCheckBoxList Value=@report TValue="int" Change=@(args => report = args) class="">
                 <Items>
