@@ -5,12 +5,11 @@
 <p class="title pt-3">Service Provider</p>
 
 <!--Create User Form-->
-<RadzenCard Class="rz-px-12 rz-py-12">
-    <RadzenRow>
+<RadzenCard>
+    <RadzenRow AlignItems="AlignItems.Center">
         <!-- Left Column - Image -->
         <RadzenColumn Size="6">
 
-            <RadzenStack AlignItems="AlignItems.Center" />
             <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg"
                 AlternateText="Create Account Image" />
 
@@ -18,7 +17,7 @@
 
         <!-- Right Column - Form -->
         <RadzenColumn Size="6">
-            <RadzenStack Class="rz-my-12 rz-mt-12">
+            <RadzenStack>
                 <!-- Full Name -->
                 <RadzenFormField Text="Service Provider" class="label-style">
                     <RadzenTextBox />
@@ -32,12 +31,11 @@
 
                 <RadzenRow>
                     <!-- Clear Button -->
-                    <div Class="rz-pt-3"></div>
-                    <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill" />
+                    <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill w-25" />
 
 
                     <!-- Create User Button -->
-                    <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn rounded-pill" />
+                    <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn rounded-pill w-25" />
                 </RadzenRow>
 
             </RadzenStack>

@@ -12,20 +12,31 @@
     <RadzenColumn Size="8" class="d-flex align-items-center justify-content-end ">
         <div class="input-group input-group-search me-3">
             <input class="form-control border-0 " type="search" placeholder="Search Name/ Mobile No.">
- 
-                <button type="button" class="btn btn-primary d-flex align-items-center">
-                    <RadzenIcon Icon="search" class="icon" />
-                </button>
-        
+
+            <button type="button" class="btn btn-primary d-flex align-items-center">
+                <RadzenIcon Icon="search" class="icon" />
+            </button>
+
         </div>
         <RadzenButton Icon="hourglass_empty" Text="Filter"
-            class="filter-btn bg-light button-shadow rounded-pill text-dark me-3" />
+            class="filter-btn bg-light button-shadow rounded-pill text-dark me-3" Target="modal1" />
         <a href="create_user">
             <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create User"
                 class="create-btn rounded-pill" />
         </a>
     </RadzenColumn>
 </RadzenRow>
+
+
+@* Modal Filter *@
+<BSModal DataId="modal1">
+    <Header>Modal Title</Header>
+    <Content>Woohoo, you're reading this text in a modal!</Content>
+    <Footer Context="modal">
+        <BSButton MarginStart="Margins.Auto" Color="BSColor.Secondary" @onclick="modal.HideAsync">Close</BSButton>
+        <BSButton Color="BSColor.Primary">Save changes</BSButton>
+    </Footer>
+</BSModal>
 
 <!-- GRID -->
 

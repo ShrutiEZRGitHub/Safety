@@ -5,13 +5,12 @@
 <p class="title pt-3">Walk Type</p>
 
 <!--Create User Form-->
-<RadzenCard Class="rz-p-12">
-    <RadzenRow>
+<RadzenCard>
+    <RadzenRow AlignItems="AlignItems.Center">
         <!-- Left Column - Image -->
         <RadzenColumn Size="6">
 
-            <RadzenStack AlignItems="AlignItems.Center" Class="rz-m-12" />
-            <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg" Style="width: 500px;"
+            <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg"
                 AlternateText="Create Account Image" />
 
         </RadzenColumn>
@@ -30,15 +29,14 @@
                     <RadzenLabel Text="Is Active" Component="CheckBox1" />
                 </div>
 
-                <!-- Clear Button -->
-                <span>
-                    <div Class="rz-pt-3"></div>
-                    <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill"/>
-
+                <RadzenRow>
+                    <!-- Clear Button -->
+                    <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill w-25" />
 
                     <!-- Create User Button -->
-                    <RadzenButton Variant="Variant.Flat" Text="Create" class="rz-ms-5 submit-btn rounded-pill"/>
-                </span>
+                    <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn rounded-pill w-25" />
+                </RadzenRow>
+
 
             </RadzenStack>
 
