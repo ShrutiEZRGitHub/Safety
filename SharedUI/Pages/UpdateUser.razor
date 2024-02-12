@@ -1,0 +1,98 @@
+@page "/update_user"
+
+<PageTitle>Update Existing User</PageTitle>
+
+<p class="title pt-3">Update Existing User</p>
+
+<!--Update Existing User Form-->
+<RadzenCard Class="create-card rz-px-12 rz-py-12">
+    <RadzenRow>
+        <!-- Left Column - Image -->
+        <RadzenColumn Size="6">
+
+            <RadzenStack AlignItems="AlignItems.Center" />
+            <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg"
+                AlternateText="Create Account Image" />
+
+        </RadzenColumn>
+
+        <!-- Right Column - Form -->
+        <RadzenColumn Size="6">
+            <RadzenStack>
+                <!-- Full Name -->
+                <RadzenFormField Text="Full Name" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- Contact Number -->
+                <RadzenFormField Text="Contact Number" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+
+                <!-- User Level -->
+                <RadzenFormField Text="User Level" class="label-style">
+                    <RadzenDropDown Data="@(ddList)" @bind-Value="@level" />
+                </RadzenFormField>
+
+                <!-- Employement Type -->
+                <RadzenFormField Text="Employment Type" class="label-style">
+                    <RadzenDropDown Data="@(emp_type)" @bind-Value="@emp_type_val" />
+                </RadzenFormField>
+
+                <!-- Department -->
+                <RadzenFormField Text="Department" class="label-style">
+                    <RadzenDropDown Data="@(dept)" @bind-Value="@dept_val" />
+                </RadzenFormField>
+
+                <!-- HOD -->
+                <RadzenFormField Text="Head of the Department" class="label-style">
+                    <RadzenDropDown Data="@(hod)" @bind-Value="@hod_val" />
+                </RadzenFormField>
+
+                <!-- Email -->
+                <RadzenFormField Text="Email" class="label-style">
+                    <RadzenTextBox />
+                </RadzenFormField>
+            </RadzenStack>
+
+            <!-- Is Active Checkbox -->
+            <div class="rz-py-5">
+                <RadzenCheckBox TValue="bool" Value=@statusvalue Name="CheckBox1"/>
+                <RadzenLabel Text="Is Active" Component="CheckBox1" />
+            </div>
+
+            <!-- Clear Button -->
+            <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill w-25" />
+
+            <!-- Create User Button -->
+            <RadzenButton Variant="Variant.Flat" Text="Update Create" class="submit-btn rounded-pill w-25" />
+
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenCard>
+
+
+@code {
+    bool statusvalue;
+
+    string level = "Level-1";
+    List<string> ddList = new(){
+"Level-1", "Level-2", "Level-3", "Level-4"
+};
+
+    string emp_type_val = "Employee";
+    List<string> emp_type = new(){
+"Employee", "Admin", "Management", "Finance"
+};
+
+    string dept_val = "Department 1";
+    List<string> dept = new(){
+"Department 1", "Department 2", "Department 3", "Department 4"
+};
+
+    string hod_val = "No";
+    List<string> hod = new(){
+"Yes", "No"
+};
+
+}

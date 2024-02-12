@@ -1,4 +1,5 @@
 @page "/firmgrid"
+@inject FirmList firmlist
 
 <PageTitle>Firm List</PageTitle>
 
@@ -8,7 +9,9 @@
     </RadzenColumn>
     <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
         <a href="create_firm">
-            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Frim" class="create-btn" />
+            <RadzenButton Variant="Variant.Flat" class="create-btn">
+                <i class="fa-solid fa-user-plus"></i> Create Firm
+            </RadzenButton>
         </a>
     </RadzenColumn>
 </RadzenRow>
@@ -43,6 +46,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        @* firm = await Task.Run(() => firmlist.FirmTable()); *@
+        firm = await Task.Run(() => firmlist.FirmTable());
     }
 }

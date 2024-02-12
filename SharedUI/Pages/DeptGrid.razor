@@ -1,4 +1,5 @@
 @page "/deptgrid"
+@inject DepartList departlist
 
 <PageTitle>Department List</PageTitle>
 
@@ -8,7 +9,9 @@
     </RadzenColumn>
     <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
         <a href="create_dept">
-            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Department" class="create-btn" />
+            <RadzenButton Variant="Variant.Flat" class="create-btn">
+                <i class="fa-solid fa-user-plus"></i>Create Department
+            </RadzenButton>
         </a>
     </RadzenColumn>
 </RadzenRow>
@@ -48,6 +51,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        @* dept = await Task.Run(() => departlist.DepartTable()); *@
+        dept = await Task.Run(() => departlist.DepartTable());
     }
 }

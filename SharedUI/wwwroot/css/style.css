@@ -8,6 +8,8 @@
 :root {
     --font-family: 'Poppins', sans-serif;
     --text-color-blue: #00A3FF;
+    --color-primary: #00A3FF;
+    --button-color-primary: #00A3FF;
 }
 
 
@@ -69,8 +71,6 @@ body {
             transparent 100%);
 }
 
-
-
 .history-card {
     background: #FFFFFF;
     box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.25);
@@ -102,7 +102,7 @@ body {
 .title {
     color: var(--text-color-blue);
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .msg {

@@ -1,4 +1,5 @@
 @page "/walktypegrid"
+@inject WalkTypeList walktypelist
 
 <PageTitle>Walk Type List</PageTitle>
 
@@ -8,7 +9,9 @@
     </RadzenColumn>
     <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
         <a href="create_wkt">
-            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Walk Type" class="create-btn" />
+            <RadzenButton Variant="Variant.Flat" class="create-btn">
+                <i class="fa-solid fa-user-plus"></i>Create Walk Type
+            </RadzenButton>
         </a>
     </RadzenColumn>
 </RadzenRow>
@@ -43,6 +46,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        @* walktype = await Task.Run(() => walktypelist.WalkTypeTable()); *@
+        walktype = await Task.Run(() => walktypelist.WalkTypeTable());
     }
 }

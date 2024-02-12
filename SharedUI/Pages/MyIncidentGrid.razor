@@ -1,5 +1,5 @@
 @page "/myincidentgrid"
-
+@inject MyIncidentList milist
 <PageTitle>My Incident</PageTitle>
 
 <!-- All Safety Reports Grid -->
@@ -31,39 +31,39 @@
 
 <!-- GRID -->
 
-@if (sr == null)
+@if (myincident == null)
 {
     <p>Loading........</p>
 }
 else
 {
     <RadzenDataGrid AllowPaging="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-        PageSize="10" AllowSorting="true" Data="@sr" TItem="SR" ColumnWidth="150px" class="table-body">
+        PageSize="15" AllowSorting="true" Data="@myincident" TItem="MyIncident" ColumnWidth="150px" class="table-body">
 
         <Columns>
 
-            <RadzenDataGridColumn TItem="SR" Property="InId" Title="Incident Id"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="ReportedBy" Title="Reported By"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="SafetyType" Title="Safety Type"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="Deptmt" Title="Department"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="Date" Title="Date">
+            <RadzenDataGridColumn TItem="MyIncident" Property="InId" Title="Incident Id"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="ReportedBy" Title="Reported By"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="SafetyType" Title="Safety Type"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="Deptmt" Title="Department"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="Date" Title="Date">
                 <Template Context="data">
                     @string.Format("{0:d}", data.Date)
                 </Template>
             </RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="Description" Title="Description"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="Status" Title="Status"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="Description" Title="Description"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="Status" Title="Status"></RadzenDataGridColumn>
 
         </Columns>
 
     </RadzenDataGrid>
 }
 @code {
-    List<SR> sr = new();
+    List<MyIncident> myincident = new();
 
     protected override async Task OnInitializedAsync()
     {
-        @* sr = await Task.Run(() => userlist.UserTable()); *@
+        myincident = await Task.Run(() => milist.MyIncidentTable());
     }
 
     /* Reported check box*/

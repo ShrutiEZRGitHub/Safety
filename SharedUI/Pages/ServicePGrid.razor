@@ -1,4 +1,5 @@
 @page "/servicepgrid"
+@inject ServiceList servicelist
 
 <PageTitle>Service Provide List</PageTitle>
 
@@ -8,8 +9,9 @@
     </RadzenColumn>
     <RadzenColumn Size="6" class="rz-text-align-end rz-py-3">
         <a href="create_sp">
-            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" Text="Create Service Provider"
-                class="create-btn" />
+            <RadzenButton Variant="Variant.Flat" class="create-btn">
+                <i class="fa-solid fa-user-plus"></i> Create Service Provider
+            </RadzenButton>
         </a>
     </RadzenColumn>
 </RadzenRow>
@@ -44,6 +46,6 @@ else
     List<ServiceP> servicep = new();
     protected override async Task OnInitializedAsync()
     {
-        @* service = await Task.Run(() => servicelist.ServiceTable()); *@
+        servicep = await Task.Run(() => servicelist.ServiceTable());
     }
 }

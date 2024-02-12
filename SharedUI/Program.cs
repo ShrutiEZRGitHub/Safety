@@ -28,7 +28,7 @@ public static class SharedUIServices
 
         services.AddBlazorClient(platform);
         services.AddBlazorStrap();
-        
+
         //Razden Components
         services.AddScoped<DialogService>();
         services.AddScoped<NotificationService>();
@@ -37,6 +37,15 @@ public static class SharedUIServices
 
         services.AddSingleton<IAppInfo, AppInfo>();
 
+        // Table Data
+        services.AddScoped<UserList>();
+        services.AddScoped<DepartList>();
+        services.AddScoped<ServiceList>();
+        services.AddScoped<WalkTypeList>();
+        services.AddScoped<FirmList>();
+        services.AddScoped<SRList>();
+        services.AddScoped<MyIncidentList>();
+        
         return services;
     }
 }
