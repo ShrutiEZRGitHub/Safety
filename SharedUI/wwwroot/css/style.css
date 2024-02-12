@@ -58,9 +58,18 @@ body {
 }
 
 .vl {
-    border-left: 1px dashed #1D1D1D;
     height: 50px;
+
+    background: linear-gradient(to right,
+            transparent 0%,
+            transparent calc(50% - 0.81px),
+            black calc(50% - 0.8px),
+            black calc(50% + 0.8px),
+            transparent calc(50% + 0.81px),
+            transparent 100%);
 }
+
+
 
 .history-card {
     background: #FFFFFF;
@@ -74,12 +83,14 @@ body {
 
 .nav-item {
     margin-bottom: 10px;
+
     .nav-link {
         color: #fff;
         font-size: 13px;
         font-weight: 400;
     }
-    img{
+
+    img {
         margin-right: 10px;
     }
 }
