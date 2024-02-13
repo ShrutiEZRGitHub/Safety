@@ -19,9 +19,15 @@
             </button>
 
         </div>
-        <RadzenButton class="filter-btn bg-light button-shadow rounded-pill text-dark me-3" Target="modal1">
-            <i class="fa-solid fa-filter"></i>Filter
-        </RadzenButton>
+        @* <RadzenButton class="filter-btn bg-light button-shadow rounded-pill text-dark me-3" Target="Filter">
+        <i class="fa-solid fa-filter"></i>Filter
+        </RadzenButton> *@
+
+        <BSButton Color="BSColor.Primary" class="filter-btn border-0 bg-light button-shadow rounded-pill text-dark me-3"
+            Target="Filter">
+            <i class="filter-icon fa-solid fa-filter"></i>&nbsp;Filter
+        </BSButton>
+
         <a href="create_user">
             <RadzenButton Variant="Variant.Flat" class="create-btn rounded-pill">
                 <i class="fa-solid fa-user-plus"></i>Create User
@@ -32,12 +38,70 @@
 
 
 @* Modal Filter *@
-<BSModal DataId="modal1">
-    <Header>Modal Title</Header>
-    <Content>Woohoo, you're reading this text in a modal!</Content>
+<BSModal DataId="Filter">
+    <Header>
+        <h4 class="text-primary">User Filter</h4>
+    </Header>
+    <Content>
+        <h5 class="text-secondary">Level</h5>
+        <BSRow Justify="Justify.Center" class="align-middle ms-5">
+            <BSCol>
+                <div Class="@BS.Form_Check">
+                    <BSInputCheckbox CheckedValue="@("levels")" Value="@("")" />
+                    <BSLabel IsCheckLabel="true">Level 1</BSLabel>
+                </div>
+            </BSCol>
+            <BSCol>
+                <div Class="@BS.Form_Check">
+                    <BSInputCheckbox CheckedValue="@("levels")" Value="@("")" />
+                    <BSLabel IsCheckLabel="true">Level 2</BSLabel>
+                </div>
+            </BSCol>
+        </BSRow>
+
+        <BSRow Justify="Justify.Center" class="align-middle ms-5 mb-3">
+            <BSCol>
+                <div Class="@BS.Form_Check">
+                    <BSInputCheckbox CheckedValue="@("levels")" Value="@("")" />
+                    <BSLabel IsCheckLabel="true">Level 3</BSLabel>
+                </div>
+            </BSCol>
+            <BSCol>
+                <div Class="@BS.Form_Check">
+                    <BSInputCheckbox CheckedValue="@("levels")" Value="@("")" />
+                    <BSLabel IsCheckLabel="true">Level 4</BSLabel>
+                </div>
+            </BSCol>
+        </BSRow>
+
+
+        <h5 class="text-secondary">Status</h5>
+        <BSRow Justify="Justify.Center" class="align-middle ms-5 mb-3">
+            <BSCol>
+                <div Class="@BS.Form_Check">
+                    <BSInputCheckbox CheckedValue="@("levels")" Value="@("")" />
+                    <BSLabel IsCheckLabel="true">Active</BSLabel>
+                </div>
+            </BSCol>
+            <BSCol>
+                <div Class="@BS.Form_Check">
+                    <BSInputCheckbox CheckedValue="@("levels")" Value="@("")" />
+                    <BSLabel IsCheckLabel="true">In-active</BSLabel>
+                </div>
+            </BSCol>
+        </BSRow>
+
+
+        <h5 class="text-secondary">Departments</h5>
+        <BSInput InputType="InputType.TextArea" Value="@("")"></BSInput>
+
+
+    </Content>
     <Footer Context="modal">
-        <BSButton MarginStart="Margins.Auto" Color="BSColor.Secondary" @onclick="modal.HideAsync">Close</BSButton>
-        <BSButton Color="BSColor.Primary">Save changes</BSButton>
+        <BSButton MarginStart="Margins.Auto"
+            class="border border-primary bg-light rounded-pill text-primary" @onclick="modal.HideAsync">
+            Reset</BSButton>
+        <BSButton class="text-white bg-primary rounded-pill">Apply</BSButton>
     </Footer>
 </BSModal>
 

@@ -19,8 +19,10 @@
             </RadzenCheckBoxList>
 
 
-            <RadzenButton Icon="hourglass_empty" Text="Filter"
-                class="filter-btn ms-1 bg-light button-shadow rounded-pill text-dark" />
+            <BSButton Color="BSColor.Primary" class="filter-btn border-0 bg-light button-shadow rounded-pill text-dark"
+                Target="srfilter">
+                <i class="filter-icon fa-solid fa-filter"></i>&nbsp;Filter
+            </BSButton>
             <RadzenButton Variant="Variant.Flat" Icon="description" Text="Incident Report"
                 class="create-btn mx-3 rounded-pill" />
             <RadzenButton Variant="Variant.Flat" Icon="assignment_ind" Text="User Report"
@@ -28,6 +30,80 @@
         </span>
     </RadzenColumn>
 </RadzenRow>
+
+
+
+@* Modal Filter *@
+<BSModal DataId="srfilter">
+    <Header>
+        <h4 class="text-primary">Filter</h4>
+    </Header>
+    <Content>
+        <h5 class="text-secondary">Level</h5>
+        <BSRow Justify="Justify.Center" class="align-middle mx-4 mb-3">
+            <BSCol>
+                <RadzenLabel Text="From Date" Component="RadzenDatePickerBindValue" />
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" ShowCalendarWeek />
+            </BSCol>
+            <BSCol>
+                <RadzenLabel Text="To Date" Component="RadzenDatePickerBindValue" />
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" ShowCalendarWeek />
+            </BSCol>
+        </BSRow>
+
+        <h5 class="text-secondary">Safety Filter</h5>
+        <BSRow class="align-middle rounded border border-2 m-2 p-1">
+            <BSCol>
+                <RadzenFormField Text="Safety type">
+                    <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+                </RadzenFormField>
+
+                <RadzenFormField Text="Walk type">
+                    <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+                </RadzenFormField>
+            </BSCol>
+            <BSCol>
+                <RadzenFormField Text="Actual Severity">
+                    <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+                </RadzenFormField>
+
+                <RadzenFormField Text="Potential Severity">
+                    <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+                </RadzenFormField>
+            </BSCol>
+
+            <RadzenFormField Text="Group" class="w-50">
+                <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+            </RadzenFormField>
+        </BSRow>
+
+
+        <BSRow class="align-middle rounded border border-2 m-2 p-1">
+            <BSCol>
+                <RadzenFormField Text="Department">
+                    <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+                </RadzenFormField>
+
+                <RadzenFormField Text="Status">
+                    <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+                </RadzenFormField>
+            </BSCol>
+
+            <RadzenFormField Text="User Level" class="w-50">
+                <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
+            </RadzenFormField>
+        </BSRow>
+
+
+    </Content>
+    <Footer Context="modal">
+        <BSButton MarginStart="Margins.Auto" class="w-25 border border-primary bg-light rounded-pill text-primary"
+            @onclick="modal.HideAsync">
+            Reset</BSButton>
+        <BSButton class="w-25 text-white bg-primary rounded-pill">Apply</BSButton>
+    </Footer>
+</BSModal>
+
 
 <!-- GRID -->
 
@@ -68,5 +144,14 @@ else
 
     /* Reported check box*/
     IEnumerable<int> report = new int[] { 1 };
+
+    //Date Picker
+    DateTime? value;
+
+    //dropdown
+    string dd_value = "Select All";
+    List<string> dd_list = new(){
+"1", "2", "3", "4"
+};
 
 }
