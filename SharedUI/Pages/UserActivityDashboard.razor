@@ -4,4 +4,51 @@
 
 <p class="title pt-3">User Activity Dashboard</p>
 
-<h1>This is the User Activity Dashboard Screen</h1>
+<RadzenCard class="bg-white shadow">
+    <RadzenRow>
+        <RadzenColumn Size="10" class="d-flex justify-content-center">
+            <RadzenRadioButtonList @bind-Value=@value TValue="int?">
+                <Items>
+                    <h5>
+                        <RadzenRadioButtonListItem Text="Last Day" Value="1" TValue="int?" class="rz-mx-12" />
+                    </h5>
+                    <h5>
+                        <RadzenRadioButtonListItem Text="Last Week" Value="2" TValue="int?" class="rz-mx-12" />
+                    </h5>
+                    <h5>
+                        <RadzenRadioButtonListItem Text="Last Month" Value="3" TValue="int?" class="rz-mx-12" />
+                    </h5>
+                </Items>
+            </RadzenRadioButtonList>
+        </RadzenColumn>
+
+        <RadzenColumn Size="2" class="rz-px-10 border-start d-flex align-items-center">
+            <i class="fa-solid fa-plus text-secondary"></i>
+            <h6 class="text-secondary mb-0"> &nbsp; Custom Date</h6>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenCard>
+
+<br />
+
+<RadzenCard class="shadow rounded rz-p-10">
+
+</RadzenCard>
+
+<br />
+
+<RadzenRow>
+    <RadzenColumn class="shadow rounded rz-p-10">
+        <h5 class="text-dark"><strong>Heat Map</strong></h5>
+
+    </RadzenColumn>
+
+    <RadzenColumn Class="bg-white rounded shadow rz-p-10 ">
+
+    </RadzenColumn>
+</RadzenRow>
+
+
+@code {
+    int? value;
+}

@@ -4,6 +4,7 @@
 
 <p class="title pt-3">Dashboard</p>
 
+
 <RadzenCard class="bg-white shadow">
     <RadzenRow>
         <RadzenColumn Size="10" class="d-flex justify-content-center">
@@ -33,89 +34,243 @@
 
 <div>
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777452.9390264275!2d68.68527999421731!3d22.394415122444837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959051f5f0ef795%3A0x861bd887ed54522e!2sGujarat!5e0!3m2!1sen!2sin!4v1707301373809!5m2!1sen!2sin"
-        width="100%" height="200" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7132718.210282214!2d-97.67489668589296!3d38.65909838280045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sin!4v1707982718050!5m2!1sen!2sin"
+        width="100%" height="230" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         class="shadow rounded"></iframe>
 </div>
 
-<br /><br />
+<br />
 
 <RadzenRow>
-    <RadzenColumn class="shadow rounded rz-p-10">
+    <RadzenColumn>
+        <div class="border border-dark p-2 mb-0">
+            <i class="fa-regular fa-circle"></i> Safe observation | <i class="fa-regular fa-star"></i> Unsafe Act | <i
+                class="fa-solid fa-circle-half-stroke"></i> Unsafe Condition | <i class="fa-regular fa-diamond"></i>
+            Near Miss | <i class="fa-regular fa-square"></i> Incidents | <i class="fa-solid fa-wave-square"></i>
+            Question/Clarification | <i class="fa-solid fa-cube"></i>Unsafe Observation
+        </div>
 
-        <h5 class="text-dark"><strong>Types of Incidents</strong></h5>
+        <br />
 
-        @* <RadzenChart SeriesClick=@OnSeriesClick>
-        <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue">
-        <RadzenSeriesDataLabels Visible="@showDataLabels" />
-        </RadzenPieSeries>
-        </RadzenChart> *@
+        <div class="border border-dark p-2">
+            1: Severity 1, 2: Severity 2, 3: Severity 3, 4 : Severity, 5:Severity 5,
+        </div>
     </RadzenColumn>
 
-    <RadzenColumn Class="w-bg-card rz-p-10">
-        <h5 class="text-dark"><strong>Incidents Count</strong></h5>
-        <div>
-            <h6 class="d-flex align-items-center">
-                <div class="p-3 bg-primary text-white w-25">20</div> &nbsp;Open Incidents
-            </h6>
-        </div>
 
-        <div>
-            <h6 class="d-flex align-items-center">
-                <div class="p-3 bg-success text-white w-25">20</div> &nbsp;Close Incidents
-            </h6>
-        </div>
 
-        <div>
-            <h6 class="d-flex align-items-center">
-                <div class="p-3 bg-warning text-white w-25">04</div> &nbsp;In Progress Incidents
-            </h6>
-        </div>
+    <RadzenColumn class="border border-dark p-2">
+        <RadzenRow>
+            <RadzenColumn>
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2" style="background-color:#9C27B0;"></div>&nbsp;Non-Lost Time Fire
+                </div>
+
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2" style="background-color:#2196F3;"></div>&nbsp;Fall of Person
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="rz-p-2" style="background-color:#F44336;"></div>&nbsp;Man-Made- Material Intervention
+                </div>
+            </RadzenColumn>
+
+            <RadzenColumn>
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2" style="background-color:#FF9800;"></div>&nbsp;Sudden
+                </div>
+
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2" style="background-color:#FFEB3B;"></div>&nbsp;Road Traffic/contractor
+                </div>
+            </RadzenColumn>
+
+            <RadzenColumn>
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2" style="background-color:#4CAF50;"></div>&nbsp;Fall of Object
+                </div>
+
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2" style="background-color:#000000;"></div>&nbsp;Potential to Damageasset
+                </div>
+            </RadzenColumn>
+        </RadzenRow>
     </RadzenColumn>
 </RadzenRow>
 
-@* Pie chart *@
-@* <EventConsole @ref=@console /> *@
+<br />
+
+<RadzenRow>
+    <RadzenColumn class="shadow rounded rz-p-10">
+        <h5 class="text-dark"><strong>Types of Incidents</strong></h5>
+
+        <RadzenRow class="d-flex align-items-center">
+            <RadzenColumn class="w-75">
+                <RadzenChart>
+                    <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue">
+                        <RadzenSeriesDataLabels Visible="false" />
+                    </RadzenPieSeries>
+                    <RadzenLegend Visible="false" />
+                </RadzenChart>
+            </RadzenColumn>
+
+
+
+            <RadzenColumn class="w-25">
+                <div class="px-5 py-4 d-flex justify-content-center rounded" style="background-color:#00A2FD;">
+                    <h3 class="text-light mb-0">40%</h3>
+                    <h6 class="text-light">&nbsp;Safe Observation</h6>
+                </div>
+
+                <br />
+
+                <div class="px-5 py-4 d-flex justify-content-center rounded" style="background-color:#005959;">
+                    <h3 class="text-light mb-0">45%</h3>
+                    <h6 class="text-light">&nbsp;Unsafe Condition</h6>
+                </div>
+
+                <br />
+
+                <div class="px-5 py-4 d-flex justify-content-center rounded" style="background-color:#02CCCC;">
+                    <h3 class="text-light mb-0">22%</h3>
+                    <h6 class="text-light mb-0">&nbsp;Clarification</h6>
+                </div>
+            </RadzenColumn>
+
+            <RadzenColumn class="w-25">
+
+                <div class="px-5 py-4 d-flex justify-content-center rounded"
+                    style="background-color: rgba(40, 152, 0, 0.28);">
+                    <h3 class="text-success mb-0">18%</h3>
+                    <h6 class="text-success">&nbsp;Unsafe Act</h6>
+                </div>
+
+                <br />
+
+                <div class="px-5 py-4 d-flex justify-content-center rounded" style="background-color:#289800;">
+                    <h3 class="text-light mb-0">25%</h3>
+                    <h6 class="text-light">&nbsp;Near Miss</h6>
+                </div>
+
+                <br />
+
+                <div class="px-5 py-4 d-flex justify-content-center rounded"
+                    style="background-color:rgba(0, 162, 253, 0.4);">
+                    <h3 class="text-primary mb-0">25%</h3>
+                    <h6 class="text-primary mb-0">&nbsp;Incidents</h6>
+                </div>
+            </RadzenColumn>
+        </RadzenRow>
+    </RadzenColumn>
+
+
+
+    <RadzenColumn Class="bg-white rounded shadow rz-p-10">
+        <h5 class="text-dark"><strong>Incidents Count</strong></h5>
+        <div class="bg-white shadow d-flex align-items-center">
+            <h3 class="mb-0">
+                <div class="px-5 py-2 text-white d-flex justify-content-center rounded"
+                    style="background-color:#00A2FD;">20</div>
+            </h3>
+            <h6 class="mb-0">&nbsp; &nbsp; Open Incidents</h6>
+        </div>
+
+        <br /><br />
+
+        <div class="bg-white shadow d-flex align-items-center">
+            <h3 class="mb-0">
+                <div class="px-5 py-2 text-white d-flex justify-content-center rounded"
+                    style="background-color:#289800;">20</div>
+            </h3>
+            <h6 class="mb-0">&nbsp; &nbsp; Close Incidents</h6>
+        </div>
+
+        <br /><br />
+
+        <div class="bg-white shadow d-flex align-items-center">
+            <h3 class="mb-0">
+                <div class="px-5 py-2 bg-warning text-white d-flex justify-content-center rounded">04</div>
+            </h3>
+            <h6 class="mb-0">&nbsp; &nbsp; In Progress Incidents</h6>
+        </div>
+
+    </RadzenColumn>
+
+</RadzenRow>
+
+
 
 
 @code {
     int? value;
 
-    @* //Pie Chart
-EventConsole console;
-bool showDataLabels = false;
+    //pie cahrt
+    class DataItem
+    {
+        public string Quarter { get; set; } = string.Empty;
+        public double Revenue { get; set; }
+    }
+    DataItem[] revenue = new DataItem[] {
 
-void OnSeriesClick(SeriesClickEventArgs args)
-{
-console.Log(args);
-}
-
-class DataItem
-{
-public string Quarter { get; set; } = string.Empty;
-public double Revenue { get; set; }
-}
-
-DataItem[] revenue = new DataItem[] {
 new DataItem
+
 {
-Quarter = "Safe Observation",
-Revenue = 30000
+
+Quarter = "Q1",
+
+Revenue = 25
+
 },
+
 new DataItem
+
 {
+
 Quarter = "Q2",
-Revenue = 40000
+
+Revenue = 18
+
 },
+
 new DataItem
+
 {
+
 Quarter = "Q3",
-Revenue = 50000
+
+Revenue = 22
+
+},
+
+new DataItem
+
+{
+
+Quarter = "Q4",
+
+Revenue = 45
+
+},
+
+new DataItem
+
+{
+
+Quarter = "Q5",
+
+Revenue = 40
+
 },
 new DataItem
+
 {
-Quarter = "Q4",
-Revenue = 80000
+
+Quarter = "Q6",
+
+Revenue = 25
+
 },
-}; *@
+
+};
+
 }
