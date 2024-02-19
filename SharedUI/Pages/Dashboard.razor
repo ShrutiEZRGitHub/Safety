@@ -44,10 +44,12 @@
 <RadzenRow>
     <RadzenColumn>
         <div class="border border-dark p-2 mb-0">
-            <i class="fa-regular fa-circle"></i> Safe observation | <i class="fa-regular fa-star"></i> Unsafe Act | <i
-                class="fa-solid fa-circle-half-stroke"></i> Unsafe Condition | <i class="fa-regular fa-diamond"></i>
-            Near Miss | <i class="fa-regular fa-square"></i> Incidents | <i class="fa-solid fa-wave-square"></i>
-            Question/Clarification | <i class="fa-solid fa-cube"></i>Unsafe Observation
+            <i class="fa-regular fa-circle"></i> Safe observation&nbsp;&nbsp;<img src="_content/SharedUI/img/assests/Unsafe_Act.svg">&nbsp;Unsafe Act
+            &nbsp;&nbsp;<img src="_content/SharedUI/img/assests/Unsafe_Condition.svg">&nbsp;Unsafe Condition &nbsp;&nbsp;
+            <img src="_content/SharedUI/img/assests/Near_Miss.svg">&nbsp;Near Miss &nbsp;&nbsp;
+            <img src="_content/SharedUI/img/assests/Incidents.svg">&nbsp;Incidents &nbsp;&nbsp;
+            <img src="_content/SharedUI/img/assests/Question_Clarification.svg">&nbsp;Question/Clarification &nbsp;&nbsp;
+            <img src="_content/SharedUI/img/assests/Unsafe_Observation.svg">&nbsp;Unsafe Observation
         </div>
 
         <br />
@@ -107,9 +109,10 @@
         <RadzenRow class="d-flex align-items-center">
             <RadzenColumn class="w-75">
                 <RadzenChart>
-                    <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue">
+                    <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue" Fills=@(new [] { "#00A2FD", "#005959","#02CCCC","rgba(40, 152, 0, 0.28)","#289800","rgba(0, 162, 253, 0.4)" }) >
                         <RadzenSeriesDataLabels Visible="false" />
                     </RadzenPieSeries>
+
                     <RadzenLegend Visible="false" />
                 </RadzenChart>
             </RadzenColumn>
@@ -270,8 +273,7 @@ new DataItem
 
 Quarter = "Q1",
 
-Revenue = 25
-
+Revenue = 40,
 },
 
 new DataItem
@@ -280,7 +282,7 @@ new DataItem
 
 Quarter = "Q2",
 
-Revenue = 18
+Revenue = 45
 
 },
 
@@ -300,7 +302,7 @@ new DataItem
 
 Quarter = "Q4",
 
-Revenue = 45
+Revenue = 18
 
 },
 
@@ -310,7 +312,7 @@ new DataItem
 
 Quarter = "Q5",
 
-Revenue = 40
+Revenue = 25
 
 },
 new DataItem

@@ -1,4 +1,6 @@
 @page "/useractivitydashboard"
+@using System.Globalization
+
 
 <PageTitle>User Activity Dashboard</PageTitle>
 
@@ -7,16 +9,16 @@
 <RadzenCard class="bg-white shadow">
     <RadzenRow>
         <RadzenColumn Size="10" class="d-flex justify-content-center">
-            <RadzenRadioButtonList @bind-Value=@value TValue="int?">
+            <RadzenRadioButtonList @bind-Value=@filterdt TValue="int?">
                 <Items>
                     <h5>
-                        <RadzenRadioButtonListItem Text="Last Day" Value="1" TValue="int?" class="rz-mx-12" />
+                        <RadzenRadioButtonListItem Text="Day" Value="1" TValue="int?" class="rz-mx-12" />
                     </h5>
                     <h5>
-                        <RadzenRadioButtonListItem Text="Last Week" Value="2" TValue="int?" class="rz-mx-12" />
+                        <RadzenRadioButtonListItem Text="Week" Value="2" TValue="int?" class="rz-mx-12" />
                     </h5>
                     <h5>
-                        <RadzenRadioButtonListItem Text="Last Month" Value="3" TValue="int?" class="rz-mx-12" />
+                        <RadzenRadioButtonListItem Text="Month" Value="3" TValue="int?" class="rz-mx-12" />
                     </h5>
                 </Items>
             </RadzenRadioButtonList>
@@ -32,7 +34,20 @@
 <br />
 
 <RadzenCard class="shadow rounded rz-p-10">
-
+    <RadzenChart>
+        <RadzenAreaSeries Smooth="true" Data="@NewUsers" CategoryProperty="Week" Title="New Users" ValueProperty="Users"
+            RenderingOrder="1">
+        </RadzenAreaSeries>
+        <RadzenAreaSeries Smooth="true" Data="@ActiveUsers" CategoryProperty="Week" Title="Active Users"
+            LineType="LineType.Solid" ValueProperty="Users">
+        </RadzenAreaSeries>
+        <RadzenCategoryAxis Padding="20" Formatter="@FormatAsWeek" />
+        <RadzenValueAxis Formatter="@FormatAsUSD">
+            <RadzenGridLines Visible="true" />
+            <RadzenAxisTitle Text="Users" />
+            <RadzenLegend Visible="true" Position="LegendPosition.Top" />
+        </RadzenValueAxis>
+    </RadzenChart>
 </RadzenCard>
 
 <br />
@@ -50,5 +65,44 @@
 
 
 @code {
-    int? value;
+    int? filterdt;
+
+    //Graph
+    class DataItem
+    {
+        public string Week { get; set; }
+        public double Users { get; set; }
+    }
+
+    string FormatAsUSD(object value)
+    {
+        return ((double)value).ToString("", CultureInfo.CreateSpecificCulture(""));
+    }
+
+    string FormatAsWeek(object value)
+    {
+        if (value != null)
+        {
+            return $"Week {value}";
+        }
+
+        return string.Empty;
+    }
+
+    DataItem[] NewUsers = new DataItem[] {
+new DataItem { Week = "1", Users = 90 },
+new DataItem { Week = "2", Users = 190 },
+new DataItem { Week = "3", Users = 200 },
+new DataItem { Week = "4", Users = 210 },
+
+
+// Add data for other weeks
+};
+
+    DataItem[] ActiveUsers = new DataItem[] {
+new DataItem { Week = "1", Users = 110 },
+new DataItem { Week = "2", Users = 147 },
+new DataItem { Week = "3", Users = 255 },
+new DataItem { Week = "4", Users = 270 },
+};
 }

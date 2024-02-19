@@ -93,13 +93,14 @@
 
 
         <h5 class="text-secondary">Departments</h5>
-        <BSInput InputType="InputType.TextArea" Value="@("")"></BSInput>
-
+        <RadzenDropDown @bind-Value=@dept Data=@user TextProperty="Department" ValueProperty="dept_val"
+            Name="DropDownMultipleChips" Multiple=true AllowClear=true Placeholder="Select products" Chips=true
+            Style="width: 100%; max-width: 400px;" />
 
     </Content>
     <Footer Context="modal">
-        <BSButton MarginStart="Margins.Auto"
-            class="border border-primary bg-light rounded-pill text-primary" @onclick="modal.HideAsync">
+        <BSButton MarginStart="Margins.Auto" class="border border-primary bg-light rounded-pill text-primary"
+            @onclick="modal.HideAsync">
             Reset</BSButton>
         <BSButton class="text-white bg-primary rounded-pill">Apply</BSButton>
     </Footer>
@@ -141,5 +142,11 @@ else
     {
         user = await Task.Run(() => userlist.UserTable());
     }
+
+    //filter
+    string dept_val = "Department 1";
+    List<string> dept = new(){
+"Department 1", "Department 2", "Department 3", "Department 4"
+};
 
 }
