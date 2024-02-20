@@ -95,6 +95,7 @@ body {
     }
 }
 
+
 .text-blue {
     color: var(--text-color-blue);
 }
@@ -305,4 +306,10 @@ thead {
 .edit-modeI {
     background: #E6E6E6;
     border-radius: 17px;
+}
+
+/*radio filter - dashbrd*/
+.marked :checked {
+    color: var(--text-color-blue) !important;
+    font-weight: 600;
 }
