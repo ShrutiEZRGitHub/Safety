@@ -95,6 +95,13 @@ body {
     }
 }
 
+.nav-item:active {
+    text-decoration-line: underline;
+    text-decoration-color: #fff;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+}
+
 
 .text-blue {
     color: var(--text-color-blue);
@@ -309,7 +316,7 @@ thead {
 }
 
 /*radio filter - dashbrd*/
-.marked :checked {
+.marked {
     color: var(--text-color-blue) !important;
     font-weight: 600;
 }

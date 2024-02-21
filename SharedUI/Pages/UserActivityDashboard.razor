@@ -41,6 +41,30 @@
         <RadzenAreaSeries Smooth="true" Data="@ActiveUsers" CategoryProperty="Week" Title="Active Users"
             LineType="LineType.Solid" ValueProperty="Users">
         </RadzenAreaSeries>
+        <RadzenRow>
+            <RadzenColumn Size="7"></RadzenColumn>
+            <RadzenColumn>
+                <RadzenColumn>
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-user-group fa-xl"></i>
+                        <h2>&nbsp;<strong>250</strong></h2>
+                    </div>
+                    <h6 class="d-flex justify-content-start">Total Active Users</h6>
+                </RadzenColumn>
+            </RadzenColumn>
+            <RadzenColumn>
+                <RadzenColumn>
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-user-group fa-xl"></i>
+                        <h2>&nbsp;<strong>100</strong></h2>
+                    </div>
+                    <h6 class="d-flex justify-content-start">Total New Users</h6>
+                </RadzenColumn>
+            </RadzenColumn>
+            <RadzenColumn Size="2"></RadzenColumn>
+        </RadzenRow>
+        
+        <br>
         <RadzenCategoryAxis Padding="20" Formatter="@FormatAsWeek" />
         <RadzenValueAxis Formatter="@FormatAsUSD">
             <RadzenGridLines Visible="true" />
@@ -55,11 +79,45 @@
 <RadzenRow>
     <RadzenColumn class="shadow rounded rz-p-10">
         <h5 class="text-dark"><strong>Heat Map</strong></h5>
+        <img src="_content/SharedUI/img/assests/heat-map.svg" />
 
     </RadzenColumn>
 
+    <!--Donut Chart-->
     <RadzenColumn Class="bg-white rounded shadow rz-p-10 ">
-
+        <RadzenRow>
+            <RadzenColumn>
+                <RadzenChart>
+                    <RadzenDonutSeries Radius="40" Data="@revenue" CategoryProperty="PieC" ValueProperty="Revenue"
+                        TotalAngle="360" StartAngle="360">
+                        <ChildContent>
+                            <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                        </ChildContent>
+                        <TitleTemplate>
+                            <RadzenDonutSeries Radius="40" Data="@revenue" CategoryProperty="PieC"
+                                ValueProperty="Revenue" TotalAngle="360" StartAngle="360">
+                                <ChildContent>
+                                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                                </ChildContent>
+                                <TitleTemplate>
+                                    <RadzenDonutSeries Radius="40" Data="@revenue" CategoryProperty="PieC"
+                                        ValueProperty="Revenue" TotalAngle="360" StartAngle="360">
+                                        <ChildContent>
+                                            <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                                        </ChildContent>
+                                        <TitleTemplate>
+                                            <div class="rz-donut-content">
+                                                <div>90%</div>
+                                            </div>
+                                        </TitleTemplate>
+                                    </RadzenDonutSeries>
+                                </TitleTemplate>
+                            </RadzenDonutSeries>
+                        </TitleTemplate>
+                    </RadzenDonutSeries>
+                </RadzenChart>
+            </RadzenColumn>
+        </RadzenRow>
     </RadzenColumn>
 </RadzenRow>
 
@@ -94,9 +152,6 @@ new DataItem { Week = "1", Users = 90 },
 new DataItem { Week = "2", Users = 190 },
 new DataItem { Week = "3", Users = 200 },
 new DataItem { Week = "4", Users = 210 },
-
-
-// Add data for other weeks
 };
 
     DataItem[] ActiveUsers = new DataItem[] {
@@ -104,5 +159,23 @@ new DataItem { Week = "1", Users = 110 },
 new DataItem { Week = "2", Users = 147 },
 new DataItem { Week = "3", Users = 255 },
 new DataItem { Week = "4", Users = 270 },
+};
+
+    //DONUT CHART
+
+    bool showDataLabels = false;
+
+    class DataItemI
+    {
+        public string PieC { get; set; }
+        public double Revenue { get; set; }
+    }
+
+    DataItemI[] revenue = new DataItemI[] {
+new DataItemI
+{
+PieC = "Q1",
+Revenue = 100
+}
 };
 }
