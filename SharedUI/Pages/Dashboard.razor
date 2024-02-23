@@ -7,20 +7,17 @@
 
 <RadzenCard class="bg-white shadow">
     <RadzenRow>
-        <RadzenColumn Size="10" class="d-flex justify-content-center">
-            <RadzenRadioButtonList @bind-Value=@value TValue="int?">
-                <Items>
-                    <h5>
-                        <RadzenRadioButtonListItem Text="Last Day" Value="1" TValue="int?" class="rz-mx-12" />
-                    </h5>
-                    <h5>
-                        <RadzenRadioButtonListItem Text="Last Week" Value="2" TValue="int?" class="rz-mx-12" />
-                    </h5>
-                    <h5>
-                        <RadzenRadioButtonListItem Text="Last Month" Value="3" TValue="int?" class="rz-mx-12" />
-                    </h5>
-                </Items>
-            </RadzenRadioButtonList>
+        <RadzenColumn Size="10" class="d-flex justify-content-around">
+        <label class="d-flex justify-content-center" style="color: @labelColor[0];">
+            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(0)" checked> &nbsp; Last Day
+        </label>
+        <label class="d-flex justify-content-center" style="color: @labelColor[1];">
+            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(1)"> &nbsp; Last Week
+        </label>
+        <label class="d-flex justify-content-center" style="color: @labelColor[2];">
+            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(2)"> &nbsp; Last Month
+        </label>
+
         </RadzenColumn>
 
         <RadzenColumn Size="2" class="rz-px-10 border-start d-flex align-items-center">
@@ -252,7 +249,34 @@
 @code {
     int? value;
 
-    //pie cahrt
+    @* Radio option font Style Change *@
+    private string fontWeight = "normal";
+
+    private string fontColor = "black";
+
+    private string[] labelColor = { "blue", "black", "black" };
+
+    private void ChangeFontToBold(int labelIndex)
+    {
+        ChangeFontProperties("bold", "Blue", labelIndex);
+
+    }
+    private void ChangeFontProperties(string weight, string color, int labelIndex)
+    {
+        fontWeight = weight;
+
+        fontColor = color;
+
+        for (int i = 0; i < labelColor.Length; i++)
+
+        {
+            labelColor[i] = labelIndex == i ? "blue" : "black";
+
+        }
+        StateHasChanged();
+    }
+
+    //Pie Chart
     class DataItem
     {
         public string Quarter { get; set; } = string.Empty;
