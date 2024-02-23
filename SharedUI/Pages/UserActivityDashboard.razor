@@ -47,7 +47,7 @@
                 <RadzenColumn>
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-user-group fa-xl"></i>
-                        <h2>&nbsp;<strong>250</strong></h2>
+                        <h2 class="fw-bold">&nbsp;250</h2>
                     </div>
                     <h6 class="d-flex justify-content-start">Total Active Users</h6>
                 </RadzenColumn>
@@ -56,14 +56,14 @@
                 <RadzenColumn>
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-user-group fa-xl"></i>
-                        <h2>&nbsp;<strong>100</strong></h2>
+                        <h2 class="fw-bold">&nbsp;100</h2>
                     </div>
                     <h6 class="d-flex justify-content-start">Total New Users</h6>
                 </RadzenColumn>
             </RadzenColumn>
             <RadzenColumn Size="2"></RadzenColumn>
         </RadzenRow>
-        
+
         <br>
         <RadzenCategoryAxis Padding="20" Formatter="@FormatAsWeek" />
         <RadzenValueAxis Formatter="@FormatAsUSD">
@@ -78,32 +78,38 @@
 
 <RadzenRow>
     <RadzenColumn class="shadow rounded rz-p-10">
-        <h5 class="text-dark"><strong>Heat Map</strong></h5>
-        <img src="_content/SharedUI/img/assests/heat-map.svg" />
+        <h5 class="text-dark fw-bold">Heat Map</h5>
+        @* <img src="_content/SharedUI/img/assests/heat-map.svg" /> *@
 
     </RadzenColumn>
 
     <!--Donut Chart-->
     <RadzenColumn Class="bg-white rounded shadow rz-p-10 ">
         <RadzenRow>
-            <RadzenColumn>
+            <RadzenColumn Size="8">
                 <RadzenChart>
-                    <RadzenDonutSeries Radius="40" Data="@revenue" CategoryProperty="PieC" ValueProperty="Revenue"
-                        TotalAngle="360" StartAngle="360">
+
+                    @* Outer Donut Chart *@
+                    <RadzenDonutSeries Data="@rev" CategoryProperty="Qtr" ValueProperty="Rev"
+                        TotalAngle="360" StartAngle="360" Radius="140" InnerRadius="120">
                         <ChildContent>
                             <RadzenSeriesDataLabels Visible="@showDataLabels" />
                         </ChildContent>
                         <TitleTemplate>
-                            <RadzenDonutSeries Radius="40" Data="@revenue" CategoryProperty="PieC"
-                                ValueProperty="Revenue" TotalAngle="360" StartAngle="360">
+
+                            @* Middle Donut Chart *@
+                            <RadzenDonutSeries Data="@revI" CategoryProperty="QtrI" ValueProperty="RevI"
+                                TotalAngle="360" StartAngle="360" Radius="110" InnerRadius="90">
                                 <ChildContent>
-                                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                                    <RadzenSeriesDataLabels Visible="@sDL" />
                                 </ChildContent>
                                 <TitleTemplate>
-                                    <RadzenDonutSeries Radius="40" Data="@revenue" CategoryProperty="PieC"
-                                        ValueProperty="Revenue" TotalAngle="360" StartAngle="360">
+
+                                    @* Center Donut Chart *@
+                                    <RadzenDonutSeries Data="@revII" CategoryProperty="QtrII"
+                                        ValueProperty="RevII" TotalAngle="360" StartAngle="360" Radius="80" InnerRadius="60">
                                         <ChildContent>
-                                            <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                                            <RadzenSeriesDataLabels Visible="@sDL3" />
                                         </ChildContent>
                                         <TitleTemplate>
                                             <div class="rz-donut-content">
@@ -115,7 +121,29 @@
                             </RadzenDonutSeries>
                         </TitleTemplate>
                     </RadzenDonutSeries>
+                    <RadzenLegend Visible="false" />
                 </RadzenChart>
+            </RadzenColumn>
+
+            <RadzenColumn Size="4">
+                <div class="shadow p-3 rounded">
+                    <h4 class="d-flex justify-content-center text-primary fw-bold">500</h4>
+                    <h6 class="d-flex justify-content-center text-primary fw-bold">Registered Users</h6>
+                </div>
+
+                <br />
+
+                <div class="shadow p-3 rounded">
+                    <h4 class="d-flex justify-content-center text-success fw-bold">250</h4>
+                    <h6 class="d-flex justify-content-center text-success fw-bold">Active Users</h6>
+                </div>
+
+                <br />
+
+                <div class="shadow p-3 rounded">
+                    <h4 class="d-flex justify-content-center text-primary fw-bold">75</h4>
+                    <h6 class="d-flex justify-content-center text-primary fw-bold">New Users</h6>
+                </div>
             </RadzenColumn>
         </RadzenRow>
     </RadzenColumn>
@@ -161,21 +189,40 @@ new DataItem { Week = "3", Users = 255 },
 new DataItem { Week = "4", Users = 270 },
 };
 
+
     //DONUT CHART
-
     bool showDataLabels = false;
-
-    class DataItemI
+   class DataItemI
     {
-        public string PieC { get; set; }
-        public double Revenue { get; set; }
+        public string Qtr { get; set; }
+        public double Rev { get; set; }
     }
 
-    DataItemI[] revenue = new DataItemI[] {
-new DataItemI
-{
-PieC = "Q1",
-Revenue = 100
-}
+    DataItemI[] rev = new DataItemI[] {
+new DataItemI{ Qtr = "Q1",Rev = 100}
+};
+
+    //Donut chartI
+    bool sDL = false;
+    class DataItemII
+    {
+        public string QtrI { get; set; }
+        public double RevI { get; set; }
+    }
+
+    DataItemII[] revI = new DataItemII[] {
+new DataItemII{ QtrI = "Q2",RevI = 80}
+};
+
+    //Donut chartI
+    bool sDL3 = false;
+    class DataItem3
+    {
+        public string QtrII { get; set; }
+        public double RevII { get; set; }
+    }
+
+    DataItem3[] revII = new DataItem3[] {
+new DataItem3{ QtrII = "Q3",RevII = 80}
 };
 }

@@ -316,7 +316,8 @@ thead {
 }
 
 /*radio filter - dashbrd*/
-.marked {
+.marked:active {
+    accent-color: var(--text-color-blue) !important;
     color: var(--text-color-blue) !important;
     font-weight: 600;
 }
