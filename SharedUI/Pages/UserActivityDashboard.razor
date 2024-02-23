@@ -8,6 +8,7 @@
 
 <RadzenCard class="bg-white shadow">
     <RadzenRow>
+
         <RadzenColumn Size="10" class="d-flex justify-content-around">
         <label class="d-flex justify-content-center" style="color: @labelColor[0];">
             <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(0)" checked> &nbsp; Day
@@ -91,11 +92,11 @@
                         <ChildContent>
                             <RadzenSeriesDataLabels Visible="@showDataLabels" />
                         </ChildContent>
-                        <TitleTemplate>
+                        <TitleTemplate class="rz-series-item-15">
 
                             @* Middle Donut Chart *@
                             <RadzenDonutSeries Data="@revI" CategoryProperty="QtrI" ValueProperty="RevI"
-                                TotalAngle="360" StartAngle="360" Radius="110" InnerRadius="90">
+                                TotalAngle="190" StartAngle="90" Radius="110" InnerRadius="90">
                                 <ChildContent>
                                     <RadzenSeriesDataLabels Visible="@sDL" />
                                 </ChildContent>
@@ -103,7 +104,7 @@
 
                                     @* Center Donut Chart *@
                                     <RadzenDonutSeries Data="@revII" CategoryProperty="QtrII"
-                                        ValueProperty="RevII" TotalAngle="360" StartAngle="360" Radius="80" InnerRadius="60">
+                                        ValueProperty="RevII" TotalAngle="90" StartAngle="90" Radius="80" InnerRadius="60">
                                         <ChildContent>
                                             <RadzenSeriesDataLabels Visible="@sDL3" />
                                         </ChildContent>
@@ -112,11 +113,15 @@
                                                 <div>90%</div>
                                             </div>
                                         </TitleTemplate>
+
                                     </RadzenDonutSeries>
                                 </TitleTemplate>
+
                             </RadzenDonutSeries>
                         </TitleTemplate>
+
                     </RadzenDonutSeries>
+                    
                     <RadzenLegend Visible="false" />
                 </RadzenChart>
             </RadzenColumn>
@@ -233,6 +238,7 @@ new DataItemI{ Qtr = "Q1",Rev = 100}
     }
 
     DataItemII[] revI = new DataItemII[] {
+new DataItemII{ QtrI = "Q2",RevI = 0},
 new DataItemII{ QtrI = "Q2",RevI = 80}
 };
 
@@ -245,6 +251,8 @@ new DataItemII{ QtrI = "Q2",RevI = 80}
     }
 
     DataItem3[] revII = new DataItem3[] {
-new DataItem3{ QtrII = "Q3",RevII = 80}
+new DataItem3{ QtrII = "Q3",RevII = 0},
+new DataItem3{ QtrII = "Q3",RevII = 0},
+new DataItem3{ QtrII = "Q3",RevII = 27}
 };
 }
