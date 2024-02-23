@@ -38,8 +38,18 @@
         <RadzenAreaSeries Smooth="true" Data="@ActiveUsers" CategoryProperty="Week" Title="Active Users"
             LineType="LineType.Solid" ValueProperty="Users">
         </RadzenAreaSeries>
+        
         <RadzenRow>
-            <RadzenColumn Size="7"></RadzenColumn>
+            <RadzenColumn Size="3"></RadzenColumn>
+            <RadzenColumn Size="4">
+                 <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2 rounded-circle" style="background-color:#BA68C8;"></div>&nbsp;New Users
+                </div>
+
+                <div class="d-flex align-items-center pb-2">
+                    <div class="rz-p-2 rounded-circle" style="background-color:#3700b3;"></div>&nbsp;Active Users
+                </div>
+            </RadzenColumn>
             <RadzenColumn>
                 <RadzenColumn>
                     <div class="d-flex align-items-center">
@@ -66,7 +76,7 @@
         <RadzenValueAxis Formatter="@FormatAsUSD">
             <RadzenGridLines Visible="true" />
             <RadzenAxisTitle Text="Users" />
-            <RadzenLegend Visible="true" Position="LegendPosition.Top" />
+            <RadzenLegend Visible="false" Position="LegendPosition.Top" />
         </RadzenValueAxis>
     </RadzenChart>
 </RadzenCard>
@@ -92,7 +102,7 @@
                         <ChildContent>
                             <RadzenSeriesDataLabels Visible="@showDataLabels" />
                         </ChildContent>
-                        <TitleTemplate class="rz-series-item-15">
+                        <TitleTemplate>
 
                             @* Middle Donut Chart *@
                             <RadzenDonutSeries Data="@revI" CategoryProperty="QtrI" ValueProperty="RevI"
