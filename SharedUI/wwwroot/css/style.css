@@ -10,6 +10,9 @@
     --text-color-blue: #00A3FF;
     --color-primary: #00A3FF;
     --button-color-primary: #00A3FF;
+    --pccrd1: #02CCCC;
+    --pccrd2: #289800;
+    --pccrd3: #20AEFD;
 }
 
 
@@ -93,13 +96,6 @@ body {
     img {
         margin-right: 10px;
     }
-}
-
-.nav-item:active {
-    text-decoration-line: underline;
-    text-decoration-color: #fff;
-    text-decoration-style: solid;
-    text-decoration-thickness: 1px;
 }
 
 
@@ -320,4 +316,17 @@ thead {
     accent-color: var(--text-color-blue) !important;
     color: var(--text-color-blue) !important;
     font-weight: 600;
+}
+
+/*Donut Pie Chart color*/
+.piechart-card1 {
+    color: var(--pccrd1) !important;
+}
+
+.piechart-card2 {
+    color: var(--pccrd2) !important;
+}
+
+.piechart-card3 {
+    color: var(--pccrd3) !important;
 }

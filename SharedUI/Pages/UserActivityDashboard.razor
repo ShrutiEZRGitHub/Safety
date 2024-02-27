@@ -98,7 +98,7 @@
 
                     @* Outer Donut Chart *@
                     <RadzenDonutSeries Data="@rev" CategoryProperty="Qtr" ValueProperty="Rev"
-                        TotalAngle="360" StartAngle="360" Radius="140" InnerRadius="120">
+                        TotalAngle="360" StartAngle="360" Radius="140" InnerRadius="120" Fills=@(new [] { "#02CCCC"}) >
                         <ChildContent>
                             <RadzenSeriesDataLabels Visible="@showDataLabels" />
                         </ChildContent>
@@ -106,7 +106,7 @@
 
                             @* Middle Donut Chart *@
                             <RadzenDonutSeries Data="@revI" CategoryProperty="QtrI" ValueProperty="RevI"
-                                TotalAngle="190" StartAngle="90" Radius="110" InnerRadius="90">
+                                TotalAngle="190" StartAngle="90" Radius="110" InnerRadius="90" Fills=@(new [] { "#289800" }) >
                                 <ChildContent>
                                     <RadzenSeriesDataLabels Visible="@sDL" />
                                 </ChildContent>
@@ -114,7 +114,7 @@
 
                                     @* Center Donut Chart *@
                                     <RadzenDonutSeries Data="@revII" CategoryProperty="QtrII"
-                                        ValueProperty="RevII" TotalAngle="90" StartAngle="90" Radius="80" InnerRadius="60">
+                                        ValueProperty="RevII" TotalAngle="90" StartAngle="90" Radius="80" InnerRadius="60" Fills=@(new [] { "#20AEFD" }) >
                                         <ChildContent>
                                             <RadzenSeriesDataLabels Visible="@sDL3" />
                                         </ChildContent>
@@ -137,23 +137,23 @@
             </RadzenColumn>
 
             <RadzenColumn Size="4">
-                <div class="shadow p-3 rounded">
-                    <h4 class="d-flex justify-content-center text-primary fw-bold">500</h4>
-                    <h6 class="d-flex justify-content-center text-primary fw-bold">Registered Users</h6>
+                <div class="shadow p-3 rounded piechart-card1">
+                    <h4 class="d-flex justify-content-center fw-bold">500</h4>
+                    <h6 class="d-flex justify-content-center fw-bold">Registered Users</h6>
                 </div>
 
                 <br />
 
-                <div class="shadow p-3 rounded">
-                    <h4 class="d-flex justify-content-center text-success fw-bold">250</h4>
-                    <h6 class="d-flex justify-content-center text-success fw-bold">Active Users</h6>
+                <div class="shadow p-3 rounded piechart-card2">
+                    <h4 class="d-flex justify-content-center fw-bold">250</h4>
+                    <h6 class="d-flex justify-content-center fw-bold">Active Users</h6>
                 </div>
 
                 <br />
 
-                <div class="shadow p-3 rounded">
-                    <h4 class="d-flex justify-content-center text-primary fw-bold">75</h4>
-                    <h6 class="d-flex justify-content-center text-primary fw-bold">New Users</h6>
+                <div class="shadow p-3 rounded piechart-card3">
+                    <h4 class="d-flex justify-content-center fw-bold">75</h4>
+                    <h6 class="d-flex justify-content-center fw-bold">New Users</h6>
                 </div>
             </RadzenColumn>
         </RadzenRow>
@@ -248,7 +248,6 @@ new DataItemI{ Qtr = "Q1",Rev = 100}
     }
 
     DataItemII[] revI = new DataItemII[] {
-new DataItemII{ QtrI = "Q2",RevI = 0},
 new DataItemII{ QtrI = "Q2",RevI = 80}
 };
 
@@ -261,8 +260,6 @@ new DataItemII{ QtrI = "Q2",RevI = 80}
     }
 
     DataItem3[] revII = new DataItem3[] {
-new DataItem3{ QtrII = "Q3",RevII = 0},
-new DataItem3{ QtrII = "Q3",RevII = 0},
 new DataItem3{ QtrII = "Q3",RevII = 27}
 };
 }
