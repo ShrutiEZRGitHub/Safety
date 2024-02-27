@@ -30,7 +30,11 @@ else
 
         <Columns>
 
-            <RadzenDataGridColumn TItem="Department" Property="DeptName" Title="Department Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Department" Property="DeptName" Title="Department Name">
+                <Template Context="data">
+                    <a href="update_dept" class="border-0 text-muted text-decoration-none">@data.DeptName</a>
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="Department" Property="GeoLocation" Title="IS GeoLocation"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="Department" Property="HODName" Title="HOD Name"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="Department" Property="EmailTUser" Title="Email To Users"></RadzenDataGridColumn>

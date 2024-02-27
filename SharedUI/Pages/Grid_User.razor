@@ -93,15 +93,16 @@
 
 
         <h5 class="text-secondary">Departments</h5>
-        <RadzenDropDown @bind-Value=@dept_val Data=@user TextProperty="Depart" ValueProperty="UserLevel" Name="DropDownMultipleChips"
-        Multiple=true AllowClear=true Placeholder="Select Department" Chips=true Style="width: 100%; max-width: 400px;" />
+        <RadzenDropDown @bind-Value=@dept_val Data=@user TextProperty="Depart" ValueProperty="UserLevel"
+            Name="DropDownMultipleChips" Multiple=true AllowClear=true Placeholder="Select Department" Chips=true
+            Style="width: 100%; max-width: 400px;" />
 
     </Content>
     <Footer Context="modal">
-        <BSButton MarginStart="Margins.Auto" class="border border-primary bg-light rounded-pill text-primary"
+        <BSButton MarginStart="Margins.Auto" class="w-25 border border-primary bg-light rounded-pill text-primary"
             @onclick="modal.HideAsync">
             Reset</BSButton>
-        <BSButton class="text-white bg-primary rounded-pill">Apply</BSButton>
+        <BSButton class="w-25 text-white bg-primary rounded-pill">Apply</BSButton>
     </Footer>
 </BSModal>
 
@@ -119,7 +120,11 @@ else
         <Columns>
 
             <RadzenDataGridColumn TItem="User" Property="UserLevel" Title="User Level"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="User" Property="FullName" Title="Full Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="User" Property="FullName" Title="Full Name">
+                <Template Context="data">
+                    <a href="update_user" class="border-0 text-muted text-decoration-none">@data.FullName</a>
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="User" Property="Depart" Title="Department"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="User" Property="HOD" Title="HOD"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="User" Property="CNumber" Title="Contact Number"></RadzenDataGridColumn>

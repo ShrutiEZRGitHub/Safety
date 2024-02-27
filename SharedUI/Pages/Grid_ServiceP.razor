@@ -30,6 +30,9 @@ else
         <Columns>
 
             <RadzenDataGridColumn TItem="ServiceP" Property="ServiceProvider" Title="Service Provider">
+                <Template Context="data">
+                    <a href="update_sp" class="border-0 text-muted text-decoration-none">@data.ServiceProvider</a>
+                </Template>
             </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="ServiceP" Property="Status" Title="Status">
                 <Template Context="data">

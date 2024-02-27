@@ -122,7 +122,11 @@ else
         <Columns>
 
             <RadzenDataGridColumn TItem="SR" Property="InId" Title="Incident Id"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="SR" Property="ReportedBy" Title="Reported By"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SR" Property="ReportedBy" Title="Reported By">
+                <Template Context="data">
+                    <a href="safetyreportingdetails" class="border-0 text-muted text-decoration-none">@data.ReportedBy</a>
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="SR" Property="SafetyType" Title="Safety Type"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="SR" Property="Deptmt" Title="Department"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="SR" Property="Date" Title="Date">

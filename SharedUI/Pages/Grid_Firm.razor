@@ -29,7 +29,11 @@ else
 
         <Columns>
 
-            <RadzenDataGridColumn TItem="Firm" Property="FirmName" Title="Firm Name"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Firm" Property="FirmName" Title="Firm Name">
+                <Template Context="data">
+                    <a href="update_firm" class="border-0 text-muted text-decoration-none">@data.FirmName</a>
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="Firm" Property="Status" Title="Status">
                 <Template Context="data">
                     <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>

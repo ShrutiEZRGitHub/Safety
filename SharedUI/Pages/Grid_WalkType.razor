@@ -29,7 +29,11 @@ else
 
         <Columns>
 
-            <RadzenDataGridColumn TItem="WalkType" Property="Walk_Type" Title="Walk Type"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="WalkType" Property="Walk_Type" Title="Walk Type">
+                <Template Context="data">
+                    <a href="update_wkt" class="border-0 text-muted text-decoration-none">@data.Walk_Type</a>
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="WalkType" Property="Status" Title="Status">
                 <Template Context="data">
                     <div class="@(data.Status == "Active" ? "dot-active" : "dot-inactive")"></div>

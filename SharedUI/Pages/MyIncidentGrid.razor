@@ -114,7 +114,11 @@ else
         <Columns>
 
             <RadzenDataGridColumn TItem="MyIncident" Property="InId" Title="Incident Id"></RadzenDataGridColumn>
-            <RadzenDataGridColumn TItem="MyIncident" Property="ReportedBy" Title="Reported By"></RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="MyIncident" Property="ReportedBy" Title="Reported By">
+                <Template Context="data">
+                    <a href="incidentsafetyreportingdetails" class="border-0 text-muted text-decoration-none">@data.ReportedBy</a>
+                </Template>
+            </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="MyIncident" Property="SafetyType" Title="Safety Type"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="MyIncident" Property="Deptmt" Title="Department"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="MyIncident" Property="Date" Title="Date">
