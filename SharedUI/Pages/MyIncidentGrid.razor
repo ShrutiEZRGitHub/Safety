@@ -35,7 +35,7 @@
         <h4 class="text-primary">Filter</h4>
     </Header>
     <Content>
-        <BSRow Justify="Justify.Center" class="align-middle mx-1 mb-3">
+        <BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
             <BSCol>
                 <h6>
                     <RadzenLabel Text="From Date" />
@@ -52,22 +52,23 @@
 
 
         <h6 class="text-secondary">Safety Filter</h6>
-        <BSRow class="align-middle rounded border border-2 m-2 p-1">
+        <BSRow class="align-middle rounded ms-1">
             <BSCol>
-                <RadzenFormField Text="Safety type">
+                <RadzenFormField Text="Safety type" class="mb-2">
                     <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
                 </RadzenFormField>
 
-                <RadzenFormField Text="Walk type">
+                <RadzenFormField Text="Walk type" class="mb-2">
                     <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
                 </RadzenFormField>
             </BSCol>
+
             <BSCol>
-                <RadzenFormField Text="Actual Severity">
+                <RadzenFormField Text="Actual Severity" class="mb-2">
                     <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
                 </RadzenFormField>
 
-                <RadzenFormField Text="Potential Severity">
+                <RadzenFormField Text="Potential Severity" class="mb-2">
                     <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
                 </RadzenFormField>
             </BSCol>
@@ -78,9 +79,9 @@
         </BSRow>
 
 
-        <BSRow class="align-middle rounded border border-2 mx-2 p-1 py-2">
+        <BSRow class="align-middle rounded ms-1 my-3">
             <BSCol>
-                <RadzenFormField Text="User Level">
+                <RadzenFormField Text="User Level" class="me-4">
                     <RadzenDropDown Data="@(dd_list)" @bind-Value="@dd_value" />
                 </RadzenFormField>
 
