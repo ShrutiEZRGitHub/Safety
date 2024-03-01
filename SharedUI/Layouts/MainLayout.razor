@@ -1,17 +1,53 @@
 ﻿@inherits EZRAppLayoutComponentBase
 @inject IJSRuntime JS
 
+@*
 <CascadingValue Value="this">
-    <BSContainer Container="Container.Fluid" class="ps-0">
-        <BSRow>
-            <BSCol Column="2">
-                <SidebarMenu />
-            </BSCol>
-            <BSCol Column="10" class="pt-5">@Body</BSCol>
-        </BSRow>
-    </BSContainer>
+<BSContainer Container="Container.Fluid" class="ps-0">
+<BSRow>
+<BSCol Column="2">
+<SidebarMenu />
+</BSCol>
+<BSCol Column="10" class="pt-5">@Body</BSCol>
+</BSRow>
+</BSContainer>
 </CascadingValue>
 
 @code {
 
-}
+} *@
+
+<header class="sidebar-off navbar sticky-top flex-md-nowrap p-0 shadow" style="">
+
+    <ul class="navbar-nav flex-row d-md-none">
+        <li class="d-flex align-items-center">
+            <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
+        </li>
+        <li class="nav-item d-flex align-items-center">
+            <button class="nav-link px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+                aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </li>
+    </ul>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+            <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
+                aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+                        aria-label="Close"></button>
+                </div>
+                <SidebarMenu />
+            </div>
+        </div>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            @Body
+        </main>
+    </div>
+</div>

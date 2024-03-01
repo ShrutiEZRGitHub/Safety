@@ -19,14 +19,13 @@
             </RadzenCheckBoxList>
 
 
-            <BSButton Color="BSColor.Primary" class="filter-btn border-0 bg-light button-shadow rounded-pill text-dark"
-                Target="srfilter">
+            <BSButton Color="BSColor.Primary" class="text-dark bg-light shadow border-0 rounded-pill" Target="srfilter">
                 <i class="filter-icon fa-solid fa-filter"></i>&nbsp;Filter
             </BSButton>
             <RadzenButton Variant="Variant.Flat" Icon="description" Text="Incident Report"
-                class="create-btn mx-3 rounded-pill" />
+                class="text-light --blue-clr rounded-pill rz-m-2" />
             <RadzenButton Variant="Variant.Flat" Icon="assignment_ind" Text="User Report"
-                class="create-btn rounded-pill" />
+                class="text-light --blue-clr rounded-pill rz-m-2" />
         </span>
     </RadzenColumn>
 </RadzenRow>
@@ -44,11 +43,11 @@
                 <h6>
                     <RadzenLabel Text="From Date" />
                 </h6>
-                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="From Date"/>
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="From Date" />
             </BSCol>
             <BSCol>
                 <h6>
-                    <RadzenLabel Text="To Date"/>
+                    <RadzenLabel Text="To Date" />
                 </h6>
                 <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="To Date" />
             </BSCol>

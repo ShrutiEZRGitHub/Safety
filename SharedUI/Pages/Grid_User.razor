@@ -19,10 +19,6 @@
             </button>
 
         </div>
-        @* <RadzenButton class="filter-btn bg-light button-shadow rounded-pill text-dark me-3" Target="Filter">
-        <i class="fa-solid fa-filter"></i>Filter
-        </RadzenButton> *@
-
         <BSButton Color="BSColor.Primary" class="filter-btn border-0 bg-light button-shadow rounded-pill text-dark me-3"
             Target="Filter">
             <i class="filter-icon fa-solid fa-filter"></i>&nbsp;Filter
@@ -43,7 +39,7 @@
         <h4 class="text-primary">User Filter</h4>
     </Header>
     <Content>
-        <h5 class="text-secondary">Level</h5>
+        <h5 class=" text-secondary">Level</h5>
         <BSRow Justify="Justify.Center" class="align-middle ms-5">
             <BSCol>
                 <div Class="@BS.Form_Check">
@@ -91,11 +87,12 @@
             </BSCol>
         </BSRow>
 
-
         <h5 class="text-secondary">Departments</h5>
-        <RadzenDropDown @bind-Value=@dept_val Data=@user TextProperty="Depart" ValueProperty="UserLevel"
-            Name="DropDownMultipleChips" Multiple=true AllowClear=true Placeholder="Select Department" Chips=true
-            Style="width: 100%; max-width: 400px;" />
+        <BSRow class="ps-3">
+            <RadzenDropDown @bind-Value=@dept_val Data=@user TextProperty="Depart" ValueProperty="UserLevel"
+                Name="DropDownMultipleChips" Multiple=true AllowClear=true Placeholder="Select Department" Chips=true
+                Style="width: 100%; max-width: 400px;" />
+        </BSRow>
 
     </Content>
     <Footer Context="modal">
