@@ -8,22 +8,22 @@
 
 <RadzenCard class="bg-white shadow">
     <RadzenRow>
-
         <RadzenColumn Size="10" class="d-flex justify-content-around">
         <label class="d-flex justify-content-center" style="color: @labelColor[0];">
-            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(0)" checked> &nbsp; Day
+            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(0)" checked> &nbsp; <h6 class="d-flex align-items-center mb-0">Day</h6>
         </label>
         <label class="d-flex justify-content-center" style="color: @labelColor[1];">
-            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(1)"> &nbsp; Week
+            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(1)"> &nbsp; <h6 class="d-flex align-items-center mb-0">Week</h6>
         </label>
         <label class="d-flex justify-content-center" style="color: @labelColor[2];">
-            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(2)"> &nbsp; Month
+            <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(2)"> &nbsp; <h6 class="d-flex align-items-center mb-0">Month</h6>
         </label>
+
         </RadzenColumn>
 
-        <RadzenColumn Size="2" class="rz-px-10 border-start d-flex align-items-center">
+        <RadzenColumn Size="2" class="rz-px-5 border-start d-flex align-items-center">
             <i class="fa-solid fa-plus text-secondary"></i>
-            <h6 class="text-secondary mb-0"> &nbsp; Custom Date</h6>
+            <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
         </RadzenColumn>
     </RadzenRow>
 </RadzenCard>
