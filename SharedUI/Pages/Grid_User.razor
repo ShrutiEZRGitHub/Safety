@@ -119,7 +119,7 @@ else
             <RadzenDataGridColumn TItem="User" Property="UserLevel" Title="User Level"></RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="User" Property="FullName" Title="Full Name">
                 <Template Context="data">
-                    <a href="update_user" class="border-0 text-muted text-decoration-none">@data.FullName</a>
+                    <a href="@("update_user/"+data.FullName)" class="border-0 text-muted text-decoration-none">@data.FullName</a>
                 </Template>
             </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="User" Property="Depart" Title="Department"></RadzenDataGridColumn>

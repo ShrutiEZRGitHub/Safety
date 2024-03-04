@@ -1,4 +1,4 @@
-@page "/update_user"
+@page "/update_user/{id}"
 
 <PageTitle>Update Existing User</PageTitle>
 
@@ -21,7 +21,7 @@
             <RadzenStack>
                 <!-- Full Name -->
                 <RadzenFormField Text="Full Name" class="label-style">
-                    <RadzenTextBox />
+                    <RadzenTextBox @bind-Value="@id" />
                 </RadzenFormField>
 
                 <!-- Contact Number -->
@@ -65,7 +65,7 @@
             <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill w-25" />
 
             <!-- Create User Button -->
-            <RadzenButton Variant="Variant.Flat" Text="Update Create" class="submit-btn rounded-pill w-25" />
+            <RadzenButton Variant="Variant.Flat" Text="Update Create" class="submit-btn rounded-pill w-50" />
 
         </RadzenColumn>
     </RadzenRow>
@@ -73,6 +73,8 @@
 
 
 @code {
+    [Parameter]
+    public string id { get; set; }
     bool statusvalue;
 
     string level = "Level-1";
