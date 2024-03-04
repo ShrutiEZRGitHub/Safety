@@ -1,7 +1,7 @@
 @inject IJSRuntime JS
 
 
-<BSContainer Container="Container.Fluid" class="sidebar">
+@* <BSContainer Container="Container.Fluid">
 
     <Content class="rz-mx-auto">
         <Header class="rz-mx-auto w-100 rz-pt-5">
@@ -77,8 +77,71 @@
         class="w-100 btn btn-light d-flex align-items-center justify-content-center rounded-pill"> <img
             src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
 
-</BSContainer>
+</BSContainer> *@
 
+<div class="left-menu">
+    <BSCard CardType="CardType.Text" class="nav-card rz-p-5 mb-4">
+            <img src="_content/SharedUI/img/assests/user-avatar.svg" style="width:40px" />
+            <div class="nav-card-text rz-my-3">User : 4_Level<br>
+                Mobile No : 907481524<br>
+                Email : 4_level@eslabs.in<br>
+                Level : 4</div>
+        </BSCard>
+        <hr>
+        
+        <BSNav Class="side-menu">
+
+            <BSNavItem Url="dashboard">
+                <img src="_content/SharedUI/img/assests/Dashboard_Vector.svg" />
+                <span class="navlink-text">Dashboard</span>
+            </BSNavItem>
+
+            <BSNavItem Url="useractivitydashboard">
+                <img src="_content/SharedUI/img/assests/Dashboard_Vector.svg" />
+                <span class="navlink-text">User Activity Dashboard</span>
+            </BSNavItem>
+
+            <BSNavItem Url="safetyreportgrid">
+                <img src="_content/SharedUI/img/assests/All_Safety_Reports_Vector.svg" />
+                <span class="navlink-text">All Safety Reports</span>
+            </BSNavItem>
+
+            <BSNavItem Url="myincidentgrid">
+                <img src="_content/SharedUI/img/assests/My_Incident_Vector.svg" />
+                <span class="navlink-text">My Incidents</span>
+            </BSNavItem>
+
+            <BSNavItem Url="usergrid">
+                <img src="_content/SharedUI/img/assests/List_Vector.svg" />
+                <span class="navlink-text">User List</span>
+            </BSNavItem>
+
+            <BSNavItem Url="deptgrid">
+                <img src="_content/SharedUI/img/assests/List_Vector.svg" />
+                <span class="navlink-text">Department List</span>
+            </BSNavItem>
+
+            <BSNavItem Url="servicepgrid">
+                <img src="_content/SharedUI/img/assests/List_Vector.svg" />
+                <span class="navlink-text">Service Provider List</span>
+            </BSNavItem>
+
+            <BSNavItem Url="walktypegrid">
+                <img src="_content/SharedUI/img/assests/List_Vector.svg" />
+                <span class="navlink-text">Walk Type List</span>
+            </BSNavItem>
+
+            <BSNavItem Url="firmgrid">
+                <img src="_content/SharedUI/img/assests/List_Vector.svg" />
+                <span class="navlink-text">Firm List</span>
+            </BSNavItem>
+
+        </BSNav>
+
+        <BSButton Color="BSColor.Primary" IsOutlined="true"
+        class="w-100 btn btn-light d-flex align-items-center justify-content-center rounded-pill"> <img
+            src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
+</div>
 
 @code {
     private BSOffCanvas? _offCanvasRef;
