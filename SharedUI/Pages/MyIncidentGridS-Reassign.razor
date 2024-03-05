@@ -1,0 +1,252 @@
+@page "/myincident-reassign"
+<PageTitle>Safety Reporting</PageTitle>
+
+@* Section Heading *@
+<RadzenRow Gap="15px" RowGap="10px">
+    <RadzenColumn Size="8">
+        <div class="d-flex justify-content-start">
+            <a href="safetyreportgrid">
+                <RadzenButton class="rz-border-radius-10 rz-shadow-10 rz-pt-3 --color-primary">
+                   <i class="fa-solid fa-arrow-left"></i>
+                </RadzenButton>
+            </a>
+        <p class="title ps-3">Safety Reporting</p>
+        </div>
+    </RadzenColumn>
+
+    <RadzenColumn Size="4" class="rz-text-align-end rz-py-3">
+        <a href="history">
+            <RadzenButton Variant="Variant.Outlined"
+                class="text-primary bg-light w-25 border border-primary shadow rounded-pill rz-m-2">
+                <i class="fa-solid fa-clock-rotate-left"></i>History
+            </RadzenButton>
+        </a>
+
+        <RadzenButton Variant="Variant.Flat" class="disable-btn rounded-pill rz-m-2">
+            <i class="fa-solid fa-pen-to-square"></i> Re-assign
+        </RadzenButton>
+
+        <a href="myincident-edit">
+            <RadzenButton Variant="Variant.Flat" Icon="add_circle_outline" class="create-btn">
+                <i class="fa-solid fa-pen-to-square"></i> Edit
+            </RadzenButton>
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<RadzenCard Class="safe-report-card rz-p-8">
+    @* Row-1 *@
+    <RadzenRow class="rz-py-2">
+        <RadzenColumn Size="3">
+            <h6 class="text-secondary">Incident Id</h6>
+            <h6 class="text-dark fw-bold">5892</h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3">
+            <h6 class="text-secondary">Date</h6>
+            <h6 class="text-dark fw-bold">07-Feb-2024 16:14</h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3">
+            <h6 class="text-secondary">Status</h6>
+            <h6 class="text-dark fw-bold">In Progress</h6>
+        </RadzenColumn>
+    </RadzenRow>
+
+    @* Row-2 *@
+    <RadzenRow class="rz-py-2">
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Safety Type</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(stList)" @bind-Value="@stDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Actual Severity</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(asList)" @bind-Value="@asDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Potential Severity</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(psList)" @bind-Value="@psDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Group</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(grpList)" @bind-Value="@grpDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+    </RadzenRow>
+
+    @* Row-3 *@
+    <RadzenRow class="rz-py-2">
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Walk Type</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(wtList)" @bind-Value="@wtDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="9" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Department</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenTextBox class="w-100" Placeholder="Test uat"/>
+            </h6>
+        </RadzenColumn>
+    </RadzenRow>
+
+    @* Row-4 *@
+    <RadzenRow class="rz-py-2">
+        <RadzenColumn Size="3" class="bg-light rounded rz-p-2">
+            <h6 class="text-secondary">Safety Type</h6>
+            <h6 class="text-secondary pt-2">Dry Cargo</h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-light rounded rz-p-2">
+            <h6 class="text-secondary">Assigned to Name</h6>
+            <h6 class="text-secondary pt-2">Devang Parmar</h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-light rounded rz-p-2">
+            <h6 class="text-secondary">Assigned to Email</h6>
+            <h6 class="text-secondary pt-2">devangparamr@empezargroup.com</h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-light rounded rz-p-2">
+            <h6 class="text-secondary">Reported By</h6>
+            <h6 class="text-secondary pt-2">3_LEVEL</h6>
+        </RadzenColumn>
+    </RadzenRow>
+
+    @* Row-5 *@
+    <RadzenRow>
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Department Responsible</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(drList)" @bind-Value="@drDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Assigned To</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenAutoComplete Placeholder="Devgan Permar" class="w-100" />
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Shift</h6>
+            <h6 class="text-dark fw-bold">
+                <RadzenDropDown Data="@(shiftList)" @bind-Value="@shiftDD" class="w-100"/>
+            </h6>
+        </RadzenColumn>
+
+        <RadzenColumn Size="3" class="bg-white rounded rz-p-2">
+            <h6 class="text-secondary">Comments</h6>
+            <RadzenTextBox class="w-100" Placeholder="Comments"/>
+        </RadzenColumn>
+    </RadzenRow>
+
+    <div class="rz-text-align-end rz-p-3">
+        <a href="safetyreportingdetails">
+        <RadzenButton Variant="Variant.Outlined" Text="Cancel" class="text-primary bg-white border border-primary rounded-pill" />
+        </a>
+
+        <a href="safetyreportingdetails">
+        <RadzenButton Variant="Variant.Flat" Text="Save" class="create-btn"/>
+        </a>
+    </div>
+
+</RadzenCard>
+
+<RadzenRow class="rz-mt-10">
+    <RadzenColumn>
+        <RadzenCard Class="shadow rounded">
+            <h6 class="card-txt rz-pb-10">Incident Images(2)</h6>
+            <img src="_content/SharedUI/img/assests/img1.svg" />
+            <img src="_content/SharedUI/img/assests/img2.svg" />
+        </RadzenCard>
+    </RadzenColumn>
+
+    <RadzenColumn>
+        <RadzenCard Class="shadow rounded rz-p-8">
+            <h6 class="card-txt rz-mb-12">Description Voice Note</h6>
+            <RadzenDropDown Data="@(langList)" @bind-Value="@langDD" class="w-100"/>
+            <br /><br />
+            <audio controls autoh6lay muted>
+                <source src="horse.ogg" tyh6e="audio/ogg">
+                <source src="horse.mh63" tyh6e="audio/mh6eg">
+                Your browser does not support the audio element.
+            </audio>
+            <h6 class="text-secondary rz-mt-12">At west basin view point railing damaged need to be reh6aired</h6>
+        </RadzenCard>
+    </RadzenColumn>
+</RadzenRow>
+
+<RadzenCard Class="shadow round  rz-mt-10">
+    <div class="gmap_canvas" style="overflow: hidden; height: fit-content;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777452.9390264275!2d68.68527999421731!3d22.394415122444837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959051f5f0ef795%3A0x861bd887ed54522e!2sGujarat!5e0!3m2!1sen!2sin!4v1707301373809!5m2!1sen!2sin"
+            width="1205" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</RadzenCard>
+
+@code{
+    //Safety Type drop down
+        string stDD = "Unsafe Act";
+    List<string> stList = new(){
+"Safe Observation", "Unsafe Act", "Unsafe Condition", "Never Miss", "Questions/Clarification", "Incidents","Unsafe Observation"
+};
+
+    //Actual Severity drop down
+        string asDD = "Frist Aid Case (1 Minor)";
+    List<string> asList = new(){
+"Not Applicable", "Frist Aid Case (1 Minor)", "Medical Treatment Only (2 Moderate)", "Restricted Work Case (3 Serious)", "Lost Time Injury (4 Major)", "Fatal Injury (5 Catastrophic)"
+};
+
+    //Potential Severity drop down
+        string psDD = "Medical Treatment Only (2 Moderate)";
+    List<string> psList = new(){
+"Not Applicable", "Frist Aid Case (1 Minor)", "Medical Treatment Only (2 Moderate)", "Restricted Work Case (3 Serious)", "Lost Time Injury (4 Major)", "Fatal Injury (5 Catastrophic)"
+};
+
+
+    //Group drop down
+        string grpDD = "Fall of Object";
+    List<string> grpList = new(){
+"Man-Machine-Material Interface", "Fall of Person", "Sudden Release of Energy", "Fall of Object", "Road Traffice/Contractor", "Others"
+};
+
+    //Walk Type drop down
+        string wtDD = "New Walk Type";
+    List<string> wtList = new(){
+"Inpection", "Walk 12", "New Qa Walk Type", "Medical Department", "Safe test Observation", "QA/QC","New Walk Type"
+};
+
+
+
+    //Department Responsible drop down
+        string drDD = "Dry Cargo";
+    List<string> drList = new(){
+"Others", "Dry Cargo", "ACMTPL", "Administration", "AICPTL", "AMCT","Commerical Services","Engineering Services","Enviroment","Exim Yard","Finance and Accounts"
+};
+
+    //Shift drop down
+        string shiftDD = "First";
+    List<string> shiftList = new(){
+"First", "Second", "Thrid", "Gerenal", "Day Night"
+};
+
+    //Language drop down
+        string langDD = "English";
+    List<string> langList = new(){
+"Select Language", "English", "Hindi", "Gujarati"
+};
+}

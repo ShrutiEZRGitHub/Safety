@@ -10,6 +10,7 @@
     --text-color-blue: #00A3FF;
     --color-primary: #00A3FF;
     --button-color-primary: #00A3FF;
+    --disable-btn: #898989;
     --pccrd1: #02CCCC;
     --pccrd2: #289800;
     --pccrd3: #20AEFD;
@@ -28,7 +29,7 @@ body {
 
 .sidebar {
     background-image: linear-gradient(180deg, #674D9F -4.2%, #0D73B0 10.45%, #674D9F 99.99%);
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -183,6 +184,11 @@ body {
 .create-btn {
     border-radius: 50px !important;
     background-color: var(--text-color-blue) !important;
+}
+
+.disable-btn {
+    background: var(--disable-btn) !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* Active status */
