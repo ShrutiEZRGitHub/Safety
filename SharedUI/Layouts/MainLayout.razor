@@ -1,22 +1,6 @@
 ﻿@inherits EZRAppLayoutComponentBase
 @inject IJSRuntime JS
 
-@*
-<CascadingValue Value="this">
-<BSContainer Container="Container.Fluid" class="ps-0">
-<BSRow>
-<BSCol Column="2">
-<SidebarMenu />
-</BSCol>
-<BSCol Column="10" class="pt-5">@Body</BSCol>
-</BSRow>
-</BSContainer>
-</CascadingValue>
-
-@code {
-
-} *@
-
 <header class="sidebar-off navbar sticky-top flex-md-nowrap p-0 shadow" style="">
 
     <ul class="navbar-nav flex-row d-md-none">
@@ -34,16 +18,6 @@
 <main class="container-fluid">
     <div class="row g-0">
         <div class="col-md-2">
-            @* <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
-            aria-labelledby="sidebarMenuLabel">
-            <div class="offcanvas-header pt-3">
-            <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
-            aria-label="Close"></button>
-            </div>
-            <SidebarMenu />
-            </div> *@
-
             <BSOffCanvas @ref="_offCanvas" class="sidebar" Placement="Placement.Left">
                 <Header>
                     <div class="text-center">
