@@ -20,8 +20,8 @@
         <RadzenColumn Size="6">
             <RadzenStack>
                 <!-- Full Name -->
-                <RadzenFormField Text="Full Name" class="label-style">
-                    <RadzenTextBox />
+                <RadzenFormField Text="Full Name" class="label-style rounded-pill">
+                    <RadzenTextBox class=""/>
                 </RadzenFormField>
 
                 <!-- Contact Number -->
@@ -72,7 +72,7 @@
 </RadzenCard>
 
 <a href="usergrid">
-    <RadzenButton Size="ButtonSize.Large" class="rz-border-radius-10 rz-shadow-10 --button-color-primary">
+    <RadzenButton class="rz-border-radius-10 rz-shadow-10 rz-pt-4 --color-primary">
         <i class="fa-solid fa-arrow-left"></i>
     </RadzenButton>
 </a>
@@ -80,24 +80,24 @@
 @code {
     bool statusvalue;
 
-    string level = "Level-1";
+    string level = "Select";
     List<string> ddList = new(){
-"Level-1", "Level-2", "Level-3", "Level-4"
+"Select", "Level-1", "Level-2", "Level-3", "Level-4"
 };
 
-    string emp_type_val = "Employee";
+    string emp_type_val = "Select";
     List<string> emp_type = new(){
-"Employee", "Admin", "Management", "Finance"
+"Select", "Employee", "Service Provider"
 };
 
-    string dept_val = "Department 1";
+    string dept_val = "Select";
     List<string> dept = new(){
-"Department 1", "Department 2", "Department 3", "Department 4"
+"Select", "Others", "Dry Cargo", "ACMTPL", "Administration", "AICPTL", "AMCT","Commerical Services","Engineering Services","Enviroment","Exim Yard","Finance and Accounts"
 };
 
-    string hod_val = "No";
+    string hod_val = "Select";
     List<string> hod = new(){
-"Yes", "No"
+"Select", "Yes", "No"
 };
 
 }

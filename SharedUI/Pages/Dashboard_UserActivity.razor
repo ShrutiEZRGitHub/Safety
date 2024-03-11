@@ -84,23 +84,17 @@
 <br />
 
 <RadzenRow>
-    <RadzenColumn class="shadow rounded rz-p-10">
-        <h5 class="text-dark fw-bold">Heat Map</h5>
-    <div class="position-relative">
-     <img src="_content/SharedUI/img/assests/map.png"  class="w-100"/> 
-     <div class="pinA pins">A</div>
-     <div class="pinB pins">B</div>
-     <div class="pinC pins">C</div>
-     <div class="pinD pins">D</div>
-     <div class="pinE pins">E</div>
-     <div class="pinF pins">F</div>
-    </div>
-
-
-    </RadzenColumn>
+    <RadzenColumn class="shadow rounded">
+        <div class="mapouter">
+            <div class="gmap_canvas" style="overflow: hidden; height: 400px;">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1iiXuL2qGwI_fLyck0BNHRhSbqM2A19E&ehbc=2E312F"
+                width="600" height="550" frameborder="0" style="border-radius:20px; margin-top: -150px;"></iframe>
+            </div>
+        </div>
+        </RadzenColumn>
 
     <!--Donut Chart-->
-    <RadzenColumn Class="bg-white rounded shadow rz-p-10 ">
+    <RadzenColumn Class="bg-white rounded shadow rz-p-10 d-flex justify-content-center">
         <RadzenRow>
             <RadzenColumn Size="8">
                 <RadzenChart>
