@@ -8,13 +8,13 @@
             <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
          </li>
          <li class="nav-item d-flex align-items-center">
-            <button class="nav-link px-3" type="button" @onclick="OpenCanvas">
+            <button class="nav-link px-3" type="button" @onclick="@(()=>{sidebarmenu.Show();})">
             <i class="fa-solid fa-bars"></i>
             </button>
          </li>
       </ul>
    </header>
-   <SidebarMenu/>
+   <SidebarMenu @ref="sidebarmenu"/>
    <div class="main">
       @Body
    </div>
@@ -23,6 +23,9 @@
 
 @code {
     private BSOffCanvas? _offCanvas;
+
+    public SidebarMenu sidebarmenu;
+
     private async Task OpenCanvas()
     {
         if (_offCanvas != null)
