@@ -1,47 +1,46 @@
-﻿@inherits EZRAppLayoutComponentBase
-@inject IJSRuntime JS
+﻿    @inherits EZRAppLayoutComponentBase
+    @inject IJSRuntime JS
 
-<header class="sidebar-off navbar sticky-top flex-md-nowrap p-0 shadow" style="">
+    <header class="sidebar-off navbar sticky-top flex-md-nowrap p-0 shadow">
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="d-flex align-items-center">
+                <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
+            </li>
+            <li class="nav-item d-flex justify-content-end">
+                <button class="nav-link px-3" type="button" @onclick="OpenCanvas">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </li>
+        </ul>
+    </header>
 
-    <ul class="navbar-nav flex-row d-md-none">
-        <li class="d-flex align-items-center">
-            <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
-        </li>
-        <li class="nav-item d-flex align-items-center">
-            <button class="nav-link px-3" type="button" @onclick="OpenCanvas">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </li>
-    </ul>
-</header>
+    <main class="container-fluid">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <BSOffCanvas @ref="_offCanvas" class="sidebar" Placement="Placement.Left">
+                    <Header>
+                        <div class="text-center">
+                            <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-50" alt="Adani Logo" />
+                            <p class="portal-text mt-3">Safety Reporting App</p>
+                        </div>
+                    </Header>
+                    <Content>
+                        <SidebarMenu />
+                    </Content>
+                </BSOffCanvas>
+            </div>
 
-<main class="container-fluid">
-    <div class="row g-0">
-        <div class="col-md-2">
-            <BSOffCanvas @ref="_offCanvas" class="sidebar" Placement="Placement.Left">
-                <Header>
-                    <div class="text-center">
-                        <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-50" alt="Adani Logo" />
-                        <p class="portal-text mt-3">Safety Reporting App</p>
-                    </div>
-                </Header>
-                <Content>
-                    <SidebarMenu />
-                </Content>
-            </BSOffCanvas>
+            <div class="col-md-10 pt-3">
+                @Body
+            </div>
         </div>
+    </main>
 
-        <div class="col-md-10 pt-3">
-            @Body
-        </div>
-    </div>
-</main>
-
-@code {
-    private BSOffCanvas? _offCanvas;
-    private async Task OpenCanvas()
-    {
-        if (_offCanvas != null)
-            await _offCanvas.ToggleAsync();
+    @code {
+        private BSOffCanvas? _offCanvas;
+        private async Task OpenCanvas()
+        {
+            if (_offCanvas != null)
+                await _offCanvas.ToggleAsync();
+        }
     }
-}
