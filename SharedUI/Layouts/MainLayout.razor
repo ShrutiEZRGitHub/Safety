@@ -14,7 +14,7 @@
          </li>
       </ul>
    </header>
-   <SidebarMenu />
+   <SidebarMenu @ref="_offCanvas" class="sidebar" Placement="Placement.Left"/>
    <div class="main">
       @Body
    </div>
@@ -29,3 +29,5 @@
             await _offCanvas.ToggleAsync();
     }
 }
+
+
