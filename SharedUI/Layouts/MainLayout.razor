@@ -1,13 +1,13 @@
 ﻿    @inherits EZRAppLayoutComponentBase
     @inject IJSRuntime JS
 
-    <header class="sidebar-off navbar sticky-top flex-md-nowrap p-0 shadow">
+    <header class="sidebar-off sticky-top flex-md-nowrap p-0 shadow">
         <ul class="navbar-nav flex-row d-md-none">
-            <li class="d-flex align-items-center">
+            <li class="d-flex align-items-center ps-4">
                 <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
             </li>
             <li class="nav-item d-flex justify-content-end">
-                <button class="nav-link px-3" type="button" @onclick="OpenCanvas">
+                <button class="nav-link mt-3 px-3" type="button" @onclick="OpenCanvas">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </li>
@@ -30,17 +30,18 @@
                 </BSOffCanvas>
             </div>
 
+
             <div class="col-md-10 pt-3">
-                @Body
+            @Body
             </div>
         </div>
     </main>
 
-    @code {
-        private BSOffCanvas? _offCanvas;
-        private async Task OpenCanvas()
-        {
-            if (_offCanvas != null)
-                await _offCanvas.ToggleAsync();
-        }
+@code {
+    private BSOffCanvas? _offCanvas;
+    private async Task OpenCanvas()
+    {
+        if (_offCanvas != null)
+            await _offCanvas.ToggleAsync();
     }
+}

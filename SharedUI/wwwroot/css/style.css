@@ -14,16 +14,6 @@
     --pccrd1: #02CCCC;
     --pccrd2: #289800;
     --pccrd3: #20AEFD;
-
-    /*Dashboard Card Marking*/
-    --sqr-1: #9C27B0;
-    --sqr-2: #2196F3;
-    --sqr-3: #F44336;
-    --sqr-4: #FF9800;
-    --sqr-5: #FFEB3B;
-    --sqr-6: #4CAF50;
-    --sqr-7: #000000;
-
 }
 
 
@@ -35,6 +25,29 @@ body {
 
 .h-100 {
     height: 100%;
+}
+
+/*SCROLL-BAR*/
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0ebdf3;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fdf5f3;
 }
 
 .sidebar {
