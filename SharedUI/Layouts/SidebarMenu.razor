@@ -1,6 +1,6 @@
 @inject IJSRuntime JS
 <div class="sidebar">
-   <div>
+   <div class="rz-p-5">
       <div class="text-center">
          <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-50" alt="Adani Logo" />
          <p class="portal-text mt-3">Safety Reporting App</p>
@@ -53,9 +53,10 @@
          </BSNavItem>
       </BSNav>
    </div>
+      <div class="signoutbutton-layout"> 
    <BSButton Color="BSColor.Primary" IsOutlined="true"
       class="w-100 btn btn-light d-flex align-items-center justify-content-center rounded-pill"> <img
-      src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
+      src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton></div>
 </div>
 @code {
 private BSOffCanvas? _offCanvasRef;

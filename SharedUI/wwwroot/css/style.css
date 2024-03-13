@@ -33,7 +33,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 30px;
 }
 
 @media (min-width:991px) {
@@ -41,7 +40,7 @@ body {
         transform: none !important;
         /* --bs-offcanvas-width: 250px; */
         width: 300px;
-        height: 100vh;
+        min-height: 100vh;
 
     }
 
@@ -405,3 +404,21 @@ thead {
 .userrecord {
     margin-bottom: -45px;
 }
+
+.signoutbutton-layout{
+    position: sticky;
+    bottom: 0;
+    padding: 15px;
+    background: #5b52a1;
+    
+}
+/* .signoutbutton::before{
+    content: '';
+    position: absolute;
+    width: 114%;
+    height: 100%;
+    bottom: -6px;
+    background: #664d9f;
+    left: -7%;
+    z-index: -1;
+} */
