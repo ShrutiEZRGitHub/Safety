@@ -74,6 +74,7 @@ body {
 
 .main {
     width: 100%;
+    padding: 15px;
 }
 
 .sidebar-off {
@@ -444,3 +445,6 @@ thead {
     left: -7%;
     z-index: -1;
 } */
+.gmap_canvas iframe{
+    width: 100%;
+}
