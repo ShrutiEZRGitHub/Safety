@@ -152,7 +152,7 @@ body {
 /* .side-menu .nav-item .nav-link.active {} */
 
 
-.btn{
+.btn {
     position: sticky;
     bottom: 0;
 }
@@ -380,9 +380,9 @@ thead {
 .gmap_canvas {
     overflow: hidden;
     height: 400px;
+    border-radius: 20px;
 }
 
 .map_canvas {
-    border-radius: 20px;
     margin-top: -150px;
 }
