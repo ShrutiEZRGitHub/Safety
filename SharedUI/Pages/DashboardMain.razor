@@ -1,3 +1,4 @@
+@page "/"
 @page "/dashboard"
 
 <PageTitle>Dashboard</PageTitle>
@@ -30,9 +31,9 @@
 <br />
 
 <div class="mapouter">
-    <div class="gmap_canvas" style="overflow: hidden; height: 400px;">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1iiXuL2qGwI_fLyck0BNHRhSbqM2A19E&ehbc=2E312F"
-                width="100%" height="550" frameborder="0" style="border-radius:20px; margin-top: -150px;"></iframe>
+    <div class="gmap_canvas">
+        <iframe src="https://www.google.com/maps/d/embed?mid=16Ky1aiP-nbfMVk0AaZ8ynBa5dhWonOw&ehbc=2E312F"
+                width="100%" height="550" frameborder="0" class="map_canvas"></iframe>
     </div>
 </div>
 
@@ -61,39 +62,38 @@
     <RadzenColumn class="border border-dark p-2">
         <RadzenRow>
             <RadzenColumn>
-                <div class="d-flex align-items-center pb-2">
+                <div class="d-flex align-items-center pb-3">
                     <div class="rz-p-2" style="background-color:#9C27B0;"></div>&nbsp;Non-Lost Time Fire
                 </div>
 
-                <div class="d-flex align-items-center pb-2">
-                    <div class="rz-p-2" style="background-color:#2196F3;"></div>&nbsp;Fall of Person
-                </div>
-
-                <div class="d-flex align-items-center">
-                    <div class="rz-p-2" style="background-color:#F44336;"></div>&nbsp;Man-Made- Material Intervention
+                <div class="d-flex align-items-center pb-3">
+                    <div class="rz-p-2 bg-primary"></div>&nbsp;Fall of Person
                 </div>
             </RadzenColumn>
 
             <RadzenColumn>
-                <div class="d-flex align-items-center pb-2">
-                    <div class="rz-p-2" style="background-color:#FF9800;"></div>&nbsp;Sudden
+                <div class="d-flex align-items-center pb-3">
+                    <div class="rz-p-2 bg-warning bg-opacity-0"></div>&nbsp;Sudden
                 </div>
 
-                <div class="d-flex align-items-center pb-2">
-                    <div class="rz-p-2" style="background-color:#FFEB3B;"></div>&nbsp;Road Traffic/contractor
+                <div class="d-flex align-items-center pb-3">
+                    <div class="rz-p-2 bg-warning bg-opacity-50"></div>&nbsp;Road Traffic/contractor
                 </div>
             </RadzenColumn>
 
             <RadzenColumn>
-                <div class="d-flex align-items-center pb-2">
-                    <div class="rz-p-2" style="background-color:#4CAF50;"></div>&nbsp;Fall of Object
+                <div class="d-flex align-items-center pb-3">
+                    <div class="rz-p-2 bg-success"></div>&nbsp;Fall of Object
                 </div>
 
-                <div class="d-flex align-items-center pb-2">
-                    <div class="rz-p-2" style="background-color:#000000;"></div>&nbsp;Potential to Damageasset
+                <div class="d-flex align-items-center pb-3">
+                    <div class="rz-p-2 bg-dark"></div>&nbsp;Potential to Damageasset
                 </div>
             </RadzenColumn>
         </RadzenRow>
+        <div class="d-flex align-items-center">
+                    <div class="rz-p-2 bg-danger"></div>&nbsp;Man-Made- Material Intervention
+                </div>
     </RadzenColumn>
 </RadzenRow>
 

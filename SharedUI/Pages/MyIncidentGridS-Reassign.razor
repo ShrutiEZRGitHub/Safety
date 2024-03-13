@@ -14,15 +14,16 @@
         </div>
     </RadzenColumn>
 
+        @* History button *@
     <RadzenColumn Size="4" class="rz-text-align-end rz-py-3">
         <a href="history">
             <RadzenButton Variant="Variant.Outlined"
-                class="text-primary bg-light w-25 border border-primary shadow rounded-pill rz-m-2">
+                class="text-primary bg-light w-25 border border-primary shadow rounded-pill">
                 <i class="fa-solid fa-clock-rotate-left"></i>History
             </RadzenButton>
         </a>
 
-        <RadzenButton Variant="Variant.Flat" class="disable-btn rounded-pill rz-m-2">
+        <RadzenButton Variant="Variant.Flat" class="disable-btn rounded-pill">
             <i class="fa-solid fa-pen-to-square"></i> Re-assign
         </RadzenButton>
 
@@ -189,13 +190,13 @@
     </RadzenColumn>
 </RadzenRow>
 
-<RadzenCard Class="shadow round  rz-mt-10">
-<div class="mapouter">
-    <div class="gmap_canvas" style="overflow: hidden; height: 400px;">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1iiXuL2qGwI_fLyck0BNHRhSbqM2A19E&ehbc=2E312F"
-                width="100%" height="550" frameborder="0" style="border-radius:20px; margin-top: -150px;"></iframe>
+<RadzenCard Class="shadow round rz-mt-10 p-0">
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe src="https://www.google.com/maps/d/embed?mid=118EIOrWpUInGDhhy3AQfidWBKA5T8Z4&ehbc=2E312F"
+                width="100%" height="550" frameborder="0" class="map_canvas"></iframe>
+        </div>
     </div>
-</div>
 </RadzenCard>
 
 @code{
