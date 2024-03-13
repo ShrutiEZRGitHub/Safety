@@ -152,6 +152,11 @@ body {
 /* .side-menu .nav-item .nav-link.active {} */
 
 
+.btn{
+    position: sticky;
+    bottom: 0;
+}
+
 .text-blue {
     color: var(--text-color-blue);
 }
