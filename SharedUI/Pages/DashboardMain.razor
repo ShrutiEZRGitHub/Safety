@@ -21,8 +21,10 @@
         </RadzenColumn>
 
         <RadzenColumn Size="2" class="rz-px-5 border-start d-flex align-items-center">
+            <BSButton class="d-flex justify-content-center" Target="custdt">
                 <i class="fa-solid fa-plus text-secondary"></i>
-            <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
+                <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
+        </BSButton>
         </RadzenColumn>
     </RadzenRow>
 </RadzenCard>
@@ -269,6 +271,29 @@
 
 </RadzenRow>
 
+@* Custom date pop-up *@
+<BSModal DataId="custdt">
+    <Header>Filter</Header>
+    <Content><BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
+            <BSCol>
+                <h6>
+                    <RadzenLabel Text="From Date" />
+                </h6>
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="From Date" />
+            </BSCol>
+            <BSCol>
+                <h6>
+                    <RadzenLabel Text="To Date" />
+                </h6>
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="To Date" />
+            </BSCol>
+        </BSRow></Content>
+    <Footer Context="modal">
+        <BSButton MarginStart="Margins.Auto" class="w-25 border border-primary bg-light rounded-pill text-primary"
+            @onclick="modal.HideAsync">Reset</BSButton>
+        <BSButton class="w-25 text-white bg-primary rounded-pill">Apply</BSButton>
+    </Footer>
+</BSModal>
 
 @code {
     int? value;
