@@ -273,8 +273,11 @@
 
 @* Custom date pop-up *@
 <BSModal DataId="custdt" IsCentered="true">
-    <Header>Filter</Header>
-    <Content><BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
+    <Header>
+        <h4 class="text-primary">Filter</h4>
+    </Header>
+    <Content>
+        <BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
             <BSCol>
                 <h6>
                     <RadzenLabel Text="From Date" />
@@ -287,7 +290,8 @@
                 </h6>
                 <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="To Date" />
             </BSCol>
-        </BSRow></Content>
+        </BSRow>
+        </Content>
     <Footer Context="modal">
         <BSButton MarginStart="Margins.Auto" class="w-25 border border-primary bg-light rounded-pill text-primary"
             @onclick="modal.HideAsync">Reset</BSButton>
