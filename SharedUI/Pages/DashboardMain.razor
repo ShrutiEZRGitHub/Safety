@@ -24,7 +24,7 @@
             <BSButton class="d-flex justify-content-center" Target="custdt">
                 <i class="fa-solid fa-plus text-secondary"></i>
                 <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
-        </BSButton>
+            </BSButton>
         </RadzenColumn>
     </RadzenRow>
 </RadzenCard>
@@ -272,7 +272,7 @@
 </RadzenRow>
 
 @* Custom date pop-up *@
-<BSModal DataId="custdt">
+<BSModal DataId="custdt" IsCentered="true">
     <Header>Filter</Header>
     <Content><BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
             <BSCol>
@@ -296,7 +296,7 @@
 </BSModal>
 
 @code {
-    int? value;
+ DateTime? value;
 
     @* Radio option font Style Change *@
     private string fontWeight = "normal";
