@@ -99,6 +99,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: sticky;
+    bottom: 0;
 }
 
 .sidebar-off {
