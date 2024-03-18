@@ -71,13 +71,13 @@ body {
     justify-content: space-between;
 }
 
-@media (min-width:991px) {
+/* @Media Queries */
+@media (min-width:768px) {
     .offcanvas {
         transform: none !important;
         /* --bs-offcanvas-width: 250px; */
         width: 300px !important;
         min-height: 100vh;
-
     }
 
     .sidebar .btn-close {
@@ -88,6 +88,36 @@ body {
         position: static;
     }
 }
+
+@media (min-width:1050px) {
+    .offcanvas {
+        transform: none !important;
+        /* --bs-offcanvas-width: 250px; */
+        width: 300px !important;
+        min-height: 100vh;
+    }
+
+    .sidebar .btn-close {
+        display: none;
+    }
+
+    .offcanvas-start {
+        position: static;
+    }
+}
+
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+    .col-1 {
+        width: 15%;
+    }
+
+    .col-2 {
+        width: 25%;
+    }
+}
+
 
 main {
     width: 100%;
