@@ -1,5 +1,4 @@
 @page "/"
-@page "/dashboard"
 
 <PageTitle>Dashboard</PageTitle>
 
@@ -22,8 +21,10 @@
         </RadzenColumn>
 
         <RadzenColumn Size="2" class="rz-px-5 border-start d-flex align-items-center">
-            <i class="fa-solid fa-plus text-secondary"></i>
-            <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
+            <BSButton class="d-flex justify-content-center" Target="custdt">
+                <i class="fa-solid fa-plus text-secondary"></i>
+                <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
+            </BSButton>
         </RadzenColumn>
     </RadzenRow>
 </RadzenCard>
@@ -33,7 +34,7 @@
 <div class="mapouter">
     <div class="gmap_canvas">
         <iframe src="https://www.google.com/maps/d/embed?mid=16Ky1aiP-nbfMVk0AaZ8ynBa5dhWonOw&ehbc=2E312F"
-                width="100%" height="550" frameborder="0" class="map_canvas"></iframe>
+        width="100%" height="600" frameborder="0" class="map_canvas"></iframe>
     </div>
 </div>
 
@@ -101,7 +102,7 @@
 
 <RadzenRow class="h-50">
     <!-- Types of Incidents -->
-    <RadzenColumn class="shadow rounded rz-p-5">
+    <RadzenColumn class="shadow rounded rz-px-5">
         <h5 class="text-dark pb-5 fw-bold">Types of Incidents</h5>
 
         <RadzenRow class="d-flex align-items-stretch">
@@ -229,7 +230,7 @@
 
 
     <!-- Incidents Count -->
-    <RadzenColumn Class="bg-white rounded shadow rz-p-5">
+    <RadzenColumn Class="bg-white rounded shadow rz-px-5">
         <h5 class="text-dark pb-5"><strong>Incidents Count</strong></h5>
         <div class="bg-white shadow d-flex align-items-center">
             <h3 class="mb-0">
@@ -270,11 +271,36 @@
 
 </RadzenRow>
 
-
-
+@* Custom date pop-up *@
+<BSModal DataId="custdt" IsCentered="true">
+    <Header>
+        <h4 class="text-primary">Filter</h4>
+    </Header>
+    <Content>
+        <BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
+            <BSCol>
+                <h6>
+                    <RadzenLabel Text="From Date" />
+                </h6>
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="From Date" />
+            </BSCol>
+            <BSCol>
+                <h6>
+                    <RadzenLabel Text="To Date" />
+                </h6>
+                <RadzenDatePicker @bind-Value=@value Name="RadzenDatePickerBindValue" Placeholder="To Date" />
+            </BSCol>
+        </BSRow>
+        </Content>
+    <Footer Context="modal">
+        <BSButton MarginStart="Margins.Auto" class="w-25 border border-primary bg-light rounded-pill text-primary"
+            @onclick="modal.HideAsync">Reset</BSButton>
+        <BSButton class="w-25 text-white bg-primary rounded-pill">Apply</BSButton>
+    </Footer>
+</BSModal>
 
 @code {
-    int? value;
+ DateTime? value;
 
     @* Radio option font Style Change *@
     private string fontWeight = "normal";

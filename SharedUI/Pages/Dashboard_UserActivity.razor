@@ -22,8 +22,10 @@
         </RadzenColumn>
 
         <RadzenColumn Size="2" class="rz-px-5 border-start d-flex align-items-center">
-            <i class="fa-solid fa-plus text-secondary"></i>
-            <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
+            <BSButton class="d-flex justify-content-center" Target="custdt">
+                <i class="fa-solid fa-plus text-secondary"></i>
+                <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
+            </BSButton>
         </RadzenColumn>
     </RadzenRow>
 </RadzenCard>
@@ -39,7 +41,7 @@
             LineType="LineType.Solid" ValueProperty="Users">
         </RadzenAreaSeries>
         
-        <RadzenRow>
+        <RadzenRow class="userrecord">
             <RadzenColumn Size="3"></RadzenColumn>
             <RadzenColumn Size="4">
                  <div class="d-flex align-items-center pb-2">
@@ -88,7 +90,7 @@
         <div class="mapouter">
             <div class="gmap_canvas">
                 <iframe src="https://www.google.com/maps/d/embed?mid=1iiXuL2qGwI_fLyck0BNHRhSbqM2A19E&ehbc=2E312F"
-                width="600" height="550" frameborder="0" class="map_canvas"></iframe>
+                width="100%" height="550" frameborder="0" class="map_canvas"></iframe>
             </div>
         </div>
     </RadzenColumn>
@@ -163,8 +165,35 @@
     </RadzenColumn>
 </RadzenRow>
 
+@* Custom date pop-up *@
+<BSModal DataId="custdt" IsCentered="true">
+    <Header>
+        <h4 class="text-primary">Filter</h4>
+    </Header>
+    <Content><BSRow Justify="Justify.Center" class="align-middle mx-1 mb-4">
+            <BSCol>
+                <h6>
+                    <RadzenLabel Text="From Date" />
+                </h6>
+                <RadzenDatePicker @bind-Value=@dtvalue Name="RadzenDatePickerBindValue" Placeholder="From Date" />
+            </BSCol>
+            <BSCol>
+                <h6>
+                    <RadzenLabel Text="To Date" />
+                </h6>
+                <RadzenDatePicker @bind-Value=@dtvalue Name="RadzenDatePickerBindValue" Placeholder="To Date" />
+            </BSCol>
+        </BSRow></Content>
+    <Footer Context="modal">
+        <BSButton MarginStart="Margins.Auto" class="w-25 border border-primary bg-light rounded-pill text-primary"
+            @onclick="modal.HideAsync">Reset</BSButton>
+        <BSButton class="w-25 text-white bg-primary rounded-pill">Apply</BSButton>
+    </Footer>
+</BSModal>
+
 
 @code {
+    DateTime? dtvalue;
 
     //filter data
     private string fontWeight = "normal";
@@ -239,10 +268,10 @@ new DataItem { Week = "4", Users = 270 },
     }
 
     DataItemI[] rev = new DataItemI[] {
-new DataItemI{ Qtr = "Q1",Rev = 100}
+new DataItemI{ Qtr = "Registered Users",Rev = 100}
 };
 
-    //Donut chartI
+    //Donut chartII
     bool sDL = false;
     class DataItemII
     {
@@ -251,10 +280,10 @@ new DataItemI{ Qtr = "Q1",Rev = 100}
     }
 
     DataItemII[] revI = new DataItemII[] {
-new DataItemII{ QtrI = "Q2",RevI = 80}
+new DataItemII{ QtrI = "Active Users",RevI = 80}
 };
 
-    //Donut chartI
+    //Donut chartIII
     bool sDL3 = false;
     class DataItem3
     {
@@ -263,6 +292,6 @@ new DataItemII{ QtrI = "Q2",RevI = 80}
     }
 
     DataItem3[] revII = new DataItem3[] {
-new DataItem3{ QtrII = "Q3",RevII = 27}
+new DataItem3{ QtrII = "New Users",RevII = 27}
 };
 }

@@ -14,10 +14,9 @@
     </ul>
 </header>
 
-<main class="container-fluid">
-    <div class="row g-0">
-        <div class="col-md-2">
-            <BSOffCanvas @ref="_offCanvas" class="sidebar" Placement="Placement.Left">
+
+   <div class="d-flex">
+   <BSOffCanvas @ref="_offCanvas" class="sidebar" Placement="Placement.Left">
                 <Header>
                     <div class="text-center">
                         <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-50" alt="Adani Logo" />
@@ -28,14 +27,11 @@
                     <SidebarMenu />
                 </Content>
             </BSOffCanvas>
-        </div>
-
-
-        <div class="col-md-10 pt-3">
-            @Body
-        </div>
-    </div>
+            <main>
+              @Body
 </main>
+   </div>
+
 
 @code {
     private BSOffCanvas? _offCanvas;
