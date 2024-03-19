@@ -100,13 +100,13 @@
 
 <br />
 
-<RadzenRow class="h-50">
+<RadzenRow class="h-auto">
     <!-- Types of Incidents -->
-    <RadzenColumn class="shadow rounded rz-px-5">
-        <h5 class="text-dark pb-5 fw-bold">Types of Incidents</h5>
+    <RadzenColumn class="shadow rounded rz-p-5">
+        <h5 class="text-dark pb-5 mb-0 fw-bold">Types of Incidents</h5>
 
         <RadzenRow class="d-flex align-items-stretch">
-            <RadzenColumn class="w-75">
+            <RadzenColumn class="w-50">
                 <RadzenChart>
                     <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue" Fills=@(new [] { "#00A2FD", "#005959","#02CCCC","rgba(40, 152, 0, 0.28)","#289800","rgba(0, 162, 253, 0.4)" }) >
                         <RadzenSeriesDataLabels Visible="false" />
@@ -117,7 +117,7 @@
             </RadzenColumn>
 
             <RadzenColumn class="w-25">
-                <div class="px-4 h-25 d-flex justify-content-center rounded" style="background-color:#00A2FD;">
+                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd1">
                     <RadzenColumn class="d-flex align-items-center">
                         <h3 class="text-light mb-0 fw-bold">40%
                         </h3>
@@ -132,7 +132,7 @@
 
                 <br />
 
-                <div class="px-4 h-25 d-flex justify-content-center rounded" style="background-color:#005959;">
+                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd2">
                     <RadzenColumn class="d-flex align-items-center">
                         <h3 class="text-light mb-0 fw-bold">45%
                         </h3>
@@ -146,7 +146,7 @@
 
                 <br />
 
-                <div class="px-4 h-25 d-flex justify-content-center rounded" style="background-color:#02CCCC;">
+                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd3">
                     <RadzenColumn class="d-flex align-items-center">
                         <h3 class="text-light mb-0 fw-bold">
                             22%
@@ -161,8 +161,7 @@
 
                 <br/>
 
-                <div class="px-4 h-25 d-flex justify-content-center rounded"
-                    style="background-color:#ff9900;">
+                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd4">
                     <RadzenColumn class="d-flex align-items-center">
                         <h3 class="text-white mb-0 fw-bold d-flex align-items-center">
                             0&nbsp;
@@ -178,15 +177,14 @@
             </RadzenColumn>
 
             <RadzenColumn class="w-25">
-                <div class="px-4 h-25 d-flex justify-content-center rounded"
-                    style="background-color: rgba(40, 152, 0, 0.28);">
+                <div class="px-3 py-3 d-flex justify-content-center rounded tccrd5">
                     <RadzenColumn class="d-flex align-items-center">
                         <h3 class="text-success mb-0 fw-bold">18%
                         </h3>
                     </RadzenColumn>
 
                     <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-success mb-0 ps-2 fw-bold">&nbsp;
+                        <h6 class="text-success mb-0 fw-bold">
                             Unsafe Act
                         </h6>
                     </RadzenColumn>
@@ -194,7 +192,7 @@
 
                 <br />
 
-                <div class="px-4 h-25 d-flex justify-content-center rounded" style="background-color:#289800;">
+                <div class="px-3 py-3 d-flex justify-content-center rounded tccrd6">
                     <RadzenColumn class="d-flex align-items-center">
                         <h3 class="text-light mb-0 fw-bold">
                             25%
@@ -202,7 +200,7 @@
                     </RadzenColumn>
 
                     <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-light mb-0 fw-bold">&nbsp;
+                        <h6 class="text-light mb-0 fw-bold">
                            Near Miss
                         </h6>
                     </RadzenColumn>
@@ -210,16 +208,15 @@
 
                 <br />
 
-                <div class="px-4 h-25 d-flex justify-content-center rounded"
-                    style="background-color:rgba(0, 162, 253, 0.4);">
+                <div class="px-3 py-3 d-flex justify-content-center rounded tccrd7">
                     <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-primary mb-0 fw-bold d-flex align-items-center">
+                        <h3 class="tccrd7 mb-0 fw-bold d-flex align-items-center">
                             25%
                         </h3>
                     </RadzenColumn>
 
                     <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-primary mb-0 d-flex fw-bold align-items-center">&nbsp;
+                        <h6 class="tccrd7 mb-0 d-flex fw-bold align-items-center">
                             Incidents
                         </h6>
                     </RadzenColumn>
@@ -230,12 +227,11 @@
 
 
     <!-- Incidents Count -->
-    <RadzenColumn Class="bg-white rounded shadow rz-px-5">
-        <h5 class="text-dark pb-5"><strong>Incidents Count</strong></h5>
+    <RadzenColumn Class="shadow rounded rz-p-5">
+        <h5 class="text-dark pb-5 mb-0 fw-bold"><strong>Incidents Count</strong></h5>
         <div class="bg-white shadow d-flex align-items-center">
             <h3 class="mb-0">
-                <div class="px-5 py-2 bg-primary text-white d-flex justify-content-center rounded fw-bold"
-                    style="background-color:#00A2FD;">20</div>
+                <div class="px-5 py-2 text-white d-flex justify-content-center rounded fw-bold tccrd1">20</div>
             </h3>
             <h6 class="mb-0 fw-bold">&nbsp; &nbsp; Open Incidents</h6>
         </div>
@@ -244,7 +240,7 @@
 
         <div class="bg-white shadow d-flex align-items-center">
             <h3 class="mb-0">
-                <div class="px-5 py-2 bg-success text-white d-flex justify-content-center rounded fw-bold">20</div>
+                <div class="px-5 py-2 tccrd2 text-white d-flex justify-content-center rounded fw-bold">20</div>
             </h3>
             <h6 class="mb-0 fw-bold">&nbsp; &nbsp; Close Incidents</h6>
         </div>
@@ -253,7 +249,7 @@
 
         <div class="bg-white shadow d-flex align-items-center">
             <h3 class="mb-0">
-                <div class="px-5 py-2 bg-warning text-white d-flex justify-content-center rounded fw-bold">04</div>
+                <div class="px-5 py-2 tccrd4 text-white d-flex justify-content-center rounded fw-bold">04</div>
             </h3>
             <h6 class="mb-0 fw-bold">&nbsp; &nbsp; In Progress Incidents</h6>
         </div>

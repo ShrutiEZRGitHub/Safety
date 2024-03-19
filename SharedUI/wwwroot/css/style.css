@@ -14,6 +14,15 @@
     --pccrd1: #02CCCC;
     --pccrd2: #289800;
     --pccrd3: #20AEFD;
+
+    /*type of incident color*/
+    --crd1: #00A2FD;
+    --crd2: #005959;
+    --crd3: #02CCCC;
+    --crd4: #ff9900;
+    --crd5: #cae0c2;
+    --crd6: #289800;
+    --crd7: #60c5ff;
 }
 
 
@@ -171,6 +180,38 @@ main {
             transparent calc(50% + 0.81px),
             transparent 100%);
 }
+
+
+/*type of incident color*/
+.tccrd1 {
+    background-color: var(--crd1);
+}
+
+.tccrd2 {
+    background-color: var(--crd2);
+}
+
+.tccrd3 {
+    background-color: var(--crd3);
+}
+
+.tccrd4 {
+    background-color: var(--crd4);
+}
+
+.tccrd5 {
+    background-color: var(--crd5);
+}
+
+.tccrd6 {
+    background-color: var(--crd6);
+}
+
+.tccrd7 {
+    background-color: var(--crd7);
+    color:#004A74;
+}
+
 
 .history-card {
     background: #FFFFFF;
