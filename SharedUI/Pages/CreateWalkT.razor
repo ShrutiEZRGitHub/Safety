@@ -6,17 +6,17 @@
 
 <!--Create User Form-->
 <RadzenCard>
-    <RadzenRow AlignItems="AlignItems.Center">
+    <div class="row d-flex align-items-center">
         <!-- Left Column - Image -->
-        <RadzenColumn Size="6">
+        <div class="col-1 col-lg-6">
 
             <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg"
                 AlternateText="Create Account Image" />
 
-        </RadzenColumn>
+        </div>
 
         <!-- Right Column - Form -->
-        <RadzenColumn Size="6">
+        <div class="col-1 col-lg-6">
             <RadzenStack>
                 <!-- Full Name -->
                 <RadzenFormField Text="Walk Type Name" class="label-style">
@@ -29,19 +29,19 @@
                     <RadzenLabel Text="Is Active" Component="CheckBox1" />
                 </div>
 
-                <RadzenRow>
+                <div class="row">
                     <!-- Clear Button -->
                     <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill w-25" />
 
                     <!-- Create User Button -->
                     <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn rounded-pill w-25" />
-                </RadzenRow>
+                </div>
 
 
             </RadzenStack>
 
-        </RadzenColumn>
-    </RadzenRow>
+        </div>
+    </div>
 </RadzenCard>
 
 <a href="walktypegrid">

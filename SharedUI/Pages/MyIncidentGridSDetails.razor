@@ -3,23 +3,22 @@
 <PageTitle>Safety Reporting</PageTitle>
 
 @* Section Heading *@
-<RadzenRow Gap="15px" RowGap="10px">
-    <RadzenColumn Size="8">
+<div class="row">
+    <div class="col-12 col-lg-8 pt-3">
         <div class="d-flex justify-content-start">
-            <a href="safetyreportgrid">
+            <a href="myincidentgrid">
                 <RadzenButton class="rz-border-radius-10 rz-shadow-10 rz-pt-3 --color-primary">
                     <i class="fa-solid fa-arrow-left"></i>
                 </RadzenButton>
             </a>
-            <p class="title ps-3">Safety Reporting</p>
+            <p class="title ps-3 py-1">Safety Reporting</p>
         </div>
-    </RadzenColumn>
+    </div>
 
-    @* History button *@
-    <RadzenColumn Size="4" class="rz-text-align-end rz-py-3">
+    <div class="col-12 col-lg-4 rz-text-align-end p-3">
         <a href="history">
             <RadzenButton Variant="Variant.Outlined"
-                class="text-primary bg-light w-25 border border-primary shadow rounded-pill">
+                class="text-primary bg-light w-25 border border-primary shadow rounded-pill rz-m-2">
                 <i class="fa-solid fa-clock-rotate-left"></i>History
             </RadzenButton>
         </a>
@@ -35,86 +34,88 @@
                 <i class="fa-solid fa-pen-to-square"></i> Edit
             </RadzenButton>
         </a>
-    </RadzenColumn>
-</RadzenRow>
+    </div>
+</div>
 
 <RadzenCard Class="safe-report-card rz-p-8">
-    <RadzenRow class="rz-py-2">
-        <RadzenColumn Size="4">
+    <div class="row rz-py-2">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Incident Id</h6>
-            <h6 class="text-dark fw-bold">5890</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">5892</h6>
+        </div>
 
-        <RadzenColumn Size="4">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Date</h6>
-            <h6 class="text-dark fw-bold">22-Jan-2024 12:54</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">07-Feb-2024 16:14</h6>
+        </div>
 
-        <RadzenColumn Size="4">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Status</h6>
-            <h6 class="text-dark fw-bold">Open</h6>
-        </RadzenColumn>
-    </RadzenRow>
+            <h6 class="text-dark fw-bold">In Progress</h6>
+        </div>
+    </div>
 
-    <RadzenRow class="rz-py-2">
-        <RadzenColumn Size="4">
+    <div class="row rz-py-2">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Safety Type</h6>
-            <h6 class="text-dark fw-bold">Unsafe Observation</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">Unsafe Act</h6>
+        </div>
 
-        <RadzenColumn Size="4">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Actual Severity</h6>
-            <h6 class="text-dark fw-bold">Fatal Injury(5 Catastrophic)</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">First Aid Case (1 Minor)</h6>
+        </div>
 
-        <RadzenColumn Size="4">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Potential Severity</h6>
-            <h6 class="text-dark fw-bold">Fatal Injury(5 Catastrophic)</h6>
-        </RadzenColumn>
-    </RadzenRow>
+            <h6 class="text-dark fw-bold">Medical Treatment Only (2 Moderate)</h6>
+        </div>
+    </div>
 
-    <RadzenRow class="rz-py-2">
-        <RadzenColumn Size="4">
+    <div class="row rz-py-2">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Group</h6>
-            <h6 class="text-dark fw-bold">Others</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">Fall of Object</h6>
+        </div>
 
-        <RadzenColumn Size="4">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Walk Type</h6>
-            <h6 class="text-dark fw-bold">QA/QC</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">General Round</h6>
+        </div>
 
-        <RadzenColumn Size="4">
+        <div class="col-12 col-lg-4">
             <h6 class="text-secondary">Department</h6>
-            <h6 class="text-dark fw-bold">QA App</h6>
-        </RadzenColumn>
-    </RadzenRow>
+            <h6 class="text-dark fw-bold">Dry Cargo</h6>
+        </div>
+    </div>
 
-    <RadzenRow>
-        <RadzenColumn Size="4" class="rz-py-2">
+    <div class="row">
+        <div class="col-12 col-lg-4 rz-py-2">
             <h6 class="text-secondary">Description</h6>
-            <h6 class="text-dark fw-bold">Level 5 Incident</h6>
-        </RadzenColumn>
+            <h6 class="text-dark fw-bold">Test Uat</h6>
+        </div>
 
-        <RadzenColumn Size="4" class="rz-py-2">
+        <div class="col-12 col-lg-4 rz-py-2">
             <h6 class="text-secondary">Assigned To</h6>
-            <h6 class="text-dark fw-bold">TestUSer</h6>
-        </RadzenColumn>
-    </RadzenRow>
+            <h6 class="text-dark fw-bold">Devgan Permar</h6>
+        </div>
+    </div>
 </RadzenCard>
 
-<RadzenRow class="rz-mt-10">
-    <RadzenColumn>
-        <RadzenCard Class="shadow rounded">
-            <h5 class="text-dark fw-bold rz-pb-10">Incident Images(2)</h5>
-            <img src="_content/SharedUI/img/assests/img1.svg" />
-            <img src="_content/SharedUI/img/assests/img2.svg" />
+<div class="row rz-mt-10">
+    <div class="col-12 col-lg-6">
+        <RadzenCard Class="w-auto shadow rounded">
+            <h6 class="card-txt rz-pb-10 mb-0">Incident Images(2)</h6>
+            <div class="d-flex justify-content-evenly">
+                <img src="_content/SharedUI/img/assests/img1.svg" />
+                <img src="_content/SharedUI/img/assests/img2.svg" />
+            </div>
         </RadzenCard>
-    </RadzenColumn>
+    </div>
 
-    <RadzenColumn>
+    <div class="col-12 col-lg-6">
         <RadzenCard Class="shadow rounded rz-p-8">
-            <h5 class="text-dark fw-bold rz-mb-12">Description Voice Note</h5>
+            <h6 class="card-txt rz-mb-12">Description Voice Note</h6>
             <br />
             <audio controls autoh6lay muted>
                 <source src="horse.ogg" tyh6e="audio/ogg">
@@ -123,8 +124,8 @@
             </audio>
             <h6 class="text-secondary rz-mt-12">At west basin view point railing damaged need to be reh6aired</h6>
         </RadzenCard>
-    </RadzenColumn>
-</RadzenRow>
+    </div>
+</div>
 
 <RadzenCard Class="shadow round rz-mt-10 p-0">
     <div class="mapouter">

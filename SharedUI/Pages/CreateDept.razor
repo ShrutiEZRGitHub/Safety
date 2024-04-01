@@ -6,18 +6,18 @@
 
 <!--Create User Form-->
 <RadzenCard Class="rz-px-12 rz-py-12">
-    <RadzenRow>
+    <div class="row">
         <!-- Left Column - Image -->
-        <RadzenColumn Size="6">
+        <div class="col-12 col-lg-6">
 
             <RadzenStack AlignItems="AlignItems.Center" />
             <RadzenImage Path="_content/SharedUI/img/assests/create-new-accoun.svg"
                 AlternateText="Create Account Image" />
 
-        </RadzenColumn>
+        </div>
 
         <!-- Right Column - Form -->
-        <RadzenColumn Size="6">
+        <div class="col-12 col-lg-6">
             <RadzenStack>
                 <!-- Full Name -->
                 <RadzenFormField Text="Department Name" class="label-style">
@@ -52,16 +52,16 @@
                 <RadzenLabel Text="Is Active" Component="CheckBox1" />
             </div>
 
-            <RadzenRow>
+            <div class="row">
                 <!-- Clear Button -->
                 <RadzenButton Variant="Variant.Outlined" Text="Clear" class="clear-btn rounded-pill w-25" />
 
                 <!-- Create User Button -->
                 <RadzenButton Variant="Variant.Flat" Text="Create" class="submit-btn rounded-pill w-25" />
-            </RadzenRow>
+            </div>
 
-        </RadzenColumn>
-    </RadzenRow>
+        </div>
+    </div>
 </RadzenCard>
 
 

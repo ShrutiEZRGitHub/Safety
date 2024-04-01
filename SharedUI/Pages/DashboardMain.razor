@@ -5,9 +5,9 @@
 <p class="title">Dashboard-Main</p>
 
 
-<RadzenCard class="bg-white shadow">
-    <RadzenRow>
-        <RadzenColumn Size="10" class="d-flex justify-content-around">
+<RadzenCard class="shadow">
+    <div class="row">
+        <div class="col-12 col-lg-10 flex-wrap d-flex justify-content-around">
         <label class="d-flex justify-content-center" style="color: @labelColor[0];">
             <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(0)" checked> &nbsp; <h6 class="d-flex align-items-center mb-0">Last Day</h6>
         </label>
@@ -18,15 +18,15 @@
             <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(2)"> &nbsp; <h6 class="d-flex align-items-center mb-0">Last Month</h6>
         </label>
 
-        </RadzenColumn>
+        </div>
 
-        <RadzenColumn Size="2" class="rz-px-5 border-start d-flex align-items-center">
+        <div class="col-12 col-lg-2 px-3 border-start d-flex justify-content-center">
             <BSButton class="d-flex justify-content-center" Target="custdt">
                 <i class="fa-solid fa-plus text-secondary"></i>
                 <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
             </BSButton>
-        </RadzenColumn>
-    </RadzenRow>
+        </div>
+    </div>
 </RadzenCard>
 
 <br />
@@ -40,8 +40,8 @@
 
 <br />
 
-<RadzenRow>
-    <RadzenColumn>
+<div class="row">
+    <div class="col-12 col-lg-7">
         <div class="border border-dark p-2 mb-0">
             <i class="fa-regular fa-circle"></i> Safe observation&nbsp;&nbsp;<img src="_content/SharedUI/img/assests/Unsafe_Act.svg">&nbsp;Unsafe Act
             &nbsp;&nbsp;<img src="_content/SharedUI/img/assests/Unsafe_Condition.svg">&nbsp;Unsafe Condition &nbsp;&nbsp;
@@ -56,57 +56,57 @@
         <div class="border border-dark p-2">
             1: Severity 1, 2: Severity 2, 3: Severity 3, 4 : Severity, 5:Severity 5,
         </div>
-    </RadzenColumn>
+    </div>
 
 
 
-    <RadzenColumn class="border border-dark p-2">
-        <RadzenRow>
-            <RadzenColumn>
+    <div class="col-12 col-lg-5 border border-dark p-2">
+        <div class="row">
+            <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center pb-3">
-                    <div class="rz-p-2" style="background-color:#9C27B0;"></div>&nbsp;Non-Lost Time Fire
+                    <div class="p-2" style="background-color:#9C27B0;"></div>&nbsp;Non-Lost Time Fire
                 </div>
 
                 <div class="d-flex align-items-center pb-3">
-                    <div class="rz-p-2 bg-primary"></div>&nbsp;Fall of Person
+                    <div class="p-2 bg-primary"></div>&nbsp;Fall of Person
                 </div>
-            </RadzenColumn>
+            </div>
 
-            <RadzenColumn>
+            <div class="col-12 col-lg-4">
                 <div class="d-flex align-items-center pb-3">
-                    <div class="rz-p-2 bg-warning bg-opacity-0"></div>&nbsp;Sudden
-                </div>
-
-                <div class="d-flex align-items-center pb-3">
-                    <div class="rz-p-2 bg-warning bg-opacity-50"></div>&nbsp;Road Traffic/contractor
-                </div>
-            </RadzenColumn>
-
-            <RadzenColumn>
-                <div class="d-flex align-items-center pb-3">
-                    <div class="rz-p-2 bg-success"></div>&nbsp;Fall of Object
+                    <div class="p-2 bg-warning bg-opacity-0"></div>&nbsp;Sudden
                 </div>
 
                 <div class="d-flex align-items-center pb-3">
-                    <div class="rz-p-2 bg-dark"></div>&nbsp;Potential to Damageasset
+                    <div class="p-2 bg-warning bg-opacity-50"></div>&nbsp;Road Traffic/ contractor
                 </div>
-            </RadzenColumn>
-        </RadzenRow>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="d-flex align-items-center pb-3">
+                    <div class="p-2 bg-success"></div>&nbsp;Fall of Object
+                </div>
+
+                <div class="d-flex align-items-center pb-3">
+                    <div class="p-2 bg-dark"></div>&nbsp;Potential to Damage asset
+                </div>
+            </div>
+        </div>
         <div class="d-flex align-items-center">
-                    <div class="rz-p-2 bg-danger"></div>&nbsp;Man-Made- Material Intervention
-                </div>
-    </RadzenColumn>
-</RadzenRow>
+            <div class="p-2 bg-danger"></div>&nbsp;Man-Made- Material Intervention
+        </div>
+    </div>
+</div>
 
 <br />
 
-<RadzenRow class="h-auto">
+<div class="row h-auto">
     <!-- Types of Incidents -->
-    <RadzenColumn class="shadow rounded rz-p-5">
+    <div class="col-12 col-lg-7 shadow rounded p-4 mx-2">
         <h5 class="text-dark pb-5 mb-0 fw-bold">Types of Incidents</h5>
 
-        <RadzenRow class="d-flex align-items-stretch">
-            <RadzenColumn class="w-50">
+        <div class="row d-flex align-items-stretch">
+            <div class="col-12 col-lg-4">
                 <RadzenChart>
                     <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue" Fills=@(new [] { "#00A2FD", "#005959","#02CCCC","rgba(40, 152, 0, 0.28)","#289800","rgba(0, 162, 253, 0.4)" }) >
                         <RadzenSeriesDataLabels Visible="false" />
@@ -114,120 +114,97 @@
 
                     <RadzenLegend Visible="false" />
                 </RadzenChart>
-            </RadzenColumn>
+            </div>
 
-            <RadzenColumn class="w-25">
-                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd1">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-light mb-0 fw-bold">40%
-                        </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-light mb-0 fw-bold">&nbsp;Safe Observation
+            <div class="col-12 col-lg-4">
+                <div class="p-3 d-flex justify-content-center rounded tccrd1">
+                    <div class=" d-flex align-items-center">
+                        <h4 class="text-light mb-0 fw-bold me-2">
+                            40%
+                        </h4>
+                        <h6 class="text-light mb-0 fw-bold">Safe Observation
                         </h6>
-                    </RadzenColumn>
-                </div>
-
-
-                <br />
-
-                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd2">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-light mb-0 fw-bold">45%
-                        </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-light mb-0 fw-bold">&nbsp;Unsafe Condition
-                        </h6>
-                    </RadzenColumn>
+                    </div>
                 </div>
 
                 <br />
 
-                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd3">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-light mb-0 fw-bold">
+                <div class="p-3 d-flex justify-content-center rounded tccrd2">
+                    <div class=" d-flex align-items-center">
+                        <h4 class="text-light mb-0 fw-bold me-2">
+                            45%
+                        </h4>
+                        <h6 class="text-light mb-0 fw-bold">Unsafe Condition
+                        </h6>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="p-3 d-flex justify-content-center rounded tccrd3">
+                    <div class=" d-flex align-items-center">
+                        <h4 class="text-light mb-0 fw-bold me-2">
                             22%
-                            </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-light mb-0 ps-2 fw-bold">Clarification
+                        </h4>
+                        <h6 class="text-light mb-0 fw-bold">Clarification
                         </h6>
-                    </RadzenColumn>
+                    </div>
                 </div>
 
                 <br/>
 
-                <div class="px-5 py-3 d-flex justify-content-center rounded tccrd4">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-white mb-0 fw-bold d-flex align-items-center">
-                            0&nbsp;
-                        </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-white mb-0 d-flex fw-bold align-items-center">
-                            &nbsp;Unsafe Observation
+                <div class="p-3 d-flex justify-content-center rounded tccrd4">
+                    <div class=" d-flex align-items-center">
+                        <h4 class="text-light mb-0 fw-bold me-2">
+                            0%
+                        </h4>
+                        <h6 class="text-light mb-0 fw-bold">Unsafe Observation
                         </h6>
-                    </RadzenColumn>
+                    </div>
                 </div>
-            </RadzenColumn>
+            </div>
 
-            <RadzenColumn class="w-25">
-                <div class="px-3 py-3 d-flex justify-content-center rounded tccrd5">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-success mb-0 fw-bold">18%
-                        </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-success mb-0 fw-bold">
-                            Unsafe Act
+            <div class="col-12 col-lg-4">
+                <div class="p-3 d-flex justify-content-center rounded tccrd5">
+                    <div class="d-flex align-items-center">
+                        <h4 class="text-light mb-0 fw-bold me-2">
+                            18%
+                        </h4>
+                        <h6 class="text-light mb-0 fw-bold">Unsafe Act
                         </h6>
-                    </RadzenColumn>
+                    </div>
                 </div>
 
                 <br />
 
-                <div class="px-3 py-3 d-flex justify-content-center rounded tccrd6">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="text-light mb-0 fw-bold">
+                <div class="p-3 d-flex justify-content-center rounded tccrd6">
+                    <div class=" d-flex align-items-center">
+                        <h4 class="text-light mb-0 fw-bold me-2">
                             25%
-                        </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="text-light mb-0 fw-bold">
-                           Near Miss
+                        </h4>
+                        <h6 class="text-light mb-0 fw-bold">Near Miss
                         </h6>
-                    </RadzenColumn>
+                    </div>
                 </div>
 
                 <br />
 
-                <div class="px-3 py-3 d-flex justify-content-center rounded tccrd7">
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h3 class="tccrd7 mb-0 fw-bold d-flex align-items-center">
+                <div class="p-3 d-flex justify-content-center rounded tccrd7">
+                    <div class=" d-flex align-items-center">
+                        <h4 class="tccrd7 mb-0 fw-bold me-2">
                             25%
-                        </h3>
-                    </RadzenColumn>
-
-                    <RadzenColumn class="d-flex align-items-center">
-                        <h6 class="tccrd7 mb-0 d-flex fw-bold align-items-center">
-                            Incidents
+                        </h4>
+                        <h6 class="tccrd7 mb-0 fw-bold">Incidents
                         </h6>
-                    </RadzenColumn>
+                    </div>
                 </div>
-            </RadzenColumn>
-        </RadzenRow>
-    </RadzenColumn>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Incidents Count -->
-    <RadzenColumn Class="shadow rounded rz-p-5">
+    <div Class="col-12 col-lg-4 shadow rounded p-4 mx-2">
         <h5 class="text-dark pb-5 mb-0 fw-bold"><strong>Incidents Count</strong></h5>
         <div class="bg-white shadow d-flex align-items-center">
             <h3 class="mb-0">
@@ -263,9 +240,8 @@
             <h6 class="mb-0 fw-bold">&nbsp; &nbsp; Total Incidents</h6>
         </div>
 
-    </RadzenColumn>
-
-</RadzenRow>
+    </div>
+</div>
 
 @* Custom date pop-up *@
 <BSModal DataId="custdt" IsCentered="true">
