@@ -7,8 +7,8 @@
 <p class="title">User Activity Dashboard</p>
 
 <RadzenCard class="bg-white shadow">
-    <RadzenRow>
-        <RadzenColumn Size="10" class="d-flex justify-content-around">
+    <div class="row">
+        <div class="col-12 col-lg-10 flex-wrap d-flex justify-content-around">
         <label class="d-flex justify-content-center" style="color: @labelColor[0];">
             <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(0)" checked> &nbsp; <h6 class="d-flex align-items-center mb-0">Day</h6>
         </label>
@@ -19,15 +19,15 @@
             <input type="radio" name="fontOptions" @onchange="() => ChangeFontToBold(2)"> &nbsp; <h6 class="d-flex align-items-center mb-0">Month</h6>
         </label>
 
-        </RadzenColumn>
+        </div>
 
-        <RadzenColumn Size="2" class="rz-px-5 border-start d-flex align-items-center">
+        <div class="col-12 col-lg-2 px-3 border-start d-flex justify-content-center">
             <BSButton class="d-flex justify-content-center" Target="custdt">
                 <i class="fa-solid fa-plus text-secondary"></i>
                 <h6 class="text-secondary d-flex align-items-center mb-0"> &nbsp; Custom Date</h6>
             </BSButton>
-        </RadzenColumn>
-    </RadzenRow>
+        </div>
+    </div>
 </RadzenCard>
 
 <br />
@@ -41,37 +41,39 @@
             LineType="LineType.Solid" ValueProperty="Users">
         </RadzenAreaSeries>
         
-        <RadzenRow class="userrecord">
-            <RadzenColumn Size="3"></RadzenColumn>
-            <RadzenColumn Size="4">
-                 <div class="d-flex align-items-center pb-2">
+        <div class="row userrecord">
+            <div class="col-3"></div>
+
+            <div class="col-12 col-lg-2">
+                <div class="d-flex align-items-end py-2">
                     <div class="rz-p-2 rounded-circle" style="background-color:#BA68C8;"></div>&nbsp;New Users
                 </div>
 
-                <div class="d-flex align-items-center pb-2">
+                <div class="d-flex align-items-end pb-2">
                     <div class="rz-p-2 rounded-circle" style="background-color:#3700b3;"></div>&nbsp;Active Users
                 </div>
-            </RadzenColumn>
-            <RadzenColumn>
-                <RadzenColumn>
-                    <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-user-group fa-xl"></i>
-                        <h2 class="fw-bold">&nbsp;250</h2>
+            </div>
+
+            <div class="col-12 col-lg-3 d-flex justify-content-center">
+                <div class="col-8 col-lg-8">
+                    <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-user-group fa-xl d-flex align-items-center"></i>
+                        <h2 class="fw-bold d-flex justify-content-center mb-0">&nbsp;250</h2>
                     </div>
-                    <h6 class="d-flex justify-content-start">Total Active Users</h6>
-                </RadzenColumn>
-            </RadzenColumn>
-            <RadzenColumn>
-                <RadzenColumn>
-                    <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-user-group fa-xl"></i>
-                        <h2 class="fw-bold">&nbsp;100</h2>
+                    <h6 class="d-flex justify-content-center">Total Active Users</h6>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3 d-flex justify-content-center">
+                <div class="col-8 col-lg-8">
+                    <div class="d-flex justify-content-center">
+                        <i class="fa-solid fa-user-group fa-xl d-flex align-items-center"></i>
+                        <h2 class="fw-bold d-flex justify-content-center mb-0">&nbsp;100</h2>
                     </div>
-                    <h6 class="d-flex justify-content-start">Total New Users</h6>
-                </RadzenColumn>
-            </RadzenColumn>
-            <RadzenColumn Size="2"></RadzenColumn>
-        </RadzenRow>
+                    <h6 class="d-flex justify-content-center">Total New Users</h6>
+                </div>
+            </div>
+        </div>
 
         <br>
         <RadzenCategoryAxis Padding="20" Formatter="@FormatAsWeek" />
@@ -85,20 +87,20 @@
 
 <br />
 
-<RadzenRow>
-    <RadzenColumn class="shadow rounded">
+<div class="row">
+    <div class="col-12 col-lg-5 shadow rounded mx-2 px-0 py-0">
         <div class="mapouter">
             <div class="gmap_canvas">
                 <iframe src="https://www.google.com/maps/d/embed?mid=1iiXuL2qGwI_fLyck0BNHRhSbqM2A19E&ehbc=2E312F"
                 width="100%" height="550" frameborder="0" class="map_canvas"></iframe>
             </div>
         </div>
-    </RadzenColumn>
+    </div>
 
     <!--Donut Chart-->
-    <RadzenColumn Class="bg-white rounded shadow rz-p-10 d-flex justify-content-center">
-        <RadzenRow>
-            <RadzenColumn Size="8">
+    <div class="col-12 col-lg-5 ms-5 mx-3 rounded shadow rz-p-10">
+        <div class="row">
+            <div class="col-12 col-lg-8 p-0">
                 <RadzenChart>
 
                     @* Outer Donut Chart *@
@@ -139,9 +141,9 @@
                     
                     <RadzenLegend Visible="false" />
                 </RadzenChart>
-            </RadzenColumn>
+            </div>
 
-            <RadzenColumn Size="4">
+            <div class="col-12 col-lg-4">
                 <div class="shadow p-3 rounded piechart-card1">
                     <h4 class="d-flex justify-content-center fw-bold">500</h4>
                     <h6 class="d-flex justify-content-center fw-bold">Registered Users</h6>
@@ -160,10 +162,10 @@
                     <h4 class="d-flex justify-content-center fw-bold">75</h4>
                     <h6 class="d-flex justify-content-center fw-bold">New Users</h6>
                 </div>
-            </RadzenColumn>
-        </RadzenRow>
-    </RadzenColumn>
-</RadzenRow>
+            </div>
+        </div>
+    </div>
+</div>
 
 @* Custom date pop-up *@
 <BSModal DataId="custdt" IsCentered="true">

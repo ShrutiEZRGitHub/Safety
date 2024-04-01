@@ -1,22 +1,21 @@
 ﻿@inherits EZRAppLayoutComponentBase
 @inject IJSRuntime JS
 
-<header class="sidebar-off sticky-top flex-md-nowrap p-0 shadow">
-    <ul class="navbar-nav flex-row d-md-none">
-        <li class="d-flex align-items-center ps-4">
-            <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
-        </li>
-        <li class="nav-item d-flex justify-content-end">
-            <button class="nav-link mt-3 px-3" type="button" @onclick="OpenCanvas">
-                <i class="fa-solid fa-bars"></i>
+<main class="main-screen">
+
+    <nav class="navbar navbar-dark bg-dark sidebar-off">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-25" alt="Adani Logo" />
+            </a>
+            <button class="navbar-toggler" type="button"  @onclick="OpenCanvas">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </li>
-    </ul>
-</header>
+        </div>
+    </nav>
 
 
-<div class="d-flex">
-    <BSOffCanvas @ref="_offCanvas" class="sidebar" Placement="Placement.Left">
+    <BSOffCanvas @ref="_offCanvas" class="sidebar-menu" Placement="Placement.Left">
         <Header>
             <div class="text-center">
                 <img src=" _content/SharedUI/img/assests/adani-white-logo.svg" class="w-50" alt="Adani Logo" />
@@ -27,10 +26,14 @@
             <SidebarMenu />
         </Content>
     </BSOffCanvas>
-    <main>
+
+
+    <div class="body-cont">
         @Body
-    </main>
-</div>
+    </div>
+
+</main>
+
 
 
 @code {

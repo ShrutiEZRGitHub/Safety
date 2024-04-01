@@ -78,8 +78,10 @@
    <div>
       <div class="rz-px-3">
          <BSCard CardType="CardType.Text" class="nav-card rz-p-5 mb-0">
-            <img src="_content/SharedUI/img/assests/user-avatar.svg" style="width:40px" />
-            <div class="nav-card-text rz-my-3">User : 4_Level<br>
+            <div class="d-flex justify-content-center">
+               <img src="_content/SharedUI/img/assests/user-avatar.svg" class="w-25" />
+            </div>
+            <div class="text-white rz-my-2">User : 4_Level<br>
                Mobile No : 907481524<br>
                Email : 4_level@eslabs.in<br>
                Level : 4
@@ -129,14 +131,22 @@
    <div class="signoutbutton-layout">
       <BSButton Color="BSColor.Primary" IsOutlined="true"
          class="w-100 btn btn-light d-flex align-items-center justify-content-center rounded-pill"> <img
-         src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
+            src="_content/SharedUI/img/charm_sign-out.svg" alt="" class="me-2">Sign Out</BSButton>
    </div>
 </div>
 @code {
+<<<<<<< HEAD
 private BSOffCanvas? _offCanvasRef;
 private async Task Show()
 {
 if (_offCanvasRef != null) await _offCanvasRef.ToggleAsync();
 }
 >>>>>>> 347db169b95680d0b58dd2026cf795e519c6b8e4
+=======
+   private BSOffCanvas? _offCanvasRef;
+   private async Task Show()
+   {
+      if (_offCanvasRef != null) await _offCanvasRef.ToggleAsync();
+   }
+>>>>>>> 543c9e7b44993624940ee16fbeaa58e1066322c1
 }
